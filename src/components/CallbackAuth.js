@@ -1,28 +1,37 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { loginUser } from "../actions/loginUser";
 
-export default class CallbackAuth extends Component {
+class CallbackAuth extends Component {
   constructor() {
     super();
     this.state = {
-      loggingIn: false,
+      redirect: null,
     };
   }
   componentDidMount() {
-    axios({
-      method: "post",
-      url: "http://localhost:4000/auth/github_oauth2/callback",
-      data: {
-        code: window.location.href.split("code=")[1],
-      },
-    }).then((response) => console.log(response.data.user));
+    this.props.loginUser();
+    this.setState({
+      redirect: true,
+    });
   }
+
   render() {
-    return (
-      <div>
-        Redirecting
-        {this.state.tempCode}
-      </div>
-    );
+    if (this.state.redirect) {
+      return <Redirect to={"/dashboard"} />;
+    }
+    return <div>{this.state.loggedInStatus}</div>;
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+
+export default connect(mapStateToProps, {
+  loginUser,
+})(CallbackAuth);
