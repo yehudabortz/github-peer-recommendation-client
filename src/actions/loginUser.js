@@ -1,7 +1,6 @@
 import axios from "axios";
 export const loginUser = () => {
   return (dispatch) => {
-    dispatch({ type: "START_LOGIN_USER" });
     axios({
       method: "post",
       url: "http://localhost:4000/auth/github_oauth2/callback",
