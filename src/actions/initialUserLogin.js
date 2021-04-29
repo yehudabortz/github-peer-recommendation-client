@@ -3,7 +3,7 @@ export function initialUserLogin() {
   return (dispatch) => {
     return axios({
       method: "post",
-      url: "http://localhost:4000/auth/github_oauth2/callback",
+      url: `${window.endpoint}/auth/github_oauth2/callback`,
       data: {
         code: window.location.href.split("code=")[1],
       },
