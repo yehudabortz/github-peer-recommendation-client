@@ -24,8 +24,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Route path="/dashboard" component={DashboardContainer} />
         <Route path="/" component={Navbar} />
+        <Route path="/dashboard" component={DashboardContainer} />
         <Route exact path="/login" component={LoginConatainer} />
         <Route path="/auth/github/callback" component={CallbackAuth} />
       </div>
