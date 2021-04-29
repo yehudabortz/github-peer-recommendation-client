@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { loginUser } from "../actions/loginUser";
+import { initialUserLogin } from "../actions/initialUserLogin";
 
 class CallbackAuth extends Component {
   constructor() {
@@ -11,9 +11,10 @@ class CallbackAuth extends Component {
     };
   }
   componentDidMount() {
-    this.props.loginUser();
-    this.setState({
-      redirect: true,
+    this.props.initialUserLogin().then(() => {
+      this.setState({
+        redirect: true,
+      });
     });
   }
 
@@ -32,5 +33,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  loginUser,
+  initialUserLogin,
 })(CallbackAuth);

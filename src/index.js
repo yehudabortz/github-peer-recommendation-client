@@ -23,9 +23,9 @@ let store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <Router>
+      <Route path="/auth/github/callback" component={CallbackAuth} />
       <Route exact path="/login" component={LoginConatainer} />
       <Route path="/dashboard" component={DashboardContainer} />
-      <Route path="/auth/github/callback" component={CallbackAuth} />
     </Router>
   </Provider>,
   document.getElementById("root")
