@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-export default class UserSideBar extends Component {
+export default class SideBar extends Component {
   render() {
     return (
       <div>
-        <h1>Hello {this.props.username}</h1>
+        <h1>Hello Sidebar</h1>
       </div>
     );
   }

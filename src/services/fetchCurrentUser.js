@@ -1,13 +1,12 @@
 import axios from "axios";
 import jwt_decode from "jwt-decode";
-const token = localStorage.getItem("jwt");
-const decoded = jwt_decode(token);
 
-function fetchCurrentUser(
-  url = `${window.endpoint}/users/${decoded["user_id"]}/account`,
-  jwt_token = token
-) {
-  const AuthStr = "Bearer ".concat(jwt_token);
+function fetchCurrentUser() {
+  const token = localStorage.getItem("jwt");
+  const decoded = jwt_decode(token);
+  const url = `${window.endpoint}/users/${decoded["user_id"]}/account`;
+
+  let AuthStr = "Bearer ".concat(token);
   return axios.get(url, { headers: { Authorization: AuthStr } });
 }
 

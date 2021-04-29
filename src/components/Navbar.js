@@ -1,11 +1,19 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { logoutUser } from "../actions/logoutUser";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
+  handleLogout = () => {
+    console.log("logout");
+    this.props.logoutUser();
+  };
   render() {
     return (
       <div>
-        <button>Logout</button>
+        <button onClick={this.handleLogout}>Logout</button>
       </div>
     );
   }
 }
+
+export default connect(null, { logoutUser })(Navbar);

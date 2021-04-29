@@ -22,7 +22,7 @@ class CallbackAuth extends Component {
     if (this.state.redirect) {
       return <Redirect to={"/dashboard"} />;
     }
-    return <div>{this.state.loggedInStatus}</div>;
+    return <div></div>;
   }
 }
 

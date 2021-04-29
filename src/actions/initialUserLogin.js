@@ -8,9 +8,10 @@ export function initialUserLogin() {
         code: window.location.href.split("code=")[1],
       },
     }).then((response) => {
+      dispatch({ type: "IS_LOGGED_IN", payload: "Logged In " });
       dispatch({
         type: "SET_USER",
-        user: Object.assign({}, response.data),
+        payload: Object.assign({}, response.data),
       });
       localStorage.setItem("jwt", response.data.jwt_token);
     });
