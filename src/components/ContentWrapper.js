@@ -6,7 +6,7 @@ import "../css/ContentWrapper.css";
 export default function ContentWrapper() {
   return (
     <div className={"content-wrapper"}>
-      <h3>this is the wrapper</h3>
+      <SideBar />
       <MainPageContent />
       <SideBar />
     </div>
