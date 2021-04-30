@@ -18,9 +18,15 @@ class Navbar extends Component {
             theme={"dark"}
           />
         </>
+        {this.props.auth.isLoggedIn ? <p>Logged in</p> : <p>Not Logged in</p>}
       </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
 
-export default connect(null, { logoutUser })(Navbar);
+export default connect(mapStateToProps, { logoutUser })(Navbar);

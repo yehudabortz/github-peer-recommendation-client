@@ -8,7 +8,7 @@ export function initialUserLogin() {
         code: window.location.href.split("code=")[1],
       },
     }).then((response) => {
-      dispatch({ type: "IS_LOGGED_IN", payload: "Logged In " });
+      dispatch({ type: "IS_LOGGED_IN", payload: true });
       dispatch({
         type: "SET_USER",
         payload: Object.assign({}, response.data),

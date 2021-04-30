@@ -3,10 +3,12 @@
 :root {
   --main-bg-color: #0d0e14;
   --main-bg-color-accent: #171921;
+  --main-bg-color-accent-lighter: #2a2e3b;
   --primary-accent-color: #fc4e4c;
   --primary-text-color: #ffebd4;
 
   --primary-text-size: 0.8rem;
+  --primary-border-radius: 0.3rem;
 }
 * {
   margin: auto;
@@ -24,4 +26,9 @@ button {
   margin: 0;
   padding: 0;
   cursor: pointer;
+}
+
+input {
+  background-color: var(--main-bg-color-accent);
+  border: solid 0.5px var(--main-bg-color-accent-lighter);
 }

@@ -1,0 +1,9 @@
+.avatar {
+  width: auto;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.avatar .sml {
+  height: 45px;
+}

@@ -3,7 +3,7 @@
   padding: 0.5rem 1rem 0.5rem 1rem;
   font-size: var(--primary-text-color);
   font-weight: bold;
-  border-radius: 0.3rem;
+  border-radius: var(--primary-border-radius);
 }
 
 .dark {
