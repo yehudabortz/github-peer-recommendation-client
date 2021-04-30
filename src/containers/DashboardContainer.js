@@ -8,6 +8,7 @@ class DashboardContainer extends Component {
     return (
       <div>
         <ContentWrapper />
+        {this.props.user.github_username}
       </div>
     );
   }

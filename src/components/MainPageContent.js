@@ -6,7 +6,7 @@ const MainPageContent = () => {
   return (
     <div className={"main-page-content"}>
       <h3>This is the main content</h3>
-      <MainButton />
+      <MainButton text={"Add"} theme={""} />
     </div>
   );
 };

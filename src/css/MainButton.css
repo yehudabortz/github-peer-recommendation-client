@@ -5,3 +5,7 @@
   font-weight: bold;
   border-radius: 0.3rem;
 }
+
+.dark {
+  background-color: var(--main-bg-color-accent);
+}

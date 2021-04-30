@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/logoutUser";
+import MainButton from "./MainButton";
 
 class Navbar extends Component {
   handleLogout = () => {
@@ -10,7 +11,13 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.handleLogout}>Logout</button>
+        <>
+          <MainButton
+            handleClick={this.handleLogout}
+            text={"Logout"}
+            theme={"dark"}
+          />
+        </>
       </div>
     );
   }

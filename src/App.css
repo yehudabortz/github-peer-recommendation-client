@@ -4,13 +4,13 @@
   --main-bg-color: #0d0e14;
   --main-bg-color-accent: #171921;
   --primary-accent-color: #fc4e4c;
-  --main-text-color: #ffebd4;
+  --primary-text-color: #ffebd4;
 
   --primary-text-size: 0.8rem;
 }
 * {
   margin: auto;
-  color: var(--main-text-color);
+  color: var(--primary-text-color);
 }
 body {
   font-family: "Inter", sans-serif;
@@ -23,4 +23,5 @@ button {
   border: none;
   margin: 0;
   padding: 0;
+  cursor: pointer;
 }
