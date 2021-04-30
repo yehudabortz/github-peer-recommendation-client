@@ -7,7 +7,11 @@ class UserSearchResult extends Component {
   render() {
     return (
       <div className={"search-result-wrapper"}>
-        <Avatar imgUrl={this.props.userSearchResult.avatar_url} />
+        <h2>{this.props.userSearchResult.login}</h2>
+        <Avatar
+          imgUrl={this.props.userSearchResult.avatar_url}
+          className={"avatar"}
+        />
       </div>
     );
   }

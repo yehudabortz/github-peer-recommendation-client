@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { logoutUser } from "../actions/logoutUser";
 import MainButton from "./MainButton";
+import Avatar from "./Avatar";
+
+import "../css/Navbar.css";
 
 class Navbar extends Component {
   handleLogout = () => {
@@ -10,13 +13,14 @@ class Navbar extends Component {
   };
   render() {
     return (
-      <div>
+      <div className={"navbar"}>
         <>
           <MainButton
             handleClick={this.handleLogout}
             text={"Logout"}
             theme={"dark"}
           />
+          <Avatar imgUrl={this.props.user.avatar} className={"avatar sml"} />
         </>
         {this.props.auth.isLoggedIn ? <p>Logged in</p> : <p>Not Logged in</p>}
       </div>
@@ -26,6 +30,7 @@ class Navbar extends Component {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    user: state.user,
   };
 };
 

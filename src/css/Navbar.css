@@ -1,0 +1,4 @@
+.navbar {
+  width: var(--max-container-width);
+  display: flex;
+}
