@@ -20,7 +20,10 @@ class Navbar extends Component {
             text={"Logout"}
             theme={"dark"}
           />
-          <Avatar imgUrl={this.props.user.avatar} className={"avatar sml"} />
+          <Avatar
+            // imgUrl={this.props.currentUser.user.avatar}
+            className={"avatar sml"}
+          />
         </>
         {/* {this.props.auth.isLoggedIn ? <p>Logged in</p> : <p>Not Logged in</p>} */}
       </div>
@@ -30,7 +33,7 @@ class Navbar extends Component {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
-    user: state.user,
+    currentUser: state.currentUser,
   };
 };
 

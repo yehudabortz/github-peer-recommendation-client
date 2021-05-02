@@ -5,15 +5,15 @@ class NomiantedUserCard extends Component {
   render() {
     return (
       <div>
-        <h2>Nominated User Here</h2>
+        <h2>{this.props.user.github_username}</h2>
       </div>
     );
   }
 }
 const mapStateToProps = (state) => {
   return {
-    nominatedUsers: state.nomiantedUsers,
+    currentUser: state.currentUser,
   };
 };
 
-export default connect()(NomiantedUserCard);
+export default connect(mapStateToProps)(NomiantedUserCard);

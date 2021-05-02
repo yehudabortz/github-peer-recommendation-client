@@ -19,7 +19,9 @@ class UserSelectionConfirmation extends Component {
       >
         <h5>Confirm Selection</h5>
         <h3>{this.props.userSearchResult.login}</h3>
+
         <button className="main-button">Confirm</button>
+        <form></form>
       </div>
     );
   }

@@ -7,7 +7,7 @@ class SideBar extends Component {
     return (
       <div className={"sidebar"}>
         <h1 className={"main-title"}>
-          Welcome @{this.props.user.github_username}
+          Welcome @{this.props.currentUser.user.github_username}
         </h1>
       </div>
     );
@@ -16,7 +16,7 @@ class SideBar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user,
+    currentUser: state.currentUser,
   };
 };
 

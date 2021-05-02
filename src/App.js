@@ -18,7 +18,7 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     if (localStorage.getItem("jwt")) {
       fetchCurrentUser().then((response) =>
         this.props.loginUser(response.data)

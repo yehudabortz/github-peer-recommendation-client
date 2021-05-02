@@ -2,7 +2,6 @@ import React from "react";
 import "../css/MainButton.css";
 
 const MainButton = (props) => {
-  // debugger;
   return (
     <button
       onClick={props.handleClick}
