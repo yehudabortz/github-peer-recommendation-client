@@ -5,8 +5,8 @@
   border-radius: var(--primary-border-radius);
 }
 .show {
-  visibility: visible;
+  display: inherit;
 }
 .hidden {
-  visibility: hidden;
+  display: none;
 }
