@@ -1,4 +1,9 @@
 .navbar {
-  width: var(--max-container-width);
+  width: var(--container-width);
+  max-width: var(--max-container-width);
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 4rem;
+  align-items: center;
 }

@@ -1,0 +1,12 @@
+.user-selection-confirmation {
+  width: 100%;
+  padding: var(--primary-padding);
+  background-color: var(--main-bg-color-accent);
+  border-radius: var(--primary-border-radius);
+}
+.show {
+  visibility: visible;
+}
+.hidden {
+  visibility: hidden;
+}

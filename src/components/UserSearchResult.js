@@ -1,17 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../css/UserSearchResult.css";
+import UserSelectionConfirmation from "./UserSelectionConfirmation";
 import Avatar from "./Avatar";
 
 class UserSearchResult extends Component {
+  constructor() {
+    super();
+    this.state = {
+      confirmation: "hidden",
+    };
+  }
+  handleClick = () => {
+    this.setState({
+      confirmation: "show",
+    });
+  };
   render() {
     return (
-      <div className={"search-result-wrapper"}>
+      <div className={"search-result-wrapper"} onClick={this.handleClick}>
         <h2>{this.props.userSearchResult.login}</h2>
         <Avatar
           imgUrl={this.props.userSearchResult.avatar_url}
           className={"avatar"}
         />
+        <UserSelectionConfirmation display={this.state.confirmation} />
       </div>
     );
   }

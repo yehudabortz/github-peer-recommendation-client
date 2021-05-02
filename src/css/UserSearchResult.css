@@ -1,3 +1,7 @@
 .search-result-wrapper {
   vertical-align: top;
+  align-items: left;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
 }

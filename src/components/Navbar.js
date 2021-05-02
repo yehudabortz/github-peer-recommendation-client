@@ -22,7 +22,7 @@ class Navbar extends Component {
           />
           <Avatar imgUrl={this.props.user.avatar} className={"avatar sml"} />
         </>
-        {this.props.auth.isLoggedIn ? <p>Logged in</p> : <p>Not Logged in</p>}
+        {/* {this.props.auth.isLoggedIn ? <p>Logged in</p> : <p>Not Logged in</p>} */}
       </div>
     );
   }

@@ -6,10 +6,9 @@ import ContentWrapper from "../components/ContentWrapper";
 class DashboardContainer extends Component {
   render() {
     return (
-      <div>
+      <>
         <ContentWrapper />
-        {this.props.user.github_username}
-      </div>
+      </>
     );
   }
 }

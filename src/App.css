@@ -8,13 +8,16 @@
   --primary-text-color: #ffebd4;
 
   --primary-text-size: 0.8rem;
-  --primary-border-radius: 0.3rem;
+  --primary-border-radius: 0.5em;
 
   --max-container-width: 1400px;
+  --container-width: 90vw;
+  --primary-padding: 2rem;
 }
 * {
   margin: auto;
   color: var(--primary-text-color);
+  box-sizing: border-box;
 }
 body {
   font-family: "Inter", sans-serif;

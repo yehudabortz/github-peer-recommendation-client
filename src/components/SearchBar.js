@@ -27,14 +27,13 @@ class SearchBar extends Component {
   render() {
     return (
       <>
-        <form className="search-bar">
-          <input
-            type="text"
-            value={this.state.input}
-            onChange={(e) => this.handleOnChange(e)}
-          />
-          <input type="submit" />
-        </form>
+        <input
+          className="search-bar"
+          type="text"
+          value={this.state.input}
+          onChange={(e) => this.handleOnChange(e)}
+          placeholder={"Search for a GitHub User"}
+        />
         <UserSearchResult />
       </>
     );

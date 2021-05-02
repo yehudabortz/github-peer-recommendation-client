@@ -1,10 +1,16 @@
 .content-wrapper {
-  width: 90vw;
-  max-width: var(--max-container-width);
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  justify-content: flex-start;
+  width: var(--container-width);
+  max-width: var(--max-container-width);
+
+  gap: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: flex-start;
+  grid-auto-columns: 1fr;
+
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: auto auto;
-  grid-template-rows: 100%;
-  justify-content: space-between;
-  align-content: flex-start;
+  padding-top: var(--primary-padding);
 }

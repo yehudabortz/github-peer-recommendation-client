@@ -8,7 +8,6 @@ export default function ContentWrapper() {
     <div className={"content-wrapper"}>
       <SideBar />
       <MainPageContent />
-      <SideBar />
     </div>
   );
 }
