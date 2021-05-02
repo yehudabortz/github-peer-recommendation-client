@@ -6,7 +6,7 @@ export default class Avatar extends Component {
     return (
       <img
         src={this.props.imgUrl}
-        alt="image"
+        alt={this.props.imgUrl}
         className={this.props.className}
       />
     );

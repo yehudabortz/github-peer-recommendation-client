@@ -11,6 +11,7 @@ function createNomination(user) {
       nomination: {
         github_username: user.login,
         avatar: user.avatar_url,
+        email: user.email,
       },
     },
     { headers: { Authorization: AuthStr } }

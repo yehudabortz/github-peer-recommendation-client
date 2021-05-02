@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import "../css/NomiantedUserCard.css";
+import Avatar from "./Avatar";
 
 class NomiantedUserCard extends Component {
   render() {
     return (
-      <div>
-        <h2>{this.props.user.github_username}</h2>
+      <div className={"nominated-user-card"}>
+        <Avatar imgUrl={this.props.user.avatar} className={"avatar sml"} />
+        <h2 className={"user-title"}>{this.props.user.github_username}</h2>
       </div>
     );
   }

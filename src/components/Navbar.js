@@ -21,7 +21,7 @@ class Navbar extends Component {
             theme={"dark"}
           />
           <Avatar
-            // imgUrl={this.props.currentUser.user.avatar}
+            imgUrl={this.props.currentUser.user.avatar}
             className={"avatar sml"}
           />
         </>

@@ -5,7 +5,6 @@ export default (
   },
   action
 ) => {
-  // debugger;
   switch (action.type) {
     case "SET_USER":
       return Object.assign({}, state, action.payload);
@@ -15,9 +14,8 @@ export default (
     case "ADD_NOMINATED_USER":
       return {
         ...state,
-        outbound_nominations: [...state.outbound_nominations, action.payload],
+        nominated_users: [...state.nominated_users, action.payload],
       };
-    // return {...state, [...state.outbound_nominations, action.payload] };
     default:
       return state;
   }

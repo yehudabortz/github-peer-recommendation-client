@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Redirect, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import LoginConatainer from "./containers/LoginConatainer";
 import DashboardContainer from "./containers/DashboardContainer";
@@ -18,7 +18,7 @@ class App extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     if (localStorage.getItem("jwt")) {
       fetchCurrentUser().then((response) =>
         this.props.loginUser(response.data)
@@ -30,7 +30,6 @@ class App extends Component {
 
   render() {
     let auth = this.props.auth.isLoggedIn;
-    // let auth = true;
     let routes = (
       <Switch>
         <Route path="/login">
@@ -41,7 +40,6 @@ class App extends Component {
         </Route>
         <Route exact path="/dashboard">
           {auth ? <DashboardContainer /> : <LoginConatainer />}
-          {/* {auth ? <DashboardContainer /> : <Redirect to="/login" />} */}
         </Route>
         <Route>
           <NotFound />

@@ -1,1 +1,16 @@
+.nominated-user-card {
+  background-color: var(--main-bg-color-accent);
+  padding: var(--primary-padding);
+  border-radius: var(--primary-border-radius);
+  display: flex;
 
+  justify-content: left;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.user-title {
+  margin: 0;
+  font-size: var(--primary-text-size);
+  font-weight: 300;
+}

@@ -3,3 +3,9 @@ export function addUserFromSearch(user) {
     dispatch({ type: "ADD_USER_FROM_SEARCH", payload: user });
   };
 }
+
+export function updateUserFromSearch(user) {
+  return (dispatch) => {
+    dispatch({ type: "UPDATE_USER_FROM_SEARCH", payload: user });
+  };
+}

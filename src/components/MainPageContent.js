@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import uuid from "react-uuid";
 import "../css/MainPageContent.css";
 import SearchBar from "./SearchBar";
 import NomiantedUserCard from "./NomiantedUserCard";
@@ -8,13 +9,13 @@ const MainPageContent = (props) => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
     setUsers(props.currentUser.nominated_users);
-  }, [props.currentUser]);
+  }, [props.currentUser.nominated_users]);
 
   return (
     <div className={"main-page-content"}>
       <SearchBar />
       {users.map((user) => (
-        <NomiantedUserCard user={user} />
+        <NomiantedUserCard user={user} key={uuid()} />
       ))}
     </div>
   );
