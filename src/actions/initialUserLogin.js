@@ -13,7 +13,7 @@ export function initialUserLogin() {
         type: "SET_USER",
         payload: Object.assign({}, response.data),
       });
-      localStorage.setItem("jwt", response.data.jwt_token);
+      localStorage.setItem("jwt", response.data.user.jwt_token);
     });
   };
 }
