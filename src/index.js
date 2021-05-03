@@ -9,12 +9,12 @@ import rootReducer from "./reducers/index";
 import App from "./App.js";
 
 // GLOBAL API ENDPOINT VAR
-// window.endpoint = "https://github-peer-recommendation-api.herokuapp.com";
-window.endpoint = "http://localhost:4000";
+window.endpoint = "https://github-peer-recommendation-api.herokuapp.com";
+// window.endpoint = "http://localhost:4000";
 // for Prod
-// window.githubClientId = "923c4ab837789f4f569a";
+window.githubClientId = "923c4ab837789f4f569a";
 // for Dev
-window.githubClientId = "6cb06fb005783307fdf7";
+// window.githubClientId = "6cb06fb005783307fdf7";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 let store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));

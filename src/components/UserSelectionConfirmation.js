@@ -15,6 +15,7 @@ class UserSelectionConfirmation extends Component {
         email: "",
       },
     };
+    this.userConfirmation = React.createRef();
   }
   handleChange = (e) => {
     this.setState({
@@ -30,10 +31,15 @@ class UserSelectionConfirmation extends Component {
     createNomination(this.props.userSearchResult)
       .then((res) => this.props.addNominatedUser(res.data.user))
       .catch((err) => console.log(err));
+    this.userConfirmation.current.classList.remove("show");
+    this.userConfirmation.current.classList.add("hidden");
   };
   render() {
     return (
-      <div className={"user-selection-confirmation " + this.props.display}>
+      <div
+        className={"user-selection-confirmation " + this.props.display}
+        ref={this.userConfirmation}
+      >
         <form onSubmit={(event) => this.handleOnSubmit(event)} className="form">
           <p>Confirm Selection</p>
           <div className="result-wrap">
