@@ -16,6 +16,13 @@ export default (
         ...state,
         nominated_users: [...state.nominated_users, action.payload],
       };
+    case "REMOVE_NOMINATED_USER":
+      return {
+        ...state,
+        nominated_users: [
+          ...state.nominated_users.filter((nom) => nom !== action.payload),
+        ],
+      };
     default:
       return state;
   }

@@ -10,6 +10,7 @@ function createNomination(user) {
     {
       nomination: {
         github_username: user.login,
+        github_id: user.id,
         avatar: user.avatar_url,
         email: user.email,
       },

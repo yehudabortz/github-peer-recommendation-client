@@ -3,7 +3,7 @@
   padding: var(--primary-padding);
   border-radius: var(--primary-border-radius);
   display: grid;
-  grid-template-columns: 1fr 15fr;
+  grid-template-columns: 1fr 15fr 1fr;
   gap: var(--primary-grid-gap);
 
   justify-content: left;
