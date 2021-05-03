@@ -16,9 +16,13 @@ class UserSearchResult extends Component {
       confirmation: "show",
     });
   };
+
   render() {
     return (
-      <div className={"search-result-wrapper"} onClick={this.handleClick}>
+      <div
+        className={"search-result-wrapper " + this.props.display}
+        onClick={this.handleClick}
+      >
         <h2>{this.props.userSearchResult.login}</h2>
         <Avatar
           imgUrl={this.props.userSearchResult.avatar_url}

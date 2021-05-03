@@ -3,6 +3,7 @@ import uuid from "react-uuid";
 import "../css/MainPageContent.css";
 import SearchBar from "./SearchBar";
 import NomiantedUserCard from "./NomiantedUserCard";
+import Divider from "./Divider";
 import { connect } from "react-redux";
 
 const MainPageContent = (props) => {
@@ -14,8 +15,9 @@ const MainPageContent = (props) => {
   return (
     <div className={"main-page-content"}>
       <SearchBar />
+      <Divider />
       {users.map((user) => (
-        <NomiantedUserCard user={user} key={uuid()} />
+        <NomiantedUserCard user={user || undefined} key={uuid()} />
       ))}
     </div>
   );

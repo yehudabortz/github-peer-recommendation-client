@@ -10,12 +10,14 @@ class SearchBar extends Component {
     super();
     this.state = {
       input: "",
+      displayResult: "hidden",
     };
   }
 
   handleOnChange = (e) => {
     this.setState({
       input: e.target.value,
+      displayResult: "show",
     });
   };
   componentDidUpdate() {
@@ -34,7 +36,7 @@ class SearchBar extends Component {
           onChange={(e) => this.handleOnChange(e)}
           placeholder={"Search for a GitHub User"}
         />
-        <UserSearchResult />
+        <UserSearchResult display={this.state.displayResult} />
       </>
     );
   }

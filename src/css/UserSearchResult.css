@@ -5,3 +5,11 @@
   text-align: left;
   cursor: pointer;
 }
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: inherit;
+}

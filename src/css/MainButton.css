@@ -5,8 +5,10 @@
   font-weight: bold;
   border-radius: var(--primary-border-radius);
   cursor: pointer;
+  text-decoration: none;
+  margin: 0;
 }
 
 .dark {
-  background-color: var(--main-bg-color-accent);
+  background-color: var(--main-bg-color-accent-lighter);
 }

@@ -1,6 +1,17 @@
-.login-card {
+.login-screen-wrap {
+  height: 100vh;
+  align-items: center;
+  display: flex;
+}
+.login-screen-card {
+  width: var(--container-width);
+  max-width: 400px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 1rem;
+  justify-content: center;
   padding: var(--primary-padding);
-  margin: auto;
   background-color: var(--main-bg-color-accent);
   border-radius: var(--primary-border-radius);
+  place-items: center;
 }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { logoutUser } from "../actions/logoutUser";
 import MainButton from "./MainButton";
 import Avatar from "./Avatar";
@@ -15,17 +16,22 @@ class Navbar extends Component {
     return (
       <div className={"navbar"}>
         <>
-          <MainButton
-            handleClick={this.handleLogout}
-            text={"Logout"}
-            theme={"dark"}
-          />
+          {this.props.auth.isLoggedIn === true ? (
+            <MainButton
+              handleClick={this.handleLogout}
+              text={"Logout"}
+              theme={"dark"}
+            />
+          ) : (
+            <Link to="login" className="main-button dark">
+              Login
+            </Link>
+          )}
           <Avatar
             imgUrl={this.props.currentUser.user.avatar}
             className={"avatar sml"}
           />
         </>
-        {/* {this.props.auth.isLoggedIn ? <p>Logged in</p> : <p>Not Logged in</p>} */}
       </div>
     );
   }
