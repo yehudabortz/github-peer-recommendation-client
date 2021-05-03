@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import { logoutUser } from "../actions/logoutUser";
 import MainButton from "./MainButton";
 import Avatar from "./Avatar";
@@ -28,7 +28,11 @@ class Navbar extends Component {
             </Link>
           )}
           <Avatar
-            imgUrl={this.props.currentUser.user.avatar}
+            imgUrl={
+              this.props.currentUser
+                ? this.props.currentUser.user.avatar
+                : undefined
+            }
             className={"avatar sml"}
           />
         </>
