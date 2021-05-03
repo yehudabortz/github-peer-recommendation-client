@@ -7,6 +7,15 @@
 }
 .result {
   padding: var(--primary-padding);
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+  flex-direction: row;
+  gap: var(--primary-grid-gap);
+  margin: 0;
+  align-items: center;
+}
+.result * {
+  margin: 0;
 }
 .hidden {
   display: none;

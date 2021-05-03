@@ -24,11 +24,11 @@ class UserSearchResult extends Component {
         onClick={this.handleClick}
       >
         <div className={"result"}>
-          <h2>{this.props.userSearchResult.login}</h2>
           <Avatar
             imgUrl={this.props.userSearchResult.avatar_url}
             className={"avatar"}
           />
+          <h2>{this.props.userSearchResult.login}</h2>
         </div>
         <UserSelectionConfirmation display={this.state.confirmation} />
       </div>
