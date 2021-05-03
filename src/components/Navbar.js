@@ -23,7 +23,7 @@ class Navbar extends Component {
               theme={"dark"}
             />
           ) : (
-            <Link to="login" className="main-button dark">
+            <Link to="/login" className="main-button dark">
               Login
             </Link>
           )}
