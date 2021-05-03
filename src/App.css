@@ -36,4 +36,7 @@ button {
 input {
   background-color: var(--main-bg-color-accent);
   border: solid 0.5px var(--main-bg-color-accent-lighter);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
