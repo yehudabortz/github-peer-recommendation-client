@@ -4,6 +4,7 @@
   font-size: var(--primary-text-color);
   font-weight: bold;
   border-radius: var(--primary-border-radius);
+  cursor: pointer;
 }
 
 .dark {

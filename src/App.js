@@ -35,6 +35,9 @@ class App extends Component {
         <Route path="/login">
           <LoginConatainer />
         </Route>
+        <Route path="/nominations/:id/invite">
+          <LoginConatainer />
+        </Route>
         <Route path="/auth/github/callback">
           <CallbackAuth />
         </Route>

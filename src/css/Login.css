@@ -1,0 +1,6 @@
+.login-card {
+  padding: var(--primary-padding);
+  margin: auto;
+  background-color: var(--main-bg-color-accent);
+  border-radius: var(--primary-border-radius);
+}
