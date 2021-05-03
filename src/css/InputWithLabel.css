@@ -1,0 +1,24 @@
+.input {
+  border: none;
+  background-color: var(--main-bg-color-accent-lighter);
+  font-size: var(--primary-text-size);
+  border-radius: var(--primary-border-radius);
+  padding: 1rem;
+  margin: 0;
+  width: auto;
+  justify-content: left;
+}
+
+.form-input-block {
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: var(--primary-grid-gap);
+  align-items: flex-stretch;
+  margin: 0;
+  align-items: left;
+  text-align: left;
+}
+
+.form-input-block label {
+  margin: 0;
+}

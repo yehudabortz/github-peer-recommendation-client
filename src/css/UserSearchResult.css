@@ -5,7 +5,9 @@
   text-align: left;
   cursor: pointer;
 }
-
+.result {
+  padding: var(--primary-padding);
+}
 .hidden {
   display: none;
 }

@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import createNomination from "../services/createNomination";
 import { addNominatedUser } from "../actions/nominatedUsers";
 import { updateUserFromSearch } from "../actions/userSearchResult";
+import InputWithLabel from "./InputWithLabel";
+import Avatar from "./Avatar";
 
 class UserSelectionConfirmation extends Component {
   constructor() {
@@ -32,17 +34,22 @@ class UserSelectionConfirmation extends Component {
   render() {
     return (
       <div className={"user-selection-confirmation " + this.props.display}>
-        <h5>Confirm Selection</h5>
-        <h3>{this.props.userSearchResult.login}</h3>
-        <form onSubmit={(event) => this.handleOnSubmit(event)}>
-          <label>Email</label>
-          <input
-            className="input"
-            name={"email"}
-            type="text"
-            value={this.state.input.email}
-            onChange={(e) => this.handleChange(e)}
-          />
+        <form onSubmit={(event) => this.handleOnSubmit(event)} className="form">
+          <p>Confirm Selection</p>
+          <div className="result-wrap">
+            <Avatar imgUrl={this.props.userSearchResult.avatar_url} />
+            <h3>{this.props.userSearchResult.login}</h3>
+          </div>
+          {this.props.userSearchResult.email ? (
+            ""
+          ) : (
+            <InputWithLabel
+              className="input"
+              name={"email"}
+              value={this.state.input.email}
+              handleChange={(e) => this.handleChange(e)}
+            />
+          )}
           <input type="submit" className={"main-button"} />
         </form>
       </div>

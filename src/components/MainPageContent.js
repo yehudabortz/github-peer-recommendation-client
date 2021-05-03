@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import uuid from "react-uuid";
 import "../css/MainPageContent.css";
+import "../css/TextClasses.css";
 import SearchBar from "./SearchBar";
 import NomiantedUserCard from "./NomiantedUserCard";
 import Divider from "./Divider";
@@ -16,6 +17,7 @@ const MainPageContent = (props) => {
     <div className={"main-page-content"}>
       <SearchBar />
       <Divider />
+      <h4 className="header-with-top-bottom-margin">Your Nominations</h4>
       {users.map((user) => (
         <NomiantedUserCard user={user || undefined} key={uuid()} />
       ))}

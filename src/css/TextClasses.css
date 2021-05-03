@@ -1,0 +1,4 @@
+.header-with-top-bottom-margin {
+  margin-top: var(--primary-margin);
+  margin-bottom: var(--primary-margin);
+}

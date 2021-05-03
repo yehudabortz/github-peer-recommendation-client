@@ -15,10 +15,17 @@ class SearchBar extends Component {
   }
 
   handleOnChange = (e) => {
-    this.setState({
-      input: e.target.value,
-      displayResult: "show",
-    });
+    if (e.target.value === "") {
+      this.setState({
+        input: e.target.value,
+        displayResult: "hidden",
+      });
+    } else {
+      this.setState({
+        input: e.target.value,
+        displayResult: "show",
+      });
+    }
   };
   componentDidUpdate() {
     fetchCurrentUser(

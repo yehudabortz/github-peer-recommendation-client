@@ -2,11 +2,14 @@
   background-color: var(--main-bg-color-accent);
   padding: var(--primary-padding);
   border-radius: var(--primary-border-radius);
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+  gap: var(--primary-grid-gap);
 
   justify-content: left;
   align-items: flex-start;
   margin-bottom: 1rem;
+  align-items: center;
 }
 
 .user-title {

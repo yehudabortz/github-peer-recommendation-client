@@ -23,11 +23,13 @@ class UserSearchResult extends Component {
         className={"search-result-wrapper " + this.props.display}
         onClick={this.handleClick}
       >
-        <h2>{this.props.userSearchResult.login}</h2>
-        <Avatar
-          imgUrl={this.props.userSearchResult.avatar_url}
-          className={"avatar"}
-        />
+        <div className={"result"}>
+          <h2>{this.props.userSearchResult.login}</h2>
+          <Avatar
+            imgUrl={this.props.userSearchResult.avatar_url}
+            className={"avatar"}
+          />
+        </div>
         <UserSelectionConfirmation display={this.state.confirmation} />
       </div>
     );
