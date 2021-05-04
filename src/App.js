@@ -32,6 +32,9 @@ class App extends Component {
     let auth = this.props.auth.isLoggedIn;
     let routes = (
       <Switch>
+        <Route exact path="/">
+          <LoginConatainer />
+        </Route>
         <Route path="/login">
           <LoginConatainer />
         </Route>
