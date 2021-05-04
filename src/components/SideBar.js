@@ -10,8 +10,8 @@ class SideBar extends Component {
           Welcome @{this.props.currentUser.user.github_username}
         </h1>
         <br />
-        {this.props.currentUser.user.score ? (
-          <p>Your Score {this.props.currentUser.user.score}</p>
+        {this.props.currentUser.score ? (
+          <p>Your Score {this.props.currentUser.score}</p>
         ) : (
           ""
         )}
