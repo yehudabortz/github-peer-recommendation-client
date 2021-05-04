@@ -9,6 +9,12 @@ class SideBar extends Component {
         <h1 className={"main-title"}>
           Welcome @{this.props.currentUser.user.github_username}
         </h1>
+        <br />
+        {this.props.currentUser.user.score ? (
+          <p>Your Score {this.props.currentUser.user.score}</p>
+        ) : (
+          ""
+        )}
       </div>
     );
   }
