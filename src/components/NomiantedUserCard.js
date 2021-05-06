@@ -15,8 +15,8 @@ class NomiantedUserCard extends Component {
   render() {
     return (
       <div className={"nominated-user-card"}>
+        <h2 className={"user-title"}>@{this.props.user.linkedin_handle}</h2>
         <Avatar imgUrl={this.props.user.avatar} className={"avatar sml"} />
-        <h2 className={"user-title"}>{this.props.user.github_username}</h2>
         <button className="main-button dark sml" onClick={this.handleClick}>
           Remove
         </button>
