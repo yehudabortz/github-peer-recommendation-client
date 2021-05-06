@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
 import { logoutUser } from "../actions/logoutUser";
 import MainButton from "./MainButton";
+import GoogleAuthLogout from "./GoogleAuthLogout";
+import GoogleAuthLogin from "./GoogleAuthLogin";
 import Avatar from "./Avatar";
 
 import "../css/Navbar.css";
@@ -17,11 +19,7 @@ class Navbar extends Component {
       <div className={"navbar"}>
         <>
           {this.props.auth.isLoggedIn === true ? (
-            <MainButton
-              handleClick={this.handleLogout}
-              text={"Logout"}
-              theme={"dark"}
-            />
+            <GoogleAuthLogout />
           ) : (
             <Link to="/login" className="main-button dark">
               Login

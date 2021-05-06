@@ -2,9 +2,7 @@ import { GoogleLogin } from "react-google-login";
 import { connect } from "react-redux";
 import { postGoogleLogin } from "../actions/postGoogleLogin";
 import React, { Component } from "react";
-
-const clientId =
-  "998032713164-cdesfccd8p7144k50id7alke2c40mlgt.apps.googleusercontent.com";
+import "../css/MainButton.css";
 
 class GoogleAuthLogin extends Component {
   onSuccess = (response) => {
@@ -17,7 +15,16 @@ class GoogleAuthLogin extends Component {
     return (
       <div>
         <GoogleLogin
-          clientId={clientId}
+          render={(renderProps) => (
+            <button
+              className="main-button"
+              onClick={renderProps.onClick}
+              disabled={renderProps.disabled}
+            >
+              Sign In With Google
+            </button>
+          )}
+          clientId={window.googleClientId}
           buttonText="Login"
           onSuccess={this.onSuccess}
           onFailure={this.onFailure}
