@@ -27,7 +27,9 @@ class UserSelectionConfirmation extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault();
-    this.props.userSearchResult.email = this.state.input.email;
+    if (this.props.userSearchResult.email === null) {
+      this.props.userSearchResult.email = this.state.input.email;
+    }
     createNomination(this.props.userSearchResult)
       .then((res) => this.props.addNominatedUser(res.data.user))
       .catch((err) => console.log(err));
