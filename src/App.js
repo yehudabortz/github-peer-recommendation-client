@@ -3,7 +3,6 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import LoginConatainer from "./containers/LoginConatainer";
 import DashboardContainer from "./containers/DashboardContainer";
-import CallbackAuth from "./components/CallbackAuth";
 import { connect } from "react-redux";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
@@ -40,9 +39,6 @@ class App extends Component {
         </Route>
         <Route path="/nominations/:id/invite">
           <LoginConatainer />
-        </Route>
-        <Route path="/auth/github/callback">
-          <CallbackAuth />
         </Route>
         <Route exact path="/dashboard">
           {auth ? <DashboardContainer /> : <LoginConatainer />}

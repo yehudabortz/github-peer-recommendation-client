@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-
-import { GithubLogin } from "../components/GithubLogin";
 import GoogleAuthLogin from "../components/GoogleAuthLogin";
 import "../css/Login.css";
 

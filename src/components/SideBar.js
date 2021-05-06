@@ -7,7 +7,9 @@ class SideBar extends Component {
     return (
       <div className={"sidebar"}>
         <h1 className={"main-title"}>
-          Welcome @{this.props.currentUser.user.github_username}
+          Welcome
+          <br></br>
+          {this.props.currentUser.user.name}
         </h1>
         <br />
         {this.props.currentUser.score ? (
