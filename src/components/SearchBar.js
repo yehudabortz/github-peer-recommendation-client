@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../css/SearchBar.css";
+import "../css/Visible.css";
 import fetchCurrentUser from "../services/fetchCurrentUser";
 import { addUserFromSearch } from "../actions/userSearchResult";
-import UserSearchResult from "./UserSearchResult";
+import UserSelectionConfirmation from "./UserSelectionConfirmation";
 
 class SearchBar extends Component {
   constructor() {
@@ -17,7 +18,7 @@ class SearchBar extends Component {
   handleOnChange = (e) => {
     if (e.target.value === "") {
       this.setState({
-        input: e.target.value,
+        input: "",
         displayResult: "hidden",
       });
     } else {
@@ -28,9 +29,7 @@ class SearchBar extends Component {
     }
   };
   componentDidUpdate() {
-    fetchCurrentUser(
-      `${window.endpoint}/search/github/users?q=${this.state.input}`
-    ).then((response) => this.props.addUserFromSearch(response.data.user));
+    this.props.addUserFromSearch(this.state.input);
   }
 
   render() {
@@ -43,7 +42,7 @@ class SearchBar extends Component {
           onChange={(e) => this.handleOnChange(e)}
           placeholder={"Search for a GitHub User"}
         />
-        <UserSearchResult display={this.state.displayResult} />
+        <UserSelectionConfirmation display={this.state.displayResult} />
       </>
     );
   }

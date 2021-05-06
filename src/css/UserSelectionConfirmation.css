@@ -22,9 +22,3 @@
 .result-wrap * {
   margin: 0;
 }
-.show {
-  display: inherit;
-}
-.hidden {
-  display: none;
-}

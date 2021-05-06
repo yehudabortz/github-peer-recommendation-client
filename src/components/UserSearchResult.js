@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../css/UserSearchResult.css";
+import "../css/Visible.css";
 import UserSelectionConfirmation from "./UserSelectionConfirmation";
 import Avatar from "./Avatar";
 

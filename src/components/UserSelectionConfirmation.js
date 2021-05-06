@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "../css/UserSelectionConfirmation.css";
+import "../css/Visible.css";
 import { connect } from "react-redux";
 import createNomination from "../services/createNomination";
 import { addNominatedUser } from "../actions/nominatedUsers";
 import { updateUserFromSearch } from "../actions/userSearchResult";
-import InputWithLabel from "./InputWithLabel";
-import Avatar from "./Avatar";
+import "../css/TextClasses.css";
 
 class UserSelectionConfirmation extends Component {
   constructor() {
@@ -36,29 +36,28 @@ class UserSelectionConfirmation extends Component {
   };
   render() {
     return (
-      <div
-        className={"user-selection-confirmation " + this.props.display}
-        ref={this.userConfirmation}
-      >
-        <form onSubmit={(event) => this.handleOnSubmit(event)} className="form">
-          <p>Confirm Selection</p>
-          <div className="result-wrap">
-            <Avatar imgUrl={this.props.userSearchResult.avatar_url} />
-            <h3>{this.props.userSearchResult.login}</h3>
-          </div>
-          {this.props.userSearchResult.email ? (
-            ""
-          ) : (
-            <InputWithLabel
-              className="input"
-              name={"email"}
-              value={this.state.input.email}
-              handleChange={(e) => this.handleChange(e)}
-            />
-          )}
-          <input type="submit" className={"main-button"} />
-        </form>
-      </div>
+      <>
+        <h4 className={"header-with-top-bottom-margin " + this.props.display}>
+          Confirm Nomination
+        </h4>
+        <div
+          className={"user-selection-confirmation " + this.props.display}
+          ref={this.userConfirmation}
+        >
+          <form
+            onSubmit={(event) => this.handleOnSubmit(event)}
+            className="form"
+          >
+            <div className="result-wrap">
+              <h3>
+                <span className={"muted-text"}>linkedin.com/in/</span>
+                {this.props.userSearchResult.handle}
+              </h3>
+            </div>
+            <input type="submit" className={"main-button"} />
+          </form>
+        </div>
+      </>
     );
   }
 }
