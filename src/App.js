@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import "./App.css";
 import LoginConatainer from "./containers/LoginConatainer";
 import DashboardContainer from "./containers/DashboardContainer";
+import AdminDashboardContainer from "./containers/AdminDashboardContainer";
 import { connect } from "react-redux";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
@@ -29,6 +30,7 @@ class App extends Component {
 
   render() {
     let auth = this.props.auth.isLoggedIn;
+    let currentUser = this.props.currentUser.user;
     let routes = (
       <Switch>
         <Route exact path="/">
@@ -42,6 +44,9 @@ class App extends Component {
         </Route>
         <Route exact path="/dashboard">
           {auth ? <DashboardContainer /> : <LoginConatainer />}
+        </Route>
+        <Route exact path="/admin/dashboard">
+          {currentUser.admin ? <AdminDashboardContainer /> : <NotFound />}
         </Route>
         <Route>
           <NotFound />
@@ -60,6 +65,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    currentUser: state.currentUser,
   };
 };
 
