@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import fetchUsers from "../services/admin/fetchUsers.js";
 import { addAdminAccessUsers } from "../actions/admin/adminAccessUsers";
 import { connect } from "react-redux";
+import UsersTable from "../components/admin/UsersTable";
 
 class AdminDashboardContainer extends Component {
   componentDidMount() {
@@ -9,9 +10,9 @@ class AdminDashboardContainer extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Admin Dashboard</h1>
-      </div>
+      <>
+        <UsersTable />
+      </>
     );
   }
 }
