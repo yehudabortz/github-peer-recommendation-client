@@ -8,6 +8,8 @@
   --primary-text-color: #ffebd4;
   --muted-text-color: #81776c;
 
+  --opaque-shadow: rgba(0, 0, 0, 0.315);
+
   --primary-text-size-small: 0.6rem;
   --primary-text-size: 0.8rem;
   --primary-border-radius: 0.5em;

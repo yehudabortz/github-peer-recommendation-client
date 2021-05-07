@@ -8,5 +8,6 @@
   top: var(--primary-padding);
   bottom: var(--primary-padding);
   border-radius: var(--primary-border-radius);
-  background: var(--main-bg-color-accent);
+  background: var(--main-bg-color-accent-lighter);
+  box-shadow: -5px 5px 20px var(--opaque-shadow);
 }

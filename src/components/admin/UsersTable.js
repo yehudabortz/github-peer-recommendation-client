@@ -3,13 +3,17 @@ import { connect } from "react-redux";
 import "../../css/admin/UsersTable.css";
 import "../../css/TextClasses.css";
 import { ColumnFilter } from "../../actions/admin/ColumnFilter";
-import { adminAccessSetSelectUser } from "../../actions/admin/adminAccessUsers";
+import {
+  adminAccessSetSelectUser,
+  showAdminAccessUserCard,
+} from "../../actions/admin/adminAccessUsers";
 
 import UserDataCard from "./UserDataCard";
 
 function UsersTable(props) {
   const handleRowClick = (e) => {
     props.adminAccessSetSelectUser(e.target.parentElement.id);
+    props.showAdminAccessUserCard();
   };
 
   const users = props.adminAccessUsers.users;
@@ -70,4 +74,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   ColumnFilter,
   adminAccessSetSelectUser,
+  showAdminAccessUserCard,
 })(UsersTable);
