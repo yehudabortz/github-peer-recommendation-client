@@ -1,0 +1,12 @@
+.user-data-card-wrap {
+  position: absolute;
+  padding: var(--primary-padding);
+  width: 500px;
+  max-height: 100vh;
+  left: 500x;
+  right: var(--primary-padding);
+  top: var(--primary-padding);
+  bottom: var(--primary-padding);
+  border-radius: var(--primary-border-radius);
+  background: var(--main-bg-color-accent);
+}

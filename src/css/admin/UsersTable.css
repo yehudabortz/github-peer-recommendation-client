@@ -13,15 +13,22 @@ td {
   background-color: var(--main-bg-color-accent);
   padding: var(--primary-padding);
   border-radius: var(--primary-border-radius);
+  overflow: hidden;
 }
 
 .table-head {
   font-weight: inherit;
   color: var(--muted-text-color);
+  border: none;
 }
 
 .table-row {
   border-bottom: solid 1px var(--main-bg-color-accent-lighter);
+}
+
+.table-row.pointer:hover {
+  transition: 100ms ease-in-out;
+  background: var(--main-bg-color-accent-lighter);
 }
 
 .table-row:last-child {
@@ -44,4 +51,8 @@ td {
   margin: 0;
   width: auto;
   padding: var(--primary-padding-less) var(--primary-padding);
+}
+
+.pointer {
+  cursor: pointer;
 }
