@@ -40,8 +40,6 @@ function UsersTable(props) {
 
   const handleFilterClick = () => {
     props.filterOpenToWork(!props.filter.open_to_work);
-    // fetchUsers(props.filter);
-    // debugger;
   };
 
   const users = props.adminAccessUsers.users;
@@ -82,7 +80,7 @@ function UsersTable(props) {
               Inbound Nominations
             </th>
             <th
-              className={"table-cell text-align-right"}
+              className={"table-cell text-align-right pointer text-hover-color"}
               onClick={handleFilterClick}
             >
               Open To Work
@@ -94,7 +92,7 @@ function UsersTable(props) {
           <tr className={"table-row"}>
             <td className={"table-cell text-align-left"}>
               <p
-                className={"muted-text pointer"}
+                className={"muted-text pointer text-hover-color"}
                 onClick={handleBackPagination}
               >
                 Back
@@ -106,7 +104,7 @@ function UsersTable(props) {
             <td></td>
             <td className={"table-cell text-align-right"}>
               <p
-                className={"muted-text pointer"}
+                className={"muted-text pointer text-hover-color"}
                 onClick={handleForwardPagination}
               >
                 Next Page

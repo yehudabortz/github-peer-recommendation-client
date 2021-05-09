@@ -27,7 +27,7 @@ td {
 }
 
 .table-row.pointer:hover {
-  transition: 100ms ease-in-out;
+  transition: var(--default-transition);
   background: var(--main-bg-color-accent-lighter);
 }
 

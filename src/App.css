@@ -20,6 +20,8 @@
   --primary-padding-less: 1rem;
   --primary-grid-gap: 1rem;
   --primary-margin: 1rem;
+
+  --default-transition: 100ms ease-in-out;
 }
 * {
   margin: auto;

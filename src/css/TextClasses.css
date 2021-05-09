@@ -6,3 +6,8 @@
 .muted-text {
   color: var(--muted-text-color);
 }
+
+.text-hover-color:hover {
+  transition: var(--default-transition);
+  color: var(--primary-text-color);
+}
