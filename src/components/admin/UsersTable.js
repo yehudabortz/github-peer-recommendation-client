@@ -26,8 +26,11 @@ function UsersTable(props) {
       console.log(props.page);
     }
   });
-  const handlePagination = () => {
+  const handleForwardPagination = () => {
     props.adminAccessSetPage(props.page + 1);
+  };
+  const handleBackPagination = () => {
+    props.adminAccessSetPage(props.page - 1);
   };
 
   const users = props.adminAccessUsers.users;
@@ -74,8 +77,11 @@ function UsersTable(props) {
           {tableRows}
           <tr className={"table-row"}>
             <td className={"table-cell text-align-left"}>
-              <p className={"pointer"} onClick={handlePagination}>
+              <p className={"pointer"} onClick={handleForwardPagination}>
                 Next Page
+              </p>
+              <p className={"pointer"} onClick={handleBackPagination}>
+                Back
               </p>
             </td>
           </tr>
