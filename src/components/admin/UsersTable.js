@@ -39,7 +39,11 @@ function UsersTable(props) {
   };
 
   const handleFilterClick = () => {
-    props.filterOpenToWork(!props.filter.open_to_work);
+    if (props.filter.open_to_work !== true || false) {
+      props.filterOpenToWork(true);
+    } else {
+      props.filterOpenToWork(!props.filter.open_to_work);
+    }
   };
 
   const users = props.adminAccessUsers.users;
