@@ -1,6 +1,7 @@
 export default (
   state = {
     users: [],
+    page: 0,
     selectedUser: {
       user: {},
       displayCard: "hidden",
@@ -23,6 +24,16 @@ export default (
       return {
         ...state,
         selectedUser: { ...state.selectedUser, displayCard: "show" },
+      };
+    case "ADMIN_ACCESS_HIDE_USER_CARD":
+      return {
+        ...state,
+        selectedUser: { ...state.selectedUser, displayCard: "hidden" },
+      };
+    case "ADMIN_ACCESS_SET_PAGE":
+      return {
+        ...state,
+        page: action.payload,
       };
     default:
       return state;

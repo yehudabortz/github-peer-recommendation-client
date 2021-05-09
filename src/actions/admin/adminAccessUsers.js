@@ -10,7 +10,9 @@ export function adminAccessSetSelectUser(user_id) {
   return (dispatch) => {
     return axios
       .get(`${window.endpoint}/users/${user_id}`, {
-        headers: { Authorization: `Bearer ${localStorage.getItem("jwt")}` },
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
       })
       .then((res) => {
         console.log(res);
@@ -22,5 +24,17 @@ export function adminAccessSetSelectUser(user_id) {
 export function showAdminAccessUserCard() {
   return (dispatch) => {
     dispatch({ type: "ADMIN_ACCESS_SHOW_USER_CARD", payload: "show" });
+  };
+}
+
+export function hideAdminAccessUserCard() {
+  return (dispatch) => {
+    dispatch({ type: "ADMIN_ACCESS_HIDE_USER_CARD", payload: "hidden" });
+  };
+}
+
+export function adminAccessSetPage(page) {
+  return (dispatch) => {
+    dispatch({ type: "ADMIN_ACCESS_SET_PAGE", payload: page });
   };
 }

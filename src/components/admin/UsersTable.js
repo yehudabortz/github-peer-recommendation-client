@@ -1,19 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import "../../css/admin/UsersTable.css";
 import "../../css/TextClasses.css";
-import { ColumnFilter } from "../../actions/admin/ColumnFilter";
 import {
   adminAccessSetSelectUser,
   showAdminAccessUserCard,
+  adminAccessSetPage,
+  addAdminAccessUsers,
 } from "../../actions/admin/adminAccessUsers";
 
-import UserDataCard from "./UserDataCard";
+import fetchUsers from "../../services/admin/fetchUsers";
 
 function UsersTable(props) {
   const handleRowClick = (e) => {
+    e.stopPropagation();
     props.adminAccessSetSelectUser(e.target.parentElement.id);
     props.showAdminAccessUserCard();
+  };
+
+  const [page, setPage] = useState(props.page);
+  useEffect(() => {
+    if (page !== props.page) {
+      setPage(props.page);
+      fetchUsers(props.page).then((res) => props.addAdminAccessUsers(res.data));
+      console.log(props.page);
+    }
+  });
+  const handlePagination = () => {
+    props.adminAccessSetPage(props.page + 1);
   };
 
   const users = props.adminAccessUsers.users;
@@ -24,6 +38,7 @@ function UsersTable(props) {
       key={user.created_at + user.id}
       onClick={(e) => handleRowClick(e)}
     >
+      <td className={"table-cell text-align-left"}>{user.linkedin_handle}</td>
       <td className={"table-cell text-align-left"}>{user.name}</td>
       <td className={"table-cell text-align-left"}>{user.email}</td>
       <td className={"table-cell text-align-right"}>
@@ -43,12 +58,8 @@ function UsersTable(props) {
       <table className={"users-table"}>
         <thead>
           <tr className={"table-row table-head"}>
-            <th
-              className={"table-cell text-align-left"}
-              onClick={(e) => props.ColumnFilter(e.target.innerText)}
-            >
-              Name
-            </th>
+            <th className={"table-cell text-align-left"}>LinkedIn</th>
+            <th className={"table-cell text-align-left"}>Name</th>
             <th className={"table-cell text-align-left"}>Email</th>
             <th className={"table-cell text-align-right"}>
               Outbound Nominations
@@ -59,7 +70,16 @@ function UsersTable(props) {
             <th className={"table-cell text-align-right"}>Open To Work</th>
           </tr>
         </thead>
-        <tbody>{tableRows}</tbody>
+        <tbody>
+          {tableRows}
+          <tr className={"table-row"}>
+            <td className={"table-cell text-align-left"}>
+              <p className={"pointer"} onClick={handlePagination}>
+                Next Page
+              </p>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
   );
@@ -68,11 +88,13 @@ function UsersTable(props) {
 const mapStateToProps = (state) => {
   return {
     adminAccessUsers: state.adminAccessUsers,
+    page: state.adminAccessUsers.page,
   };
 };
 
 export default connect(mapStateToProps, {
-  ColumnFilter,
   adminAccessSetSelectUser,
   showAdminAccessUserCard,
+  adminAccessSetPage,
+  addAdminAccessUsers,
 })(UsersTable);

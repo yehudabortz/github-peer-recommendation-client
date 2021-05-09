@@ -4,18 +4,39 @@ import { addAdminAccessUsers } from "../actions/admin/adminAccessUsers";
 import { connect } from "react-redux";
 import UsersTable from "../components/admin/UsersTable";
 import UserDataCard from "../components/admin/UserDataCard";
+import { hideAdminAccessUserCard } from "../actions/admin/adminAccessUsers";
 
 class AdminDashboardContainer extends Component {
   componentDidMount() {
-    fetchUsers().then((res) => this.props.addAdminAccessUsers(res.data));
+    if (this.props.page === 0) {
+      fetchUsers(this.props.page).then((res) =>
+        this.props.addAdminAccessUsers(res.data)
+      );
+    }
   }
+  handleClick = () => {
+    if (this.props.displayCard === "show") {
+      this.props.hideAdminAccessUserCard();
+    }
+  };
+
   render() {
     return (
-      <>
+      <div onClick={this.handleClick}>
         <UsersTable />
         <UserDataCard />
-      </>
+      </div>
     );
   }
 }
-export default connect(null, { addAdminAccessUsers })(AdminDashboardContainer);
+
+const mapStateToProps = (state) => {
+  return {
+    displayCard: state.adminAccessUsers.selectedUser.displayCard,
+    page: state.adminAccessUsers.page,
+  };
+};
+export default connect(mapStateToProps, {
+  addAdminAccessUsers,
+  hideAdminAccessUserCard,
+})(AdminDashboardContainer);
