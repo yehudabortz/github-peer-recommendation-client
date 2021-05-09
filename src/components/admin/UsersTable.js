@@ -8,6 +8,7 @@ import {
   adminAccessSetPage,
   addAdminAccessUsers,
 } from "../../actions/admin/adminAccessUsers";
+import { filterOpenToWork } from "../../actions/admin/columnFilters";
 
 import fetchUsers from "../../services/admin/fetchUsers";
 
@@ -18,11 +19,16 @@ function UsersTable(props) {
     props.showAdminAccessUserCard();
   };
 
+  const [filter, setFilter] = useState(props.filter);
   const [page, setPage] = useState(props.page);
   useEffect(() => {
-    if (page !== props.page) {
+    if (page !== props.page || filter !== props.filter) {
       setPage(props.page);
-      fetchUsers(props.page).then((res) => props.addAdminAccessUsers(res.data));
+      setFilter(props.filter);
+      fetchUsers(props.page, props.filter).then((res) =>
+        props.addAdminAccessUsers(res.data)
+      );
+      console.log("CHANGE");
     }
   });
   const handleForwardPagination = () => {
@@ -30,6 +36,12 @@ function UsersTable(props) {
   };
   const handleBackPagination = () => {
     props.adminAccessSetPage(props.page - 1);
+  };
+
+  const handleFilterClick = () => {
+    props.filterOpenToWork(!props.filter.open_to_work);
+    // fetchUsers(props.filter);
+    // debugger;
   };
 
   const users = props.adminAccessUsers.users;
@@ -69,7 +81,12 @@ function UsersTable(props) {
             <th className={"table-cell text-align-right"}>
               Inbound Nominations
             </th>
-            <th className={"table-cell text-align-right"}>Open To Work</th>
+            <th
+              className={"table-cell text-align-right"}
+              onClick={handleFilterClick}
+            >
+              Open To Work
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -106,6 +123,7 @@ const mapStateToProps = (state) => {
   return {
     adminAccessUsers: state.adminAccessUsers,
     page: state.adminAccessUsers.page,
+    filter: state.adminAccessUsers.filter,
   };
 };
 
@@ -114,4 +132,5 @@ export default connect(mapStateToProps, {
   showAdminAccessUserCard,
   adminAccessSetPage,
   addAdminAccessUsers,
+  filterOpenToWork,
 })(UsersTable);

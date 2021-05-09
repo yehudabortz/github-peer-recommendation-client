@@ -2,6 +2,7 @@ export default (
   state = {
     users: [],
     page: 0,
+    filter: { open_to_work: "default" },
     selectedUser: {
       user: {},
       displayCard: "hidden",
@@ -12,9 +13,11 @@ export default (
   switch (action.type) {
     case "ADD_ADMIN_ACCESS_USERS":
       return Object.assign({}, { ...state, users: action.payload });
-    case "FILTER_ADMIN_ACCESS_USERS_ABC":
-      // FILTER BY COLUIMN NAME ABC
-      return Object.assign({}, { ...state, users: state.users.filter() });
+    case "FILTER_ADMIN_ACCESS_USERS_OPEN_TO_WORK":
+      return {
+        ...state,
+        filter: { ...state.filter, open_to_work: action.payload },
+      };
     case "ADMIN_ACCESS_SET_SELECTED_USER":
       return {
         ...state,
