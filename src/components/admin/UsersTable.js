@@ -23,7 +23,6 @@ function UsersTable(props) {
     if (page !== props.page) {
       setPage(props.page);
       fetchUsers(props.page).then((res) => props.addAdminAccessUsers(res.data));
-      console.log(props.page);
     }
   });
   const handleForwardPagination = () => {
@@ -77,11 +76,23 @@ function UsersTable(props) {
           {tableRows}
           <tr className={"table-row"}>
             <td className={"table-cell text-align-left"}>
-              <p className={"pointer"} onClick={handleForwardPagination}>
-                Next Page
-              </p>
-              <p className={"pointer"} onClick={handleBackPagination}>
+              <p
+                className={"muted-text pointer"}
+                onClick={handleBackPagination}
+              >
                 Back
+              </p>
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td className={"table-cell text-align-right"}>
+              <p
+                className={"muted-text pointer"}
+                onClick={handleForwardPagination}
+              >
+                Next Page
               </p>
             </td>
           </tr>

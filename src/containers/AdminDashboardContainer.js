@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import UsersTable from "../components/admin/UsersTable";
 import UserDataCard from "../components/admin/UserDataCard";
 import { hideAdminAccessUserCard } from "../actions/admin/adminAccessUsers";
+import "../css/DivAttributes.css";
 
 class AdminDashboardContainer extends Component {
   componentDidMount() {
@@ -22,7 +23,7 @@ class AdminDashboardContainer extends Component {
 
   render() {
     return (
-      <div onClick={this.handleClick}>
+      <div className={"min-full-height"} onClick={this.handleClick}>
         <UsersTable />
         <UserDataCard />
       </div>
