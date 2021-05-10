@@ -1,5 +1,4 @@
 import axios from "axios";
-import { connect } from "react-redux";
 
 function fetchUsers(page = 0, sortFilter = {}, display_count = 10) {
   const token = localStorage.getItem("jwt");

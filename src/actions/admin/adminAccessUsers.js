@@ -1,8 +1,12 @@
 import axios from "axios";
 
-export function addAdminAccessUsers(users) {
+export function addAdminAccessUsers(users, results_count = 10) {
   return (dispatch) => {
     dispatch({ type: "ADD_ADMIN_ACCESS_USERS", payload: users });
+    dispatch({
+      type: "ADMIN_ACCESS_SET_RESULTS_COUNT",
+      payload: results_count,
+    });
   };
 }
 
@@ -39,20 +43,8 @@ export function adminAccessSetPage(page) {
   };
 }
 
-export function adminAccessSetResultsCount() {
+export function adminAccessSetResultsCount(count) {
   return (dispatch) => {
-    return axios
-      .get(`${window.endpoint}/users/results/count`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        dispatch({
-          type: "ADMIN_ACCESS_SET_RESULTS_COUNT",
-          payload: res.data.results_count,
-        });
-      });
+    dispatch({ type: "ADMIN_ACCESS_SET_RESULTS_COUNT", payload: count });
   };
 }

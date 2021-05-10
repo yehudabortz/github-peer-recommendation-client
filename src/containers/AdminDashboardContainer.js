@@ -12,10 +12,10 @@ import "../css/DivAttributes.css";
 
 class AdminDashboardContainer extends Component {
   componentDidMount() {
-    this.props.adminAccessSetResultsCount();
+    // debugger;
     if (this.props.page === 0) {
       fetchUsers(this.props.page).then((res) =>
-        this.props.addAdminAccessUsers(res.data)
+        this.props.addAdminAccessUsers(res.data.users, res.data.results_count)
       );
     }
   }

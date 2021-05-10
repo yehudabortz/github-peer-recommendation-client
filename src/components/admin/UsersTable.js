@@ -7,11 +7,14 @@ import {
   showAdminAccessUserCard,
   adminAccessSetPage,
   addAdminAccessUsers,
+  adminAccessSetResultsCount,
 } from "../../actions/admin/adminAccessUsers";
 import { filterOpenToWork } from "../../actions/admin/columnFilters";
 
 import fetchUsers from "../../services/admin/fetchUsers";
 import PaginationPageNumbers from "./PaginationPageNumbers";
+import { forwardPagination } from "./forwardPagination.js";
+import { backwardPagination } from "./backwardPagination.js";
 
 function UsersTable(props) {
   const handleRowClick = (e) => {
@@ -22,12 +25,13 @@ function UsersTable(props) {
 
   const [filter, setFilter] = useState(props.filter);
   const [page, setPage] = useState(props.page);
+
   useEffect(() => {
     if (page !== props.page || filter !== props.filter) {
       setPage(props.page);
       setFilter(props.filter);
       fetchUsers(props.page, props.filter).then((res) =>
-        props.addAdminAccessUsers(res.data)
+        props.addAdminAccessUsers(res.data.users, res.data.results_count)
       );
       if (filter !== props.filter) {
         props.adminAccessSetPage(0);
@@ -35,15 +39,12 @@ function UsersTable(props) {
       console.log("CHANGE");
     }
   });
+
   const handleForwardPagination = () => {
-    if (props.page < props.resultsPages) {
-      props.adminAccessSetPage(props.page + 1);
-    }
+    forwardPagination(props);
   };
   const handleBackPagination = () => {
-    if (props.page >= 1) {
-      props.adminAccessSetPage(props.page - 1);
-    }
+    backwardPagination(props);
   };
 
   const handleFilterClick = () => {
@@ -146,4 +147,5 @@ export default connect(mapStateToProps, {
   adminAccessSetPage,
   addAdminAccessUsers,
   filterOpenToWork,
+  adminAccessSetResultsCount,
 })(UsersTable);
