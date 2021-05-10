@@ -38,7 +38,6 @@ function UsersTable(props) {
       if (filter !== props.filter) {
         props.adminAccessSetPage(0);
       }
-      console.log("CHANGE");
     }
   });
 
