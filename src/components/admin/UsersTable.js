@@ -11,6 +11,7 @@ import {
 import { filterOpenToWork } from "../../actions/admin/columnFilters";
 
 import fetchUsers from "../../services/admin/fetchUsers";
+import PaginationPageNumbers from "./PaginationPageNumbers";
 
 function UsersTable(props) {
   const handleRowClick = (e) => {
@@ -111,7 +112,9 @@ function UsersTable(props) {
             </td>
             <td></td>
             <td></td>
-            <td></td>
+            <td>
+              <PaginationPageNumbers />
+            </td>
             <td></td>
             <td className={"table-cell text-align-right"}>
               <p
