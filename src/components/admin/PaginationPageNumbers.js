@@ -12,6 +12,12 @@ function PaginationPageNumbers(props) {
     console.log(e.target.innerText);
   }
 
+  // const [pageThreshHold, setPageThreshHold] = useState(5);
+  // useEffect(() => {
+  //   if (pageThreshHold < 5) {
+  //     console.log("!@3");
+  //   }
+  // });
   const pageNumbers = Array.from(
     { length: props.resultsPages + 1 },
     (_, i) => i + 1

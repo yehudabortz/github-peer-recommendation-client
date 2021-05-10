@@ -14,7 +14,11 @@ class AdminDashboardContainer extends Component {
   componentDidMount() {
     // debugger;
     if (this.props.page === 0) {
-      fetchUsers(this.props.page).then((res) =>
+      fetchUsers(
+        this.props.page,
+        this.props.filter,
+        this.props.displayCount
+      ).then((res) =>
         this.props.addAdminAccessUsers(res.data.users, res.data.results_count)
       );
     }
@@ -39,6 +43,8 @@ const mapStateToProps = (state) => {
   return {
     displayCard: state.adminAccessUsers.selectedUser.displayCard,
     page: state.adminAccessUsers.pagination.page,
+    displayCount: state.adminAccessUsers.pagination.displayCount,
+    filter: state.adminAccessUsers.filter,
   };
 };
 export default connect(mapStateToProps, {

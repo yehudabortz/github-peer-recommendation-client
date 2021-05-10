@@ -32,7 +32,7 @@ function UsersTable(props) {
     if (page !== props.page || filter !== props.filter) {
       setPage(props.page);
       setFilter(props.filter);
-      fetchUsers(props.page, props.filter).then((res) =>
+      fetchUsers(props.page, props.filter, props.displayCount).then((res) =>
         props.addAdminAccessUsers(res.data.users, res.data.results_count)
       );
       if (filter !== props.filter) {
@@ -138,6 +138,7 @@ const mapStateToProps = (state) => {
     adminAccessUsers: state.adminAccessUsers,
     page: state.adminAccessUsers.pagination.page,
     filter: state.adminAccessUsers.filter,
+    displayCount: state.adminAccessUsers.pagination.displayCount,
     resultsPages: state.adminAccessUsers.pagination.resultsPages,
   };
 };

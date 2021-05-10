@@ -1,7 +1,7 @@
 export default (
   state = {
     users: [],
-    pagination: { page: 0, resultsCount: 0, resultsPages: 1, displayCount: 10 },
+    pagination: { page: 0, resultsCount: 0, resultsPages: 1, displayCount: 15 },
     filter: { open_to_work: "default" },
     selectedUser: {
       user: {},
