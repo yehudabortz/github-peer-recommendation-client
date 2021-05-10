@@ -1,0 +1,4 @@
+.select-option {
+  border: none;
+  background-color: var(--main-bg-color-accent);
+}

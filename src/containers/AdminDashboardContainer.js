@@ -12,7 +12,6 @@ import "../css/DivAttributes.css";
 
 class AdminDashboardContainer extends Component {
   componentDidMount() {
-    // debugger;
     if (this.props.page === 0) {
       fetchUsers(
         this.props.page,
@@ -32,8 +31,8 @@ class AdminDashboardContainer extends Component {
   render() {
     return (
       <div className={"min-full-height"} onClick={this.handleClick}>
-        <UsersTable />
         <UserDataCard />
+        <UsersTable />
       </div>
     );
   }

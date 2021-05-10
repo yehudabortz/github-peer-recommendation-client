@@ -24,21 +24,20 @@ function PaginationPageNumbers(props) {
   );
   const currentPage = props.page + 1;
 
-  const numbers = pageNumbers
-    .slice(currentPage - 1, currentPage + 9)
-    .map((num) => (
-      <span
-        onClick={(e) => handlePageJump(e)}
-        className={
-          num == currentPage
-            ? "page-number text-hover-color current-page"
-            : "page-number text-hover-color"
-        }
-        key={uuid()}
-      >
-        {num}
-      </span>
-    ));
+  // .slice(currentPage - 1, currentPage + 9)
+  const numbers = pageNumbers.map((num) => (
+    <span
+      onClick={(e) => handlePageJump(e)}
+      className={
+        num == currentPage
+          ? "page-number text-hover-color current-page"
+          : "page-number text-hover-color"
+      }
+      key={uuid()}
+    >
+      {num}
+    </span>
+  ));
 
   return <div className={"page-numbers-wrap"}>{numbers}</div>;
 }

@@ -52,6 +52,17 @@ export default (
           ),
         },
       };
+    case "ADMIN_ACCESS_SET_DISPLAY_COUNT":
+      return {
+        ...state,
+        pagination: {
+          ...state.pagination,
+          displayCount: action.payload,
+          resultsPages: Math.floor(
+            state.pagination.resultsCount / action.payload
+          ),
+        },
+      };
     default:
       return state;
   }

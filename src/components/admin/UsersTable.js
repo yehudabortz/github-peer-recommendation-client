@@ -10,6 +10,7 @@ import {
   adminAccessSetResultsCount,
 } from "../../actions/admin/adminAccessUsers";
 import { filterOpenToWork } from "../../actions/admin/columnFilters";
+import PageDisplayCountList from "./PageDisplayCountList";
 
 import fetchUsers from "../../services/admin/fetchUsers";
 import PaginationPageNumbers from "./PaginationPageNumbers";
@@ -113,7 +114,9 @@ function UsersTable(props) {
               </p>
             </td>
             <td></td>
-            <td></td>
+            <td>
+              <PageDisplayCountList />
+            </td>
             <td>
               <PaginationPageNumbers />
             </td>

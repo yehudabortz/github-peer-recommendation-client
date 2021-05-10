@@ -48,3 +48,9 @@ export function adminAccessSetResultsCount(count) {
     dispatch({ type: "ADMIN_ACCESS_SET_RESULTS_COUNT", payload: count });
   };
 }
+
+export function adminAccessSetDisplayCount(count) {
+  return (dispatch) => {
+    dispatch({ type: "ADMIN_ACCESS_SET_DISPLAY_COUNT", payload: count });
+  };
+}
