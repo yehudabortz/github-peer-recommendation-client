@@ -13,8 +13,10 @@ import { filterOpenToWork } from "../../actions/admin/columnFilters";
 
 import fetchUsers from "../../services/admin/fetchUsers";
 import PaginationPageNumbers from "./PaginationPageNumbers";
-import { forwardPagination } from "./forwardPagination.js";
-import { backwardPagination } from "./backwardPagination.js";
+import {
+  forwardPagination,
+  backwardPagination,
+} from "./paginationNavigation.js";
 
 function UsersTable(props) {
   const handleRowClick = (e) => {
