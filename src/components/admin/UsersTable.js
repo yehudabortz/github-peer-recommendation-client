@@ -35,7 +35,9 @@ function UsersTable(props) {
     }
   });
   const handleForwardPagination = () => {
-    props.adminAccessSetPage(props.page + 1);
+    if (props.page < props.resultsPages) {
+      props.adminAccessSetPage(props.page + 1);
+    }
   };
   const handleBackPagination = () => {
     if (props.page >= 1) {
@@ -129,8 +131,9 @@ function UsersTable(props) {
 const mapStateToProps = (state) => {
   return {
     adminAccessUsers: state.adminAccessUsers,
-    page: state.adminAccessUsers.page,
+    page: state.adminAccessUsers.pagination.page,
     filter: state.adminAccessUsers.filter,
+    resultsPages: state.adminAccessUsers.pagination.resultsPages,
   };
 };
 

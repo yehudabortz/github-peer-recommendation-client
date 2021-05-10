@@ -4,11 +4,15 @@ import { addAdminAccessUsers } from "../actions/admin/adminAccessUsers";
 import { connect } from "react-redux";
 import UsersTable from "../components/admin/UsersTable";
 import UserDataCard from "../components/admin/UserDataCard";
-import { hideAdminAccessUserCard } from "../actions/admin/adminAccessUsers";
+import {
+  hideAdminAccessUserCard,
+  adminAccessSetResultsCount,
+} from "../actions/admin/adminAccessUsers";
 import "../css/DivAttributes.css";
 
 class AdminDashboardContainer extends Component {
   componentDidMount() {
+    this.props.adminAccessSetResultsCount();
     if (this.props.page === 0) {
       fetchUsers(this.props.page).then((res) =>
         this.props.addAdminAccessUsers(res.data)
@@ -34,10 +38,11 @@ class AdminDashboardContainer extends Component {
 const mapStateToProps = (state) => {
   return {
     displayCard: state.adminAccessUsers.selectedUser.displayCard,
-    page: state.adminAccessUsers.page,
+    page: state.adminAccessUsers.pagination.page,
   };
 };
 export default connect(mapStateToProps, {
   addAdminAccessUsers,
   hideAdminAccessUserCard,
+  adminAccessSetResultsCount,
 })(AdminDashboardContainer);

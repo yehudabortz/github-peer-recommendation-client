@@ -1,7 +1,7 @@
 import axios from "axios";
 import { connect } from "react-redux";
 
-function fetchUsers(page = 0, sortFilter = {}) {
+function fetchUsers(page = 0, sortFilter = {}, display_count = 10) {
   const token = localStorage.getItem("jwt");
   let url = `${window.endpoint}/users?page=${page}`;
   let condition, filter;
@@ -19,7 +19,7 @@ function fetchUsers(page = 0, sortFilter = {}) {
   let AuthStr = "Bearer ".concat(token);
   return axios.get(url, {
     headers: { Authorization: AuthStr },
-    params: { filter, condition },
+    params: { filter, condition, display_count },
   });
 }
 

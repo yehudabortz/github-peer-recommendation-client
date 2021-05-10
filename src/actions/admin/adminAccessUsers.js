@@ -38,3 +38,21 @@ export function adminAccessSetPage(page) {
     dispatch({ type: "ADMIN_ACCESS_SET_PAGE", payload: page });
   };
 }
+
+export function adminAccessSetResultsCount() {
+  return (dispatch) => {
+    return axios
+      .get(`${window.endpoint}/users/results/count`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        dispatch({
+          type: "ADMIN_ACCESS_SET_RESULTS_COUNT",
+          payload: res.data.results_count,
+        });
+      });
+  };
+}

@@ -1,7 +1,7 @@
 export default (
   state = {
     users: [],
-    page: 0,
+    pagination: { page: 0, resultsCount: 0, resultsPages: 1, displayCount: 10 },
     filter: { open_to_work: "default" },
     selectedUser: {
       user: {},
@@ -36,7 +36,21 @@ export default (
     case "ADMIN_ACCESS_SET_PAGE":
       return {
         ...state,
-        page: action.payload,
+        pagination: {
+          ...state.pagination,
+          page: action.payload,
+        },
+      };
+    case "ADMIN_ACCESS_SET_RESULTS_COUNT":
+      return {
+        ...state,
+        pagination: {
+          ...state.pagination,
+          resultsCount: action.payload,
+          resultsPages: Math.floor(
+            action.payload / state.pagination.displayCount
+          ),
+        },
       };
     default:
       return state;
