@@ -28,6 +28,9 @@ function UsersTable(props) {
       fetchUsers(props.page, props.filter).then((res) =>
         props.addAdminAccessUsers(res.data)
       );
+      if (filter !== props.filter) {
+        props.adminAccessSetPage(0);
+      }
       console.log("CHANGE");
     }
   });
@@ -35,7 +38,9 @@ function UsersTable(props) {
     props.adminAccessSetPage(props.page + 1);
   };
   const handleBackPagination = () => {
-    props.adminAccessSetPage(props.page - 1);
+    if (props.page >= 1) {
+      props.adminAccessSetPage(props.page - 1);
+    }
   };
 
   const handleFilterClick = () => {
