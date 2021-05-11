@@ -25,7 +25,7 @@ const PageDisplayCountList = (props) => {
     );
     setSelected(e.target.selectedOptions[0].value);
   }
-  const optionsIntervals = [10, 25, 50, 100];
+  const optionsIntervals = [15, 25, 50, 100];
   const options = optionsIntervals.map((option) => (
     <option key={uuid()} value={option}>
       {option}

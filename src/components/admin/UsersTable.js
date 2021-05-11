@@ -40,7 +40,7 @@ function UsersTable(props) {
         props.adminAccessSetPage(0);
       }
     }
-  });
+  }, [page, props, filter]);
 
   const handleForwardPagination = () => {
     forwardPagination(props);

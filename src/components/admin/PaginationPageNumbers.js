@@ -12,32 +12,27 @@ function PaginationPageNumbers(props) {
     console.log(e.target.innerText);
   }
 
-  // const [pageThreshHold, setPageThreshHold] = useState(5);
-  // useEffect(() => {
-  //   if (pageThreshHold < 5) {
-  //     console.log("!@3");
-  //   }
-  // });
   const pageNumbers = Array.from(
     { length: props.resultsPages + 1 },
     (_, i) => i + 1
   );
   const currentPage = props.page + 1;
 
-  // .slice(currentPage - 1, currentPage + 9)
-  const numbers = pageNumbers.map((num) => (
-    <span
-      onClick={(e) => handlePageJump(e)}
-      className={
-        num == currentPage
-          ? "page-number text-hover-color current-page"
-          : "page-number text-hover-color"
-      }
-      key={uuid()}
-    >
-      {num}
-    </span>
-  ));
+  const numbers = pageNumbers
+    .slice(currentPage - 1, currentPage + 9)
+    .map((num) => (
+      <span
+        onClick={(e) => handlePageJump(e)}
+        className={
+          num == currentPage
+            ? "page-number text-hover-color current-page"
+            : "page-number text-hover-color"
+        }
+        key={uuid()}
+      >
+        {num}
+      </span>
+    ));
 
   return <div className={"page-numbers-wrap"}>{numbers}</div>;
 }
