@@ -1,6 +1,9 @@
-export function addNominatedUser(nominatedUser) {
+export function addNominatedUser(nominationInfo) {
   return (dispatch) => {
-    dispatch({ type: "ADD_NOMINATED_USER", payload: nominatedUser });
+    dispatch({
+      type: "ADD_NOMINATED_USER",
+      payload: nominationInfo,
+    });
   };
 }
 

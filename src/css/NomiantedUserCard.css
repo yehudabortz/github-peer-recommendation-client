@@ -1,5 +1,5 @@
 .nominated-user-card {
-  background-color: var(--main-bg-color-accent);
+  background-color: var(--main-bg-color-accent-lighter);
   padding: var(--primary-padding);
   border-radius: var(--primary-border-radius);
   display: grid;
@@ -12,8 +12,18 @@
   align-items: center;
 }
 
+.nomination-headers-wrap {
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+}
+
 .user-title {
   margin: 0;
   font-size: var(--primary-text-size);
   font-weight: 300;
+}
+
+.inactive {
+  background-color: var(--main-bg-color-accent);
 }

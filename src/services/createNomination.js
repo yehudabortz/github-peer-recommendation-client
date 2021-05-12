@@ -5,11 +5,13 @@ function createNomination(user) {
   let url = `${window.endpoint}/nominations`;
 
   let AuthStr = "Bearer ".concat(token);
+
   return axios.post(
     url,
     {
       nomination: {
         linkedin_handle: user.handle,
+        co_worker: user.co_worker,
       },
     },
     { headers: { Authorization: AuthStr } }

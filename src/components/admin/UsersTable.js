@@ -61,8 +61,8 @@ function UsersTable(props) {
         props.filterOpenToWork(!props.filter.open_to_work);
       }
     } else if (column === "inbound_nominations") {
-      console.log(column);
-      props.filterInboundNominations("DESC");
+      // props.filterInboundNominations("DESC");
+      props.filterInboundNominations(!props.filter.inbound_nominations);
     }
   };
 
