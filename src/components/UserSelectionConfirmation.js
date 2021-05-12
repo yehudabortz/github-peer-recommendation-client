@@ -18,12 +18,12 @@ class UserSelectionConfirmation extends Component {
 
   handleSelectChange = (e) => {
     e.preventDefault();
-    if (e.target.value === "past_co_worker") {
-      this.props.updateUserSearchRelationship(false);
+    if (e.target.value == "past_co_worker") {
       this.setState({ selected: "past_co_worker" });
-    } else if (e.target.value === "co_worker") {
-      this.props.updateUserSearchRelationship(true);
+      this.props.updateUserSearchRelationship(false);
+    } else if (e.target.value == "co_worker") {
       this.setState({ selected: "co_worker" });
+      this.props.updateUserSearchRelationship(true);
     }
   };
 
@@ -57,16 +57,14 @@ class UserSelectionConfirmation extends Component {
               className={"select-option"}
             >
               <option
-                defaultValue={
-                  this.state.selected === "co_worker" ? true : false
-                }
                 key={uuid()}
+                selected={this.state.selected === "co_worker" ? true : false}
                 value={"co_worker"}
               >
                 Co-Worker
               </option>
               <option
-                defaultValue={
+                selected={
                   this.state.selected === "past_co_worker" ? true : false
                 }
                 key={uuid()}
