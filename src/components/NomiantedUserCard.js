@@ -5,10 +5,11 @@ import "../css/MainButton.css";
 import Avatar from "./Avatar";
 import removeNomination from "../services/removeNomination";
 import { removeNominatedUser } from "../actions/nominatedUsers";
+import { addMessage } from "../actions/messages";
 
 class NomiantedUserCard extends Component {
   handleClick = () => {
-    removeNomination(this.props.user).then(() =>
+    removeNomination(this.props.user).then(
       this.props.removeNominatedUser(this.props.user)
     );
   };
@@ -47,4 +48,5 @@ NomiantedUserCard.defaultProps = {
 
 export default connect(mapStateToProps, {
   removeNominatedUser,
+  addMessage,
 })(NomiantedUserCard);

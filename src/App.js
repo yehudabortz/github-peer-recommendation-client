@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import "./App.css";
-import "./css/errorMessages.css";
+import "./css/messages.css";
 import LoginConatainer from "./containers/LoginConatainer";
 import DashboardContainer from "./containers/DashboardContainer";
 import AdminDashboardContainer from "./containers/AdminDashboardContainer";
@@ -10,7 +10,7 @@ import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
 import fetchCurrentUser from "./services/fetchCurrentUser";
 import { loginUser } from "./actions/loginUser";
-import ErrorMessage from "./components/ErrorMessage";
+import Message from "./components/Message";
 
 class App extends Component {
   constructor() {
@@ -32,9 +32,9 @@ class App extends Component {
 
   render() {
     let error;
-    if (this.props.errorMessages.length > 0) {
-      this.props.errorMessages.map((err) => {
-        error = <ErrorMessage err={err} />;
+    if (this.props.messages.length > 0) {
+      this.props.messages.map((err) => {
+        error = <Message err={err} />;
       });
     }
     let auth = this.props.auth.isLoggedIn;
@@ -75,7 +75,7 @@ const mapStateToProps = (state) => {
   return {
     auth: state.auth,
     currentUser: state.currentUser,
-    errorMessages: state.errorMessages.messages,
+    messages: state.messages.messages,
   };
 };
 
