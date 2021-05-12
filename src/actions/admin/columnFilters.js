@@ -6,3 +6,12 @@ export function filterOpenToWork(filter) {
     });
   };
 }
+
+export function filterInboundNominations(sortBy) {
+  return (dispatch) => {
+    dispatch({
+      type: "FILTER_ADMIN_ACCESS_USERS_INBOUND_NOMINATIONS",
+      payload: sortBy,
+    });
+  };
+}

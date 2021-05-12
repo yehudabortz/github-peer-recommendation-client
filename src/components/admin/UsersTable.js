@@ -9,7 +9,10 @@ import {
   addAdminAccessUsers,
   adminAccessSetResultsCount,
 } from "../../actions/admin/adminAccessUsers";
-import { filterOpenToWork } from "../../actions/admin/columnFilters";
+import {
+  filterOpenToWork,
+  filterInboundNominations,
+} from "../../actions/admin/columnFilters";
 import PageDisplayCountList from "./PageDisplayCountList";
 
 import fetchUsers from "../../services/admin/fetchUsers";
@@ -49,11 +52,17 @@ function UsersTable(props) {
     backwardPagination(props);
   };
 
-  const handleFilterClick = () => {
-    if (props.filter.open_to_work !== true || false) {
-      props.filterOpenToWork(true);
-    } else {
-      props.filterOpenToWork(!props.filter.open_to_work);
+  const handleFilterClick = (e) => {
+    const column = e.target.getAttribute("value");
+    if (column === "open_to_work") {
+      if (props.filter.open_to_work !== true || false) {
+        props.filterOpenToWork(true);
+      } else {
+        props.filterOpenToWork(!props.filter.open_to_work);
+      }
+    } else if (column === "inbound_nominations") {
+      console.log(column);
+      props.filterInboundNominations("DESC");
     }
   };
 
@@ -91,12 +100,17 @@ function UsersTable(props) {
             <th className={"table-cell text-align-right"}>
               Outbound Nominations
             </th>
-            <th className={"table-cell text-align-right"}>
+            <th
+              className={"table-cell text-align-right pointer text-hover-color"}
+              onClick={handleFilterClick}
+              value={"inbound_nominations"}
+            >
               Inbound Nominations
             </th>
             <th
               className={"table-cell text-align-right pointer text-hover-color"}
-              onClick={handleFilterClick}
+              onClick={(e) => handleFilterClick(e)}
+              value={"open_to_work"}
             >
               Open To Work
             </th>
@@ -143,6 +157,7 @@ const mapStateToProps = (state) => {
     filter: state.adminAccessUsers.filter,
     displayCount: state.adminAccessUsers.pagination.displayCount,
     resultsPages: state.adminAccessUsers.pagination.resultsPages,
+    filterInboundNominations: state.adminAccessUsers.filter.inbound_nominations,
   };
 };
 
@@ -153,4 +168,5 @@ export default connect(mapStateToProps, {
   addAdminAccessUsers,
   filterOpenToWork,
   adminAccessSetResultsCount,
+  filterInboundNominations,
 })(UsersTable);

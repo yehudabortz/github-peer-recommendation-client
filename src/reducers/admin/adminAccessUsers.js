@@ -2,7 +2,7 @@ export default (
   state = {
     users: [],
     pagination: { page: 0, resultsCount: 0, resultsPages: 1, displayCount: 15 },
-    filter: { open_to_work: "default" },
+    filter: { open_to_work: null, inbound_nominations: null },
     selectedUser: {
       user: {},
       displayCard: "hidden",
@@ -14,9 +14,15 @@ export default (
     case "ADD_ADMIN_ACCESS_USERS":
       return Object.assign({}, { ...state, users: action.payload });
     case "FILTER_ADMIN_ACCESS_USERS_OPEN_TO_WORK":
+      // debugger;
       return {
         ...state,
         filter: { ...state.filter, open_to_work: action.payload },
+      };
+    case "FILTER_ADMIN_ACCESS_USERS_INBOUND_NOMINATIONS":
+      return {
+        ...state,
+        filter: { ...state.filter, inbound_nominations: action.payload },
       };
     case "ADMIN_ACCESS_SET_SELECTED_USER":
       return {

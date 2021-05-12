@@ -40,7 +40,7 @@ class SearchBar extends Component {
           type="text"
           value={this.state.input}
           onChange={(e) => this.handleOnChange(e)}
-          placeholder={"Search for a GitHub User"}
+          placeholder={"Copy and paste your nomination's LinkedIn URL here."}
         />
         <UserSelectionConfirmation display={this.state.displayResult} />
       </>

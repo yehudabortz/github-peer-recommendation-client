@@ -24,7 +24,7 @@ function PaginationPageNumbers(props) {
       <span
         onClick={(e) => handlePageJump(e)}
         className={
-          num == currentPage
+          num === currentPage
             ? "page-number text-hover-color current-page"
             : "page-number text-hover-color"
         }
