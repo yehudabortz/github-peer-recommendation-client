@@ -1,9 +1,16 @@
 export function addNominatedUser(nominationInfo) {
   return (dispatch) => {
-    dispatch({
-      type: "ADD_NOMINATED_USER",
-      payload: nominationInfo,
-    });
+    if (nominationInfo.message) {
+      dispatch({
+        type: "ADD_ERROR_MESSAGE",
+        payload: nominationInfo.message,
+      });
+    } else {
+      dispatch({
+        type: "ADD_NOMINATED_USER",
+        payload: nominationInfo,
+      });
+    }
   };
 }
 

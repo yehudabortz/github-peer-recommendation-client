@@ -52,19 +52,21 @@ class UserSelectionConfirmation extends Component {
               </h3>
             </div>
             <select
-              selected={this.state.selected}
+              defaultValue={this.state.selected}
               onChange={(e) => this.handleSelectChange(e)}
               className={"select-option"}
             >
               <option
-                selected={this.state.selected === "co_worker" ? true : false}
+                defaultValue={
+                  this.state.selected === "co_worker" ? true : false
+                }
                 key={uuid()}
                 value={"co_worker"}
               >
                 Co-Worker
               </option>
               <option
-                selected={
+                defaultValue={
                   this.state.selected === "past_co_worker" ? true : false
                 }
                 key={uuid()}
