@@ -1,0 +1,11 @@
+.exit-icon {
+  width: var(--primary-icon-width);
+  height: var(--primary-icon-height);
+  cursor: pointer;
+}
+
+.absolute {
+  position: absolute;
+  right: var(--primary-padding-less);
+  top: var(--primary-padding-less);
+}
