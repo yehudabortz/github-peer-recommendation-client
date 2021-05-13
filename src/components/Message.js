@@ -10,7 +10,7 @@ import exitIcon from "../icons/Exit-icon.svg";
 
 function Message(props) {
   function handleClick(e) {
-    props.removeMessage(e.target.parentElement.innerText);
+    props.removeMessage(e.target.parentElement.innerText.trim());
   }
 
   return (

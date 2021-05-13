@@ -6,21 +6,12 @@ import { connect } from "react-redux";
 import "../css/messages.css";
 
 function MessagesWrap(props) {
-  const [hasMessages, setHasMessages] = useState(false);
-  const [view, setView] = useState("hidden");
-
-  useEffect(() => {
-    if (props.messages.length > 0) {
-      setHasMessages(true);
-      setView("show");
-    } else {
-      setHasMessages(false);
-      setView("hidden");
-    }
-  }, [props]);
+  if (props.messages.length === 0) {
+    return <></>;
+  }
 
   return (
-    <div className={"messages-wrap " + view}>
+    <div className={"messages-wrap"}>
       {props.messages.map((msg) => (
         <Message message={msg} key={uuid()} />
       ))}

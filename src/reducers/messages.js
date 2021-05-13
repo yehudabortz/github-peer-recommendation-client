@@ -9,7 +9,6 @@ export default (
       // debugger;
       return { ...state, messages: [...state.messages, action.payload] };
     case "REMOVE_ERROR_MESSAGE":
-      console.log(action.payload);
       return {
         ...state,
         messages: state.messages.filter((msg) => msg !== action.payload),

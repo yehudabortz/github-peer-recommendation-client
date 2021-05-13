@@ -37,15 +37,6 @@ function App(props) {
     return <p>Loading...</p>;
   }
 
-  // let messages;
-  // if (props.messages.length > 0) {
-  //   let mapMessages = [];
-  //   props.messages.map((msg) => {
-  //     mapMessages.push(msg);
-  //   });
-  //   messages = <MessagesWrap messages={mapMessages} />;
-  // }
-
   let notFoundRoutes = (
     <Route>
       <NotFound />
@@ -81,8 +72,8 @@ function App(props) {
 
   return (
     <div>
+      <MessagesWrap />
       <Navbar />
-      <MessagesWrap messages={props.messages} />
       {routes}
     </div>
   );

@@ -1,20 +1,17 @@
 .messages-wrap {
   position: fixed;
-  padding: var(--primary-padding);
   width: calc(700px - (100vw - var(--container-width)));
   max-width: var(--container-width);
   align-items: top;
   right: var(--primary-padding);
   top: var(--primary-padding);
-  bottom: var(--primary-padding);
   border-radius: var(--primary-border-radius);
-  background: var(--main-bg-color-accent);
-  box-shadow: var(--primary-box-shadow);
   align-items: flex-start;
   display: grid;
   gap: var(--primary-grid-gap);
   align-content: start;
   overflow: auto;
+  max-height: calc(100% - (var(--primary-padding) * 2));
 }
 
 .message {
