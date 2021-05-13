@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../css/Avatar.css";
-
+import avatarIcon from "../icons/Avatar-icon.svg";
 export default class Avatar extends Component {
   render() {
     return (
@@ -15,7 +15,6 @@ export default class Avatar extends Component {
   }
 }
 Avatar.defaultProps = {
-  imgUrl:
-    "https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg",
+  imgUrl: avatarIcon,
   className: "avatar sml",
 };
