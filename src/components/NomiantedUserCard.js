@@ -5,21 +5,30 @@ import "../css/MainButton.css";
 import Avatar from "./Avatar";
 import removeNomination from "../services/removeNomination";
 import { removeNominatedUser } from "../actions/nominatedUsers";
+import { addMessage } from "../actions/messages";
 
 class NomiantedUserCard extends Component {
   handleClick = () => {
-    removeNomination(this.props.user).then(() =>
+    removeNomination(this.props.user).then(
       this.props.removeNominatedUser(this.props.user)
     );
   };
   render() {
     return (
-      <div className={"nominated-user-card"}>
+      <div className={"nominated-user-card " + this.props.status}>
+        {this.props.status === "inactive" ? (
+          ""
+        ) : (
+          <h2 className={"user-title"}>@{this.props.user.linkedin_handle}</h2>
+        )}
         <Avatar imgUrl={this.props.user.avatar} className={"avatar sml"} />
-        <h2 className={"user-title"}>{this.props.user.github_username}</h2>
-        <button className="main-button dark sml" onClick={this.handleClick}>
-          Remove
-        </button>
+        {this.props.status === "inactive" ? (
+          ""
+        ) : (
+          <button className="main-button sml" onClick={this.handleClick}>
+            Remove
+          </button>
+        )}
       </div>
     );
   }
@@ -39,4 +48,5 @@ NomiantedUserCard.defaultProps = {
 
 export default connect(mapStateToProps, {
   removeNominatedUser,
+  addMessage,
 })(NomiantedUserCard);

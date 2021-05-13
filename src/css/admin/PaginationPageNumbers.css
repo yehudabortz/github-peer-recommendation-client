@@ -1,0 +1,13 @@
+.page-numbers-wrap {
+  display: flex;
+  text-align: center;
+}
+
+.page-number {
+  cursor: pointer;
+  color: var(--muted-text-color);
+}
+
+.current-page {
+  color: var(--main-text-color);
+}

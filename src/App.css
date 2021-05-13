@@ -6,6 +6,10 @@
   --main-bg-color-accent-lighter: #2a2e3b;
   --primary-accent-color: #fc4e4c;
   --primary-text-color: #ffebd4;
+  --muted-text-color: #81776c;
+
+  --opaque-shadow: rgba(0, 0, 0, 0.315);
+  --primary-box-shadow: 5px 5px 20px var(--opaque-shadow);
 
   --primary-text-size-small: 0.6rem;
   --primary-text-size: 0.8rem;
@@ -14,8 +18,11 @@
   --max-container-width: 1100px;
   --container-width: 90vw;
   --primary-padding: 2rem;
+  --primary-padding-less: 1rem;
   --primary-grid-gap: 1rem;
   --primary-margin: 1rem;
+
+  --default-transition: 100ms ease-in-out;
 }
 * {
   margin: auto;
@@ -42,4 +49,14 @@ input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-left: 0;
+  margin-right: 0;
 }

@@ -1,0 +1,19 @@
+.message-wrap {
+  position: fixed;
+  padding: var(--primary-padding);
+  width: var(--container-width);
+  max-width: 500px;
+  right: var(--primary-padding);
+  top: var(--primary-padding);
+  border-radius: var(--primary-border-radius);
+  background: var(--main-bg-color-accent-lighter);
+  box-shadow: var(--primary-box-shadow);
+}
+
+@media only screen and (max-width: 500px) {
+  .message-wrap {
+    right: 0%;
+    left: 0%;
+    margin: auto;
+  }
+}

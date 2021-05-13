@@ -2,6 +2,8 @@ export default (
   state = {
     user: {},
     nominated_users: [],
+    co_worker_nominated_users: [],
+    past_co_worker_nominated_users: [],
   },
   action
 ) => {
@@ -12,6 +14,25 @@ export default (
       localStorage.removeItem("jwt");
       return (state = action.payload);
     case "ADD_NOMINATED_USER":
+      if (action.payload.nomination.co_worker === true) {
+        return {
+          ...state,
+          nominated_users: [...state.nominated_users, action.payload.user],
+          co_worker_nominated_users: [
+            ...state.co_worker_nominated_users,
+            action.payload.user,
+          ],
+        };
+      } else if (action.payload.nomination.co_worker === false) {
+        return {
+          ...state,
+          nominated_users: [...state.nominated_users, action.payload.user],
+          past_co_worker_nominated_users: [
+            ...state.past_co_worker_nominated_users,
+            action.payload.user,
+          ],
+        };
+      }
       return {
         ...state,
         nominated_users: [...state.nominated_users, action.payload],
@@ -21,6 +42,16 @@ export default (
         ...state,
         nominated_users: [
           ...state.nominated_users.filter((nom) => nom !== action.payload),
+        ],
+        co_worker_nominated_users: [
+          ...state.co_worker_nominated_users.filter(
+            (nom) => nom !== action.payload
+          ),
+        ],
+        past_co_worker_nominated_users: [
+          ...state.past_co_worker_nominated_users.filter(
+            (nom) => nom !== action.payload
+          ),
         ],
       };
     default:
