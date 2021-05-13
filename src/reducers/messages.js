@@ -8,9 +8,11 @@ export default (
     case "ADD_ERROR_MESSAGE":
       // debugger;
       return { ...state, messages: [...state.messages, action.payload] };
-    case "CLEAR_ERROR_MESSAGES":
-      debugger;
-      return { ...state, messages: [...state.messages, action.payload] };
+    case "REMOVE_ERROR_MESSAGE":
+      return {
+        ...state,
+        messages: state.messages.filter((msg) => msg !== action.payload),
+      };
     default:
       return state;
   }

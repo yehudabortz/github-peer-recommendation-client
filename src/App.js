@@ -11,6 +11,7 @@ import NotFound from "./components/NotFound";
 import fetchCurrentUser from "./services/fetchCurrentUser";
 import { loginUser } from "./actions/loginUser";
 import Message from "./components/Message";
+import MessagesWrap from "./components/MessagesWrap";
 
 function App(props) {
   const [loading, setLoading] = useState(true);
@@ -36,11 +37,13 @@ function App(props) {
     return <p>Loading...</p>;
   }
 
-  let error;
+  let messages;
   if (props.messages.length > 0) {
-    props.messages.map((err) => {
-      error = <Message err={err} />;
+    let mapMessages = [];
+    props.messages.map((msg) => {
+      mapMessages.push(msg);
     });
+    messages = <MessagesWrap messages={mapMessages} />;
   }
 
   let notFoundRoutes = (
@@ -78,7 +81,7 @@ function App(props) {
 
   return (
     <div>
-      {error}
+      {messages}
       <Navbar />
       {routes}
     </div>

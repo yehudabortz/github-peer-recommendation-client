@@ -1,26 +1,29 @@
 import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import "../css/messages.css";
 import "../css/TextClasses.css";
 import "../css/Visible.css";
 import "../css/Icons.css";
+import { removeMessage } from "../actions/messages";
 
 import exitIcon from "../icons/Exit-icon.svg";
 
-export default function Message(props) {
-  const [view, setView] = useState("show");
-
-  function handleClick() {
-    setView("hidden");
+function Message(props) {
+  function handleClick(e) {
+    props.removeMessage(e.target.parentElement.innerText);
   }
+
   return (
-    <div className={"message-wrap " + view}>
+    <div className={"message"}>
       <img
         className={"exit-icon absolute"}
         src={exitIcon}
         alt="exit icon"
-        onClick={handleClick}
+        onClick={(e) => handleClick(e)}
       />
-      <p>{props.err}</p>
+      <p>{props.message}</p>
     </div>
   );
 }
+
+export default connect(null, { removeMessage })(Message);

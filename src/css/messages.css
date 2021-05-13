@@ -1,27 +1,39 @@
-.message-wrap {
+.messages-wrap {
   position: fixed;
   padding: var(--primary-padding);
   width: var(--container-width);
-  max-width: 500px;
+  max-width: calc(500px - (100vw - var(--container-width)));
   right: var(--primary-padding);
   top: var(--primary-padding);
+  border-radius: var(--primary-border-radius);
+  background: var(--main-bg-color-accent);
+  box-shadow: var(--primary-box-shadow);
+  align-items: flex-start;
+  display: grid;
+  gap: var(--primary-grid-gap);
+}
+
+.message {
+  position: relative;
+  padding: var(--primary-padding);
+  width: 100%;
   border-radius: var(--primary-border-radius);
   background: var(--main-bg-color-accent-lighter);
   box-shadow: var(--primary-box-shadow);
   align-items: flex-start;
 }
 
-.message-wrap p {
+.message p {
   max-width: 35ch;
 }
 
 @media only screen and (max-width: 500px) {
-  .message-wrap {
+  .messages-wrap {
     right: 0%;
     left: 0%;
     margin: auto;
   }
-  .message-wrap p {
+  .message p {
     max-width: 30ch;
   }
 }
