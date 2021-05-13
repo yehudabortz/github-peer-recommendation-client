@@ -42,7 +42,7 @@ const MainPageContent = (props) => {
         <NomiantedUserCard user={user || undefined} key={uuid()} />
       ))}
       {[...Array(remaingCoWorkerUsers).keys()].map((num) => (
-        <NomiantedUserCard user={num} status={"inactive"} key={uuid()} />
+        <NomiantedUserCard status={"inactive"} key={uuid()} />
       ))}
       <div className={"nomination-headers-wrap"}>
         <h4 className="header-with-top-bottom-margin muted-text">
