@@ -1,74 +1,88 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 import "./App.css";
 import "./css/messages.css";
 import LoginConatainer from "./containers/LoginConatainer";
 import DashboardContainer from "./containers/DashboardContainer";
 import AdminDashboardContainer from "./containers/AdminDashboardContainer";
-import { connect } from "react-redux";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
 import fetchCurrentUser from "./services/fetchCurrentUser";
 import { loginUser } from "./actions/loginUser";
 import Message from "./components/Message";
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      fetch: "",
-    };
+function App(props) {
+  const [loading, setLoading] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(props.auth.isLoggedIn);
+
+  useEffect(() => {
+    if (loading) {
+      if (localStorage.getItem("jwt")) {
+        fetchCurrentUser()
+          .then((response) => props.loginUser(response.data))
+          .then(() => setLoggedIn(true))
+          .catch((error) => console.log(error))
+          .finally(() => {
+            setLoading(false);
+          });
+      } else {
+        setLoading(false);
+      }
+    }
+  }, [props]);
+
+  if (loading) {
+    return <p>Loading...</p>;
   }
 
-  componentDidMount() {
-    if (localStorage.getItem("jwt")) {
-      fetchCurrentUser().then((response) =>
-        this.props.loginUser(response.data)
-      );
-    } else {
-      console.log("Didnt work");
-    }
+  let error;
+  if (props.messages.length > 0) {
+    props.messages.map((err) => {
+      error = <Message err={err} />;
+    });
   }
 
-  render() {
-    let error;
-    if (this.props.messages.length > 0) {
-      this.props.messages.map((err) => {
-        error = <Message err={err} />;
-      });
-    }
-    let auth = this.props.auth.isLoggedIn;
-    let currentUser = this.props.currentUser.user;
-    let routes = (
-      <Switch>
-        <Route exact path="/">
-          <LoginConatainer />
-        </Route>
-        <Route path="/login">
-          <LoginConatainer />
-        </Route>
-        <Route path="/nominations/:id/invite">
-          <LoginConatainer />
-        </Route>
-        <Route exact path="/dashboard">
-          {auth ? <DashboardContainer /> : <LoginConatainer />}
-        </Route>
-        <Route exact path="/admin/dashboard">
-          {currentUser.admin ? <AdminDashboardContainer /> : <NotFound />}
-        </Route>
-        <Route>
-          <NotFound />
-        </Route>
-      </Switch>
-    );
-    return (
-      <div>
-        {error}
-        <Navbar />
-        {routes}
-      </div>
+  let notFoundRoutes = (
+    <Route>
+      <NotFound />
+    </Route>
+  );
+
+  let adminRoutes;
+  if (loggedIn && props.currentUser.user.admin) {
+    adminRoutes = (
+      <Route exact path="/admin/dashboard">
+        {loggedIn ? <AdminDashboardContainer /> : <NotFound />}
+      </Route>
     );
   }
+  let routes = (
+    <Switch>
+      <Route exact path="/">
+        <LoginConatainer />
+      </Route>
+      <Route path="/login">
+        <LoginConatainer />
+      </Route>
+      <Route path="/nominations/:id/invite">
+        <LoginConatainer />
+      </Route>
+      <Route exact path="/dashboard">
+        {loggedIn ? <DashboardContainer /> : <LoginConatainer />}
+      </Route>
+      {adminRoutes}
+      {notFoundRoutes}
+    </Switch>
+  );
+
+  return (
+    <div>
+      {error}
+      <Navbar />
+      {routes}
+    </div>
+  );
 }
 
 const mapStateToProps = (state) => {
