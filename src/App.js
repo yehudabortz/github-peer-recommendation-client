@@ -10,8 +10,8 @@ import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
 import fetchCurrentUser from "./services/fetchCurrentUser";
 import { loginUser } from "./actions/loginUser";
-import Message from "./components/Message";
 import MessagesWrap from "./components/MessagesWrap";
+import Loading from "./components/Loading";
 
 function App(props) {
   const [loading, setLoading] = useState(true);
@@ -34,7 +34,7 @@ function App(props) {
   }, [props]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
 
   let notFoundRoutes = (
