@@ -2,15 +2,18 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginUser } from "../actions/loginUser";
 import ContentWrapper from "../components/ContentWrapper";
+import { useHistory } from "react-router-dom";
 
-class DashboardContainer extends Component {
-  render() {
-    return (
-      <>
-        <ContentWrapper />
-      </>
-    );
+function DashboardContainer(props) {
+  let history = useHistory();
+  if (!props.auth.isLoggedIn) {
+    history.push("/login");
   }
+  return (
+    <>
+      <ContentWrapper />
+    </>
+  );
 }
 
 const mapStateToProps = (state) => {

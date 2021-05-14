@@ -17,11 +17,11 @@ export function postGoogleLogin(response) {
         id_token: idToken,
       },
     }).then((res) => {
-      dispatch({ type: "IS_LOGGED_IN", payload: true });
       dispatch({
         type: "SET_USER",
         payload: Object.assign({}, res.data),
       });
+      dispatch({ type: "IS_LOGGED_IN", payload: true });
       try {
         localStorage.setItem("jwt", res.data.user.jwt_token);
       } catch {
