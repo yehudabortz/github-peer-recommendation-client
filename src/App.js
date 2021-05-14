@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
 import "./css/messages.css";
-import LoginConatainer from "./containers/LoginConatainer";
+import LoginContainer from "./containers/LoginContainer";
 import DashboardContainer from "./containers/DashboardContainer";
 import AdminDashboardContainer from "./containers/AdminDashboardContainer";
 import Navbar from "./components/Navbar";
@@ -54,22 +54,21 @@ function App(props) {
   let routes = (
     <Switch>
       <Route exact path="/">
-        <LoginConatainer />
+        <LoginContainer />
       </Route>
-      <Route path="/login">
-        <LoginConatainer />
+      <Route exact path="/login">
+        <LoginContainer />
       </Route>
       <Route path="/nominations/:id/invite">
-        <LoginConatainer />
+        <LoginContainer />
       </Route>
       <Route exact path="/dashboard">
-        {loggedIn ? <DashboardContainer /> : <LoginConatainer />}
+        <DashboardContainer />
       </Route>
       {adminRoutes}
       {notFoundRoutes}
     </Switch>
   );
-
   return (
     <div>
       <MessagesWrap />

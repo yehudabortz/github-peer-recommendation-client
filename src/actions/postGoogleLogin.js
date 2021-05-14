@@ -17,7 +17,6 @@ export function postGoogleLogin(response) {
         id_token: idToken,
       },
     }).then((res) => {
-      console.log("something went right");
       dispatch({ type: "IS_LOGGED_IN", payload: true });
       dispatch({
         type: "SET_USER",
