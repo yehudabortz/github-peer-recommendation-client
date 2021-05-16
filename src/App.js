@@ -44,10 +44,14 @@ function App(props) {
   );
 
   let adminRoutes;
-  if (props.currentUser.user.admin && loggedIn) {
+  if (props.currentUser?.user.admin && loggedIn) {
     adminRoutes = (
       <Route exact path="/admin/dashboard">
-        {loggedIn ? <AdminDashboardContainer /> : <NotFound />}
+        {props.currentUser.user.admin ? (
+          <AdminDashboardContainer />
+        ) : (
+          <NotFound />
+        )}
       </Route>
     );
   }
