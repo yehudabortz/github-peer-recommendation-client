@@ -35,8 +35,10 @@ const MainPageContent = (props) => {
         <h4 className="header-with-top-bottom-margin muted-text">
           Current Co-Workers
         </h4>
-        <h4 className="header-with-top-bottom-margin muted-text text-align-right ">
-          {remainingCoWorkerUsers} Nominations Remaining
+        <h4 className="header-with-top-bottom-margin muted-text text-align-right">
+          {remainingCoWorkerUsers > 1
+            ? remainingCoWorkerUsers + " " + "Nominations Remaining"
+            : remainingCoWorkerUsers + " " + "Nomination Remaining"}
         </h4>
       </div>
       {coWorkerUsers.map((user) => (
@@ -49,8 +51,10 @@ const MainPageContent = (props) => {
         <h4 className="header-with-top-bottom-margin muted-text">
           Past Co-Workers
         </h4>
-        <h4 className="header-with-top-bottom-margin muted-text text-align-right ">
-          {remainingPastCoWorkerUsers} Nominations Remaining
+        <h4 className="header-with-top-bottom-margin muted-text text-align-right">
+          {remainingPastCoWorkerUsers > 1
+            ? remainingPastCoWorkerUsers + " " + "Nominations Remaining"
+            : remainingPastCoWorkerUsers + " " + "Nomination Remaining"}
         </h4>
       </div>
       {pastCoWorkerUsers.map((user) => (
