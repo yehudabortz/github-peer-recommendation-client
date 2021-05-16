@@ -11,16 +11,17 @@ const MainPageContent = (props) => {
   const [users, setUsers] = useState([]);
   const [coWorkerUsers, setCoWorkerUsers] = useState([]);
   const [pastCoWorkerUsers, setPastCoWorkerUsers] = useState([]);
-  const [remaingCoWorkerUsers, setRemaingCoWorkerUsers] = useState(0);
-  const [remaingPastCoWorkerUsers, setRemaingPastCoWorkerUsers] = useState(0);
+  const [remainingCoWorkerUsers, setRemainingCoWorkerUsers] = useState(0);
+  const [remainingPastCoWorkerUsers, setRemainingPastCoWorkerUsers] =
+    useState(0);
   useEffect(() => {
     // setUsers(props.currentUser.nominated_users);
     setPastCoWorkerUsers(props.currentUser.past_co_worker_nominated_users);
-    setRemaingPastCoWorkerUsers(
+    setRemainingPastCoWorkerUsers(
       3 - props.currentUser.past_co_worker_nominated_users.length
     );
     setCoWorkerUsers(props.currentUser.co_worker_nominated_users);
-    setRemaingCoWorkerUsers(
+    setRemainingCoWorkerUsers(
       3 - props.currentUser.co_worker_nominated_users.length
     );
   }, [props.currentUser.nominated_users]);
@@ -35,13 +36,13 @@ const MainPageContent = (props) => {
           Current Co-Workers
         </h4>
         <h4 className="header-with-top-bottom-margin muted-text">
-          {remaingCoWorkerUsers} Nominations Remaing
+          {remainingCoWorkerUsers} Nominations Remaining
         </h4>
       </div>
       {coWorkerUsers.map((user) => (
         <NomiantedUserCard user={user || undefined} key={uuid()} />
       ))}
-      {[...Array(remaingCoWorkerUsers).keys()].map((num) => (
+      {[...Array(remainingCoWorkerUsers).keys()].map((num) => (
         <NomiantedUserCard status={"inactive"} key={uuid()} />
       ))}
       <div className={"nomination-headers-wrap"}>
@@ -49,13 +50,13 @@ const MainPageContent = (props) => {
           Past Co-Workers
         </h4>
         <h4 className="header-with-top-bottom-margin muted-text">
-          {remaingPastCoWorkerUsers} Nominations Remaing
+          {remainingPastCoWorkerUsers} Nominations Remaining
         </h4>
       </div>
       {pastCoWorkerUsers.map((user) => (
         <NomiantedUserCard user={user || undefined} key={uuid()} />
       ))}
-      {[...Array(remaingPastCoWorkerUsers).keys()].map(() => (
+      {[...Array(remainingPastCoWorkerUsers).keys()].map(() => (
         <NomiantedUserCard status={"inactive"} key={uuid()} />
       ))}
     </div>
