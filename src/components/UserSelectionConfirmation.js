@@ -6,10 +6,11 @@ import { connect } from "react-redux";
 import createNomination from "../services/createNomination";
 import { addNominatedUser } from "../actions/nominatedUsers";
 import { updateUserSearchRelationship } from "../actions/userSearchResult";
+import { addUserFromSearch } from "../actions/userSearchResult";
 import "../css/TextClasses.css";
 
 class UserSelectionConfirmation extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
       selected: "co_worker",
@@ -32,15 +33,19 @@ class UserSelectionConfirmation extends Component {
     createNomination(this.props.userSearchResult)
       // .then((res) => console.log(res.data))
       .then((res) => this.props.addNominatedUser(res.data))
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => {
+        this.props.addUserFromSearch("");
+      });
   };
   render() {
+    if (this.props.userSearchResult.handle.length < 1) {
+      return <></>;
+    }
     return (
       <>
-        <h4 className={"header-with-top-bottom-margin " + this.props.display}>
-          Confirm Nomination
-        </h4>
-        <div className={"user-selection-confirmation " + this.props.display}>
+        <h4 className={"header-with-top-bottom-margin"}>Confirm Nomination</h4>
+        <div className={"user-selection-confirmation"}>
           <form
             onSubmit={(event) => this.handleOnSubmit(event)}
             className="form"
@@ -89,4 +94,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   addNominatedUser,
   updateUserSearchRelationship,
+  addUserFromSearch,
 })(UserSelectionConfirmation);

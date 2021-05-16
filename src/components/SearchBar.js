@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../css/SearchBar.css";
 import "../css/Visible.css";
-import fetchCurrentUser from "../services/fetchCurrentUser";
 import { addUserFromSearch } from "../actions/userSearchResult";
 import UserSelectionConfirmation from "./UserSelectionConfirmation";
 
@@ -50,7 +49,7 @@ class SearchBar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    userSearcResults: state.userSearcResults,
+    userSearchResults: state.userSearchResults,
   };
 };
 export default connect(mapStateToProps, { addUserFromSearch })(SearchBar);
