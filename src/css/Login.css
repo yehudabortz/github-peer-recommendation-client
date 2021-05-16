@@ -5,9 +5,10 @@
 }
 .login-screen-card {
   width: var(--container-width);
-  max-width: 400px;
+  max-width: calc(var(--max-container-width) / 3);
+  min-height: calc(var(--primary-padding) * 5);
   display: grid;
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: 1fr;
   gap: var(--primary-grid-gap);
   justify-content: center;
   padding: var(--primary-padding);
