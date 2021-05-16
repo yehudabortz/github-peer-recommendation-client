@@ -10,7 +10,6 @@ class SearchBar extends Component {
     super();
     this.state = {
       input: "",
-      displayResult: "hidden",
     };
   }
 
@@ -18,12 +17,10 @@ class SearchBar extends Component {
     if (e.target.value === "") {
       this.setState({
         input: "",
-        displayResult: "hidden",
       });
     } else {
       this.setState({
         input: e.target.value,
-        displayResult: "show",
       });
     }
   };
@@ -41,7 +38,7 @@ class SearchBar extends Component {
           onChange={(e) => this.handleOnChange(e)}
           placeholder={"Copy and paste your nomination's LinkedIn URL here."}
         />
-        <UserSelectionConfirmation display={this.state.displayResult} />
+        <UserSelectionConfirmation />
       </>
     );
   }
