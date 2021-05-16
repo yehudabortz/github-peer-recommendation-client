@@ -1,4 +1,4 @@
-# GitHub Peer Recommendation Client
+# Peer Recommendation Client
 
 Peer Recommendation allows users to nominate current and past co-workers and vouch for their employability. Nominations are anonymous. Everyone receives a score based on how many people have nominated them.
 
