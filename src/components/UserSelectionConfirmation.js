@@ -39,7 +39,7 @@ class UserSelectionConfirmation extends Component {
       });
   };
   render() {
-    if (this.props.userSearchResult.handle.length < 1) {
+    if (this.props.userSearchResult.handle.trim().length < 1) {
       return <></>;
     }
     return (
