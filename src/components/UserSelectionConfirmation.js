@@ -10,7 +10,7 @@ import { addUserFromSearch } from "../actions/userSearchResult";
 import "../css/TextClasses.css";
 
 class UserSelectionConfirmation extends Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       selected: "co_worker",
@@ -31,7 +31,6 @@ class UserSelectionConfirmation extends Component {
   handleOnSubmit = (event) => {
     event.preventDefault();
     createNomination(this.props.userSearchResult)
-      // .then((res) => console.log(res.data))
       .then((res) => this.props.addNominatedUser(res.data))
       .catch((err) => console.log(err))
       .finally(() => {
