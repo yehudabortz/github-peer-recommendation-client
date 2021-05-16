@@ -19,6 +19,7 @@ class UserSelectionConfirmation extends Component {
 
   handleSelectChange = (e) => {
     e.preventDefault();
+    this.submitButton.current.focus();
     if (e.target.value == "past_co_worker") {
       this.setState({ selected: "past_co_worker" });
       this.props.updateUserSearchRelationship(false);
