@@ -1,5 +1,5 @@
 .login-screen-wrap {
-  height: calc(100vh - (var(--primary-padding) * 2));
+  height: 90vh;
   align-items: center;
   display: flex;
 }

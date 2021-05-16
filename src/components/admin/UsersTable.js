@@ -94,21 +94,27 @@ function UsersTable(props) {
       <table className={"users-table"}>
         <thead>
           <tr className={"table-row table-head"}>
-            <th className={"table-cell text-align-left"}>LinkedIn</th>
-            <th className={"table-cell text-align-left"}>Name</th>
-            <th className={"table-cell text-align-left"}>Email</th>
-            <th className={"table-cell text-align-right"}>
+            <th className={"table-cell text-align-left font-light"}>
+              LinkedIn
+            </th>
+            <th className={"table-cell text-align-left font-light"}>Name</th>
+            <th className={"table-cell text-align-left font-light"}>Email</th>
+            <th className={"table-cell text-align-right font-light"}>
               Outbound Nominations
             </th>
             <th
-              className={"table-cell text-align-right pointer text-hover-color"}
+              className={
+                "table-cell text-align-right font-light pointer text-hover-color"
+              }
               onClick={handleFilterClick}
               value={"inbound_nominations"}
             >
               Inbound Nominations
             </th>
             <th
-              className={"table-cell text-align-right pointer text-hover-color"}
+              className={
+                "table-cell text-align-right font-light pointer text-hover-color"
+              }
               onClick={(e) => handleFilterClick(e)}
               value={"open_to_work"}
             >

@@ -4,13 +4,15 @@
 }
 
 .text-align-left {
-  font-weight: inherit;
   color: inherit;
   text-align: left;
 }
 
+.text-align-center {
+  color: inherit;
+  text-align: center;
+}
 .text-align-right {
-  font-weight: inherit;
   color: inherit;
   text-align: right;
 }
@@ -21,6 +23,21 @@
 }
 
 .muted-text {
-  font-weight: inherit;
   color: var(--muted-text-color);
+}
+
+.ch-15 {
+  max-width: 15ch;
+}
+
+.ch-20 {
+  max-width: 15ch;
+}
+
+.font-light {
+  font-weight: 400;
+}
+
+.font-heavy {
+  font-weight: 600;
 }
