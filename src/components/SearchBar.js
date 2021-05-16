@@ -6,27 +6,9 @@ import { addUserFromSearch } from "../actions/userSearchResult";
 import UserSelectionConfirmation from "./UserSelectionConfirmation";
 
 class SearchBar extends Component {
-  constructor() {
-    super();
-    this.state = {
-      input: "",
-    };
-  }
-
   handleOnChange = (e) => {
-    if (e.target.value === "") {
-      this.setState({
-        input: "",
-      });
-    } else {
-      this.setState({
-        input: e.target.value,
-      });
-    }
+    this.props.addUserFromSearch(e.target.value);
   };
-  componentDidUpdate() {
-    this.props.addUserFromSearch(this.state.input);
-  }
 
   render() {
     return (
@@ -34,7 +16,7 @@ class SearchBar extends Component {
         <input
           className="search-bar"
           type="text"
-          value={this.state.input}
+          value={this.props.userSearchResult.handle}
           onChange={(e) => this.handleOnChange(e)}
           placeholder={"Copy and paste your nomination's LinkedIn URL here."}
         />
@@ -46,7 +28,7 @@ class SearchBar extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    userSearchResults: state.userSearchResults,
+    userSearchResult: state.userSearchResult,
   };
 };
 export default connect(mapStateToProps, { addUserFromSearch })(SearchBar);
