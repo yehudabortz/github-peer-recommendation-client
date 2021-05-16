@@ -35,18 +35,6 @@ td {
   border: none;
 }
 
-.text-align-left {
-  font-weight: inherit;
-  color: inherit;
-  text-align: left;
-}
-
-.text-align-right {
-  font-weight: inherit;
-  color: inherit;
-  text-align: right;
-}
-
 .table-cell {
   margin: 0;
   width: auto;

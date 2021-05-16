@@ -35,7 +35,7 @@ const MainPageContent = (props) => {
         <h4 className="header-with-top-bottom-margin muted-text">
           Current Co-Workers
         </h4>
-        <h4 className="header-with-top-bottom-margin muted-text">
+        <h4 className="header-with-top-bottom-margin muted-text text-align-right ">
           {remainingCoWorkerUsers} Nominations Remaining
         </h4>
       </div>
@@ -49,7 +49,7 @@ const MainPageContent = (props) => {
         <h4 className="header-with-top-bottom-margin muted-text">
           Past Co-Workers
         </h4>
-        <h4 className="header-with-top-bottom-margin muted-text">
+        <h4 className="header-with-top-bottom-margin muted-text text-align-right ">
           {remainingPastCoWorkerUsers} Nominations Remaining
         </h4>
       </div>

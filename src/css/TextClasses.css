@@ -1,13 +1,26 @@
+.text-hover-color:hover {
+  transition: var(--default-transition);
+  color: var(--primary-text-color);
+}
+
+.text-align-left {
+  font-weight: inherit;
+  color: inherit;
+  text-align: left;
+}
+
+.text-align-right {
+  font-weight: inherit;
+  color: inherit;
+  text-align: right;
+}
+
 .header-with-top-bottom-margin {
   margin-top: var(--primary-margin);
   margin-bottom: var(--primary-margin);
 }
 
 .muted-text {
+  font-weight: inherit;
   color: var(--muted-text-color);
-}
-
-.text-hover-color:hover {
-  transition: var(--default-transition);
-  color: var(--primary-text-color);
 }
