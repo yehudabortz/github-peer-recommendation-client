@@ -1,8 +1,8 @@
 # GitHub Peer Recommendation Client
 
-GitHub Peer Recommendation allows GitHub users to nominate other GitHub users and vouch for their employability. Nominations are anonymous. Once nominated, the nominated user will receive an email invite to claim their profile if they are not already a member. Everyone receives a score based on how many people have nominated them.
+Peer Recommendation allows users to nominate current and past co-workers and vouch for their employability. Nominations are anonymous. Everyone receives a score based on how many people have nominated them.
 
-GitHub Peer Recommendation Client is a React front-end for the [GitHub Peer Recommendation API](https://github.com/yehudabortz/github-peer-recommendation-api) Rails back-end.
+Peer Recommendation Client is a React front-end for the [Peer Recommendation API](https://github.com/yehudabortz/github-peer-recommendation-api) Rails back-end.
 
 ## Installation
 
@@ -18,7 +18,7 @@ npm install
 
 ```bash
 window.endpoint = "api.exmaple.com"
-window.githubClientId = "your GitHub client id"
+window.googleClientId = "your Google client id"
 ```
 
 - Start the server.
