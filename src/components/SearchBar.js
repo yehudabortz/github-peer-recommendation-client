@@ -6,14 +6,22 @@ import { addUserFromSearch } from "../actions/userSearchResult";
 import UserSelectionConfirmation from "./UserSelectionConfirmation";
 
 class SearchBar extends Component {
+  constructor() {
+    super();
+    this.searchInput = React.createRef();
+  }
   handleOnChange = (e) => {
     this.props.addUserFromSearch(e.target.value);
   };
 
+  componentDidUpdate() {
+    this.searchInput.current.focus();
+  }
   render() {
     return (
       <>
         <input
+          ref={this.searchInput}
           className="search-bar"
           type="text"
           value={this.props.userSearchResult.handle}
