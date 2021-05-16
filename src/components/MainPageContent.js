@@ -3,7 +3,7 @@ import uuid from "react-uuid";
 import "../css/MainPageContent.css";
 import "../css/TextClasses.css";
 import SearchBar from "./SearchBar";
-import NomiantedUserCard from "./NomiantedUserCard";
+import NominatedUserCard from "./NominatedUserCard";
 import Divider from "./Divider";
 import { connect } from "react-redux";
 
@@ -40,10 +40,10 @@ const MainPageContent = (props) => {
         </h4>
       </div>
       {coWorkerUsers.map((user) => (
-        <NomiantedUserCard user={user || undefined} key={uuid()} />
+        <NominatedUserCard user={user || undefined} key={uuid()} />
       ))}
       {[...Array(remainingCoWorkerUsers).keys()].map((num) => (
-        <NomiantedUserCard status={"inactive"} key={uuid()} />
+        <NominatedUserCard status={"inactive"} key={uuid()} />
       ))}
       <div className={"nomination-headers-wrap"}>
         <h4 className="header-with-top-bottom-margin muted-text">
@@ -54,10 +54,10 @@ const MainPageContent = (props) => {
         </h4>
       </div>
       {pastCoWorkerUsers.map((user) => (
-        <NomiantedUserCard user={user || undefined} key={uuid()} />
+        <NominatedUserCard user={user || undefined} key={uuid()} />
       ))}
       {[...Array(remainingPastCoWorkerUsers).keys()].map(() => (
-        <NomiantedUserCard status={"inactive"} key={uuid()} />
+        <NominatedUserCard status={"inactive"} key={uuid()} />
       ))}
     </div>
   );

@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "../css/NomiantedUserCard.css";
+import "../css/NominatedUserCard.css";
 import "../css/MainButton.css";
 import Avatar from "./Avatar";
 import removeNomination from "../services/removeNomination";
 import { removeNominatedUser } from "../actions/nominatedUsers";
 import { addMessage } from "../actions/messages";
 
-class NomiantedUserCard extends Component {
+class NominatedUserCard extends Component {
   handleClick = () => {
     removeNomination(this.props.user).then(
       this.props.removeNominatedUser(this.props.user)
@@ -42,4 +42,4 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   removeNominatedUser,
   addMessage,
-})(NomiantedUserCard);
+})(NominatedUserCard);
