@@ -1,4 +1,4 @@
-.exit-icon {
+.icon {
   width: var(--primary-icon-width);
   height: var(--primary-icon-height);
   cursor: pointer;
@@ -8,4 +8,8 @@
   position: absolute;
   right: var(--primary-padding-less);
   top: var(--primary-padding-less);
+}
+
+.margin-right {
+  margin-right: var(--primary-padding-less);
 }

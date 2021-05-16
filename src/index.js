@@ -10,14 +10,14 @@ import App from "./App.js";
 
 // GLOBAL API ENDPOINT VAR
 // for Prod
-window.endpoint = "https://github-peer-recommendation-api.herokuapp.com";
-window.googleClientId =
-  "998032713164-2i8hgkh3n06l21bptt0e6soji9jtv4jp.apps.googleusercontent.com";
+// window.endpoint = "https://github-peer-recommendation-api.herokuapp.com";
+// window.googleClientId =
+//   "998032713164-2i8hgkh3n06l21bptt0e6soji9jtv4jp.apps.googleusercontent.com";
 
 // for Dev
-// window.endpoint = "http://localhost:4000";
-// window.googleClientId =
-//   "998032713164-cdesfccd8p7144k50id7alke2c40mlgt.apps.googleusercontent.com";
+window.endpoint = "http://localhost:4000";
+window.googleClientId =
+  "998032713164-cdesfccd8p7144k50id7alke2c40mlgt.apps.googleusercontent.com";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

@@ -16,7 +16,7 @@ function Message(props) {
   return (
     <div className={"message"}>
       <img
-        className={"exit-icon absolute"}
+        className={"icon absolute"}
         src={exitIcon}
         alt="exit icon"
         onClick={(e) => handleClick(e)}

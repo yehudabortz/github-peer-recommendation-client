@@ -2,6 +2,8 @@ import { GoogleLogin } from "react-google-login";
 import { connect } from "react-redux";
 import { postGoogleLogin } from "../actions/postGoogleLogin";
 import "../css/MainButton.css";
+import "../css/Icons.css";
+import GoogleIcon from "../icons/google-icon.svg";
 
 const GoogleAuthLogin = (props) => {
   function onSuccess(response) {
@@ -14,13 +16,18 @@ const GoogleAuthLogin = (props) => {
     <div>
       <GoogleLogin
         render={(renderProps) => (
-          <button
-            className="main-button"
+          <div
+            className="main-button dark with-icon"
             onClick={renderProps.onClick}
             disabled={renderProps.disabled}
           >
+            <img
+              src={GoogleIcon}
+              alt="Login with Google Icon"
+              className={"icon margin-right"}
+            />
             Sign In With Google
-          </button>
+          </div>
         )}
         clientId={window.googleClientId}
         buttonText="Login"

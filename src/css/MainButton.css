@@ -18,3 +18,10 @@
   font-weight: 200;
   max-height: 1.8rem;
 }
+
+.with-icon {
+  display: flex;
+  align-items: center;
+  padding: var(--primary-padding-less);
+  box-shadow: var(--primary-box-shadow);
+}
