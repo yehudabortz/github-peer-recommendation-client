@@ -3,10 +3,6 @@ th,
 td {
   border-collapse: collapse;
 }
-.table-wrap {
-  max-width: var(--max-container-width);
-  width: var(--container-width);
-}
 
 .users-table {
   width: 100%;

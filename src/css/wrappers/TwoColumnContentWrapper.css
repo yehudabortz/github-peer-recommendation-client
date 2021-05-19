@@ -1,8 +1,6 @@
 .content-wrapper {
   display: grid;
   justify-content: flex-start;
-  width: var(--container-width);
-  max-width: var(--max-container-width);
 
   gap: 2rem;
   margin-right: auto;

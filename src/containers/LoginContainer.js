@@ -4,6 +4,7 @@ import GoogleAuthLogin from "../components/GoogleAuthLogin";
 import { connect } from "react-redux";
 import "../css/Login.css";
 import "../css/TextClasses.css";
+import StandardPageContentWrap from "../components/wrappers/StandardPageContentWrap";
 
 function LoginContainer(props) {
   let history = useHistory();
@@ -11,15 +12,17 @@ function LoginContainer(props) {
     history.push("/dashboard");
   }
   return (
-    <div className={"login-screen-wrap"}>
-      <div className={"login-screen-card"}>
-        <h2 className={"text-align-center"}>Welcome</h2>
-        <p className={"ch-20 text-align-center muted-text font-light"}>
-          Please sign in or create an account.
-        </p>
-        <GoogleAuthLogin />
+    <StandardPageContentWrap>
+      <div className={"login-screen-wrap"}>
+        <div className={"login-screen-card"}>
+          <h2 className={"text-align-center"}>Welcome</h2>
+          <p className={"ch-20 text-align-center muted-text font-light"}>
+            Please sign in or create an account.
+          </p>
+          <GoogleAuthLogin />
+        </div>
       </div>
-    </div>
+    </StandardPageContentWrap>
   );
 }
 

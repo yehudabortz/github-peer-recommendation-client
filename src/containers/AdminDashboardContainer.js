@@ -10,6 +10,8 @@ import {
 } from "../actions/admin/adminAccessUsers";
 import "../css/DivAttributes.css";
 
+import StandardPageContentWrap from "../components/wrappers/StandardPageContentWrap";
+
 class AdminDashboardContainer extends Component {
   componentDidMount() {
     if (this.props.page === 0) {
@@ -31,8 +33,10 @@ class AdminDashboardContainer extends Component {
   render() {
     return (
       <div className={"min-full-height"} onClick={this.handleClick}>
-        <UserDataCard />
-        <UsersTable />
+        <StandardPageContentWrap>
+          <UserDataCard />
+          <UsersTable />
+        </StandardPageContentWrap>
       </div>
     );
   }

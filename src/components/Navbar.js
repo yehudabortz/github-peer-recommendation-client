@@ -6,7 +6,7 @@ import MainButton from "./MainButton";
 import GoogleAuthLogout from "./GoogleAuthLogout";
 import GoogleAuthLogin from "./GoogleAuthLogin";
 import Avatar from "./Avatar";
-
+import StandardPageContentWrap from "./wrappers/StandardPageContentWrap";
 import "../css/Navbar.css";
 
 class Navbar extends Component {
@@ -16,25 +16,29 @@ class Navbar extends Component {
   };
   render() {
     return (
-      <div className={"navbar"}>
-        <>
-          {this.props.auth.isLoggedIn === true ? (
-            <GoogleAuthLogout />
-          ) : (
-            <Link to="/login" className="main-button dark">
-              Login
+      <StandardPageContentWrap>
+        <div className={"navbar"}>
+          <>
+            {this.props.auth.isLoggedIn === true ? (
+              <GoogleAuthLogout />
+            ) : (
+              <Link to="/login" className="main-button dark">
+                Login
+              </Link>
+            )}
+
+            <Link to="/settings" className={"avatar sml"}>
+              <Avatar
+                imgUrl={
+                  this.props.currentUser
+                    ? this.props.currentUser.user.avatar
+                    : undefined
+                }
+              />
             </Link>
-          )}
-          <Avatar
-            imgUrl={
-              this.props.currentUser
-                ? this.props.currentUser.user.avatar
-                : undefined
-            }
-            className={"avatar sml"}
-          />
-        </>
-      </div>
+          </>
+        </div>
+      </StandardPageContentWrap>
     );
   }
 }

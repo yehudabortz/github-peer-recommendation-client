@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { loginUser } from "../actions/loginUser";
-import ContentWrapper from "../components/ContentWrapper";
+import TwoColumnContentWrapper from "../components/wrappers/TwoColumnContentWrapper";
+import StandardPageContentWrap from "../components/wrappers/StandardPageContentWrap";
 import { useHistory } from "react-router-dom";
+import SideBar from "../components/SideBar";
+import MainPageContent from "../components/MainPageContent";
 
 function DashboardContainer(props) {
   let history = useHistory();
@@ -11,7 +14,12 @@ function DashboardContainer(props) {
   }
   return (
     <>
-      <ContentWrapper />
+      <StandardPageContentWrap>
+        <TwoColumnContentWrapper>
+          <SideBar />
+          <MainPageContent />
+        </TwoColumnContentWrapper>
+      </StandardPageContentWrap>
     </>
   );
 }

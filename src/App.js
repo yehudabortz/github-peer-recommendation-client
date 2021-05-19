@@ -6,6 +6,7 @@ import "./css/messages.css";
 import LoginContainer from "./containers/LoginContainer";
 import DashboardContainer from "./containers/DashboardContainer";
 import AdminDashboardContainer from "./containers/AdminDashboardContainer";
+import SettingsContainer from "./containers/SettingsContainer";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
 import fetchCurrentUser from "./services/fetchCurrentUser";
@@ -68,6 +69,9 @@ function App(props) {
       </Route>
       <Route exact path="/dashboard">
         <DashboardContainer />
+      </Route>
+      <Route exact path="/settings">
+        <SettingsContainer />
       </Route>
       {adminRoutes}
       {notFoundRoutes}

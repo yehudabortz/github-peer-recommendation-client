@@ -1,0 +1,4 @@
+.standard-page-content-wrapper {
+  width: var(--container-width);
+  max-width: var(--max-container-width);
+}

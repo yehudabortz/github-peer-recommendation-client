@@ -90,69 +90,65 @@ function UsersTable(props) {
   ));
 
   return (
-    <div className={"table-wrap"}>
-      <table className={"users-table"}>
-        <thead>
-          <tr className={"table-row table-head"}>
-            <th className={"table-cell text-align-left font-light"}>
-              LinkedIn
-            </th>
-            <th className={"table-cell text-align-left font-light"}>Name</th>
-            <th className={"table-cell text-align-left font-light"}>Email</th>
-            <th className={"table-cell text-align-right font-light"}>
-              Outbound Nominations
-            </th>
-            <th
-              className={
-                "table-cell text-align-right font-light pointer text-hover-color"
-              }
-              onClick={handleFilterClick}
-              value={"inbound_nominations"}
+    <table className={"users-table"}>
+      <thead>
+        <tr className={"table-row table-head"}>
+          <th className={"table-cell text-align-left font-light"}>LinkedIn</th>
+          <th className={"table-cell text-align-left font-light"}>Name</th>
+          <th className={"table-cell text-align-left font-light"}>Email</th>
+          <th className={"table-cell text-align-right font-light"}>
+            Outbound Nominations
+          </th>
+          <th
+            className={
+              "table-cell text-align-right font-light pointer text-hover-color"
+            }
+            onClick={handleFilterClick}
+            value={"inbound_nominations"}
+          >
+            Inbound Nominations
+          </th>
+          <th
+            className={
+              "table-cell text-align-right font-light pointer text-hover-color"
+            }
+            onClick={(e) => handleFilterClick(e)}
+            value={"open_to_work"}
+          >
+            Open To Work
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {tableRows}
+        <tr className={"table-row"}>
+          <td className={"table-cell text-align-left"}>
+            <p
+              className={"muted-text pointer text-hover-color"}
+              onClick={handleBackPagination}
             >
-              Inbound Nominations
-            </th>
-            <th
-              className={
-                "table-cell text-align-right font-light pointer text-hover-color"
-              }
-              onClick={(e) => handleFilterClick(e)}
-              value={"open_to_work"}
+              Back
+            </p>
+          </td>
+          <td></td>
+          <td>
+            <PageDisplayCountList />
+          </td>
+          <td>
+            <PaginationPageNumbers />
+          </td>
+          <td></td>
+          <td className={"table-cell text-align-right"}>
+            <p
+              className={"muted-text pointer text-hover-color"}
+              onClick={handleForwardPagination}
             >
-              Open To Work
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {tableRows}
-          <tr className={"table-row"}>
-            <td className={"table-cell text-align-left"}>
-              <p
-                className={"muted-text pointer text-hover-color"}
-                onClick={handleBackPagination}
-              >
-                Back
-              </p>
-            </td>
-            <td></td>
-            <td>
-              <PageDisplayCountList />
-            </td>
-            <td>
-              <PaginationPageNumbers />
-            </td>
-            <td></td>
-            <td className={"table-cell text-align-right"}>
-              <p
-                className={"muted-text pointer text-hover-color"}
-                onClick={handleForwardPagination}
-              >
-                Next Page
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+              Next Page
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   );
 }
 
