@@ -25,15 +25,19 @@ class Navbar extends Component {
               </Link>
             )}
 
-            <Link to="/settings" className={"avatar sml"}>
-              <Avatar
-                imgUrl={
-                  this.props.currentUser
-                    ? this.props.currentUser.user.avatar
-                    : undefined
-                }
-              />
-            </Link>
+            {this.props.auth.isLoggedIn === true ? (
+              <Link to="/settings" className={"avatar sml"}>
+                <Avatar
+                  imgUrl={
+                    this.props.currentUser
+                      ? this.props.currentUser.user.avatar
+                      : undefined
+                  }
+                />
+              </Link>
+            ) : (
+              ""
+            )}
           </>
         </div>
       </StandardPageContentWrap>
