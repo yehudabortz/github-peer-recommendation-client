@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
 import "./css/messages.css";
@@ -32,7 +32,7 @@ function App(props) {
         setLoading(false);
       }
     }
-  }, [props]);
+  }, [loading, props]);
 
   if (loading) {
     return <Loading />;

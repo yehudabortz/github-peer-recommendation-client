@@ -1,4 +1,4 @@
-export default (state = { handle: "", co_worker: true }, action) => {
+const reducer = (state = { handle: "", co_worker: true }, action) => {
   switch (action.type) {
     case "ADD_USER_FROM_SEARCH":
       return Object.assign({}, state, { handle: action.payload });
@@ -10,3 +10,5 @@ export default (state = { handle: "", co_worker: true }, action) => {
       return state;
   }
 };
+
+export default reducer;

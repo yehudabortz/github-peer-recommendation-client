@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { loginUser } from "../actions/loginUser";
 import TwoColumnContentWrapper from "../components/wrappers/TwoColumnContentWrapper";
 import StandardPageContentWrap from "../components/wrappers/StandardPageContentWrap";
 import { useHistory } from "react-router-dom";
 import SideBar from "../components/SideBar";
-import MainPageContent from "../components/MainPageContent";
+import DashboardContent from "../components/DashboardContent";
+import "../css/TextClasses.css";
 
 function DashboardContainer(props) {
   let history = useHistory();
@@ -16,8 +17,15 @@ function DashboardContainer(props) {
     <>
       <StandardPageContentWrap>
         <TwoColumnContentWrapper>
-          <SideBar />
-          <MainPageContent />
+          <SideBar
+            title={[
+              <span className={"muted-text"}>
+                Welcome <br></br>{" "}
+              </span>,
+              props.currentUser.user.name,
+            ]}
+          />
+          <DashboardContent />
         </TwoColumnContentWrapper>
       </StandardPageContentWrap>
     </>
@@ -26,7 +34,7 @@ function DashboardContainer(props) {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.user,
+    currentUser: state.currentUser,
     auth: state.auth,
   };
 };

@@ -1,4 +1,4 @@
-export default (
+const reducer = (
   state = {
     user: {},
     nominated_users: [],
@@ -58,3 +58,5 @@ export default (
       return state;
   }
 };
+
+export default reducer;

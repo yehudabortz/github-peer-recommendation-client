@@ -1,0 +1,38 @@
+.toggle-container {
+  cursor: pointer;
+  position: relative;
+  background: var(--main-bg-color-accent);
+  border-radius: var(--primary-border-radius);
+  width: 5.5rem;
+  height: 3rem;
+  padding: 0.3rem;
+}
+.toggle-position-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.dialog-button {
+  border-radius: var(--primary-border-radius);
+  box-shadow: var(--primary-box-shadow-focus);
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--main-bg-color-accent-lighter);
+  width: 2.3rem;
+  height: 2.3rem;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.toggle-on {
+  left: 50%;
+  bottom: 0px;
+
+  background-color: var(--primary-text-color);
+}
+.toggle-off {
+  left: 0px;
+  bottom: 0px;
+  background-color: var(--muted-text-color);
+}

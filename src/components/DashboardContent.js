@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import uuid from "react-uuid";
-import "../css/MainPageContent.css";
+import "../css/WrapperClasses.css";
 import "../css/TextClasses.css";
 import SearchBar from "./SearchBar";
 import NominatedUserCard from "./NominatedUserCard";
 import Divider from "./Divider";
 import { connect } from "react-redux";
 
-const MainPageContent = (props) => {
-  const [users, setUsers] = useState([]);
+const DashboardContent = (props) => {
   const [coWorkerUsers, setCoWorkerUsers] = useState([]);
   const [pastCoWorkerUsers, setPastCoWorkerUsers] = useState([]);
   const [remainingCoWorkerUsers, setRemainingCoWorkerUsers] = useState(0);
@@ -24,10 +23,10 @@ const MainPageContent = (props) => {
     setRemainingCoWorkerUsers(
       3 - props.currentUser.co_worker_nominated_users.length
     );
-  }, [props.currentUser.nominated_users]);
+  }, [props]);
 
   return (
-    <div className={"main-page-content"}>
+    <div className={"width-fill-100-percent"}>
       <SearchBar />
       <Divider />
       <h2 className="header-with-top-bottom-margin">Your Nominations</h2>
@@ -37,8 +36,8 @@ const MainPageContent = (props) => {
         </h4>
         <h4 className="header-with-top-bottom-margin muted-text text-align-right">
           {remainingCoWorkerUsers > 1
-            ? remainingCoWorkerUsers + " " + "Nominations Remaining"
-            : remainingCoWorkerUsers + " " + "Nomination Remaining"}
+            ? remainingCoWorkerUsers + " Nominations Remaining"
+            : remainingCoWorkerUsers + " Nomination Remaining"}
         </h4>
       </div>
       {coWorkerUsers.map((user) => (
@@ -53,8 +52,8 @@ const MainPageContent = (props) => {
         </h4>
         <h4 className="header-with-top-bottom-margin muted-text text-align-right">
           {remainingPastCoWorkerUsers > 1
-            ? remainingPastCoWorkerUsers + " " + "Nominations Remaining"
-            : remainingPastCoWorkerUsers + " " + "Nomination Remaining"}
+            ? remainingPastCoWorkerUsers + " Nominations Remaining"
+            : remainingPastCoWorkerUsers + " Nomination Remaining"}
         </h4>
       </div>
       {pastCoWorkerUsers.map((user) => (
@@ -73,4 +72,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(MainPageContent);
+export default connect(mapStateToProps)(DashboardContent);

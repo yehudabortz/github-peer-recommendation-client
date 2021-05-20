@@ -10,6 +10,7 @@
 
   --opaque-shadow: rgba(0, 0, 0, 0.315);
   --primary-box-shadow: 5px 5px 20px var(--opaque-shadow);
+  --primary-box-shadow-focus: 2px 2px 5px var(--opaque-shadow);
 
   --primary-text-size-small: 0.6rem;
   --primary-text-size: 0.8rem;
@@ -63,4 +64,8 @@ h6,
 p {
   margin-left: 0;
   margin-right: 0;
+}
+
+ul {
+  list-style-type: none;
 }

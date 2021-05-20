@@ -1,4 +1,4 @@
-export default (
+const reducer = (
   state = {
     messages: [],
   },
@@ -6,7 +6,6 @@ export default (
 ) => {
   switch (action.type) {
     case "ADD_ERROR_MESSAGE":
-      // debugger;
       return { ...state, messages: [...state.messages, action.payload] };
     case "REMOVE_ERROR_MESSAGE":
       return {
@@ -17,3 +16,5 @@ export default (
       return state;
   }
 };
+
+export default reducer;

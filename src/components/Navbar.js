@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { logoutUser } from "../actions/logoutUser";
-import MainButton from "./MainButton";
 import GoogleAuthLogout from "./GoogleAuthLogout";
-import GoogleAuthLogin from "./GoogleAuthLogin";
 import Avatar from "./Avatar";
 import StandardPageContentWrap from "./wrappers/StandardPageContentWrap";
 import "../css/Navbar.css";

@@ -1,4 +1,4 @@
-export default (
+const reducer = (
   state = {
     isLoggedIn: false,
   },
@@ -11,3 +11,4 @@ export default (
       return state;
   }
 };
+export default reducer;

@@ -12,6 +12,7 @@
   align-content: start;
   overflow: auto;
   max-height: calc(100% - (var(--primary-padding) * 2));
+  z-index: 10;
 }
 
 .message {

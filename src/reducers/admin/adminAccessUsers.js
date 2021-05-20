@@ -1,4 +1,4 @@
-export default (
+const reducer = (
   state = {
     users: [],
     pagination: { page: 0, resultsCount: 0, resultsPages: 1, displayCount: 15 },
@@ -73,3 +73,5 @@ export default (
       return state;
   }
 };
+
+export default reducer;

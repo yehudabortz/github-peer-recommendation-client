@@ -6,11 +6,7 @@ class SideBar extends Component {
   render() {
     return (
       <div className={"sidebar"}>
-        <h1 className={"main-title"}>
-          Welcome
-          <br></br>
-          {this.props.currentUser.user.name}
-        </h1>
+        <h1 className={"main-title"}>{this.props.title}</h1>
         <br />
         {this.props.currentUser.score ? (
           <p>Your Score {this.props.currentUser.score}</p>
