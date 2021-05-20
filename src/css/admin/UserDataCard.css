@@ -5,10 +5,9 @@
   padding: var(--primary-padding);
   width: 500px;
   height: auto;
-  max-height: auto;
   right: var(--primary-padding);
   top: var(--primary-padding);
-  bottom: 35vh;
+  bottom: var(--primary-padding);
   border-radius: var(--primary-border-radius);
   background: var(--main-bg-color-accent-lighter);
   box-shadow: var(--primary-box-shadow);
