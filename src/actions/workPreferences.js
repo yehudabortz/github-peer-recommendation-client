@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export function updateWorkPreference(currentUser, preferenceObj) {
+export function updateWorkPreference(user, preferenceObj) {
   return (dispatch) => {
     const token = localStorage.getItem("jwt");
-    let url = `${window.endpoint}/work_preferences/${currentUser.work_preference.id}`;
+    let url = `${window.endpoint}/work_preferences/${user.work_preference.id}`;
     let AuthStr = "Bearer ".concat(token);
     return axios
       .patch(

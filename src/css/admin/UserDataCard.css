@@ -1,13 +1,23 @@
 .user-data-card-wrap {
   position: fixed;
   top: 0;
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: var(--primary-grid-gap);
+  overflow: scroll;
   padding: var(--primary-padding);
   width: 500px;
-  max-height: 100vh;
+  height: auto;
+  max-height: auto;
   right: var(--primary-padding);
   top: var(--primary-padding);
-  bottom: var(--primary-padding);
+  bottom: 35vh;
   border-radius: var(--primary-border-radius);
   background: var(--main-bg-color-accent-lighter);
   box-shadow: var(--primary-box-shadow);
+}
+
+.user-card-profile-bio-wrap {
+  margin: 0;
+  width: 100%;
 }
