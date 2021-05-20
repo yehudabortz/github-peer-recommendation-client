@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import "../css/WrapperClasses.css";
 import "../css/SettingsContent.css";
 import ToggleButton from "./ToggleButton";
 import PreferenceText from "./PreferenceText";
 const SettingsContent = (props) => {
-  let preferences;
-  if (props.user) {
-    preferences = props.user.work_preference;
-  } else {
-    preferences = props.currentUser.work_preference;
-  }
+  let preferences = props.currentUser.work_preference;
 
+  if (props.selectedUser.displayCard === "show") {
+    if (props.user) {
+      preferences = props.user.work_preference;
+    }
+  }
   return (
     <div className={"width-fill-100-percent "}>
       <ul className={"preferences-wrap"}>
@@ -72,6 +72,7 @@ const SettingsContent = (props) => {
 const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser,
+    selectedUser: state.adminAccessUsers.selectedUser,
   };
 };
 
