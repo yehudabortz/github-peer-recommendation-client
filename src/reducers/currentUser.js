@@ -56,11 +56,12 @@ const reducer = (
         ],
       };
     case "UPDATE_WORK_PREFERENCE":
-      return Object.assign({}, state, {
-        work_preference: Object.assign({}, state.work_preference, {
-          [Object.keys(action.payload)[0]]: Object.values(action.payload)[0],
-        }),
-      });
+      return { ...state, work_preference: action.payload };
+    // return Object.assign({}, state, {
+    //   work_preference: Object.assign({}, state.work_preference, {
+    //     [Object.keys(action.payload)[0]]: Object.values(action.payload)[0],
+    //   }),
+    // });
     default:
       return state;
   }

@@ -14,12 +14,12 @@ const reducer = (
     case "ADD_ADMIN_ACCESS_USERS":
       return Object.assign({}, { ...state, users: action.payload });
     case "FILTER_ADMIN_ACCESS_USERS_OPEN_TO_WORK":
-      // debugger;
       return {
         ...state,
         filter: { ...state.filter, open_to_work: action.payload },
       };
     case "FILTER_ADMIN_ACCESS_USERS_INBOUND_NOMINATIONS":
+      // debugger;
       return {
         ...state,
         filter: { ...state.filter, inbound_nominations: action.payload },

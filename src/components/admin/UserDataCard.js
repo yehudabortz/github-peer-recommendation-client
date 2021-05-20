@@ -52,8 +52,8 @@ function UserDataCard(props) {
         <p>
           Open To Work: {props.selectedUser.user.open_to_work ? "✅" : "❌"}
         </p>
+        {<SettingsContent user={props.selectedUser} key={uuid()} />}
       </div>
-      {<SettingsContent user={props.selectedUser} key={uuid()} />}
     </div>
   );
 }

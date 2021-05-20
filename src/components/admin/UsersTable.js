@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import "../../css/admin/UsersTable.css";
 import "../../css/TextClasses.css";
+import uuid from "uuid";
 import {
   adminAccessSetSelectUser,
   showAdminAccessUserCard,
@@ -71,7 +72,7 @@ function UsersTable(props) {
     <tr
       id={user.id}
       className={"table-row pointer"}
-      key={user.created_at + user.id}
+      key={uuid()}
       onClick={(e) => handleRowClick(e)}
     >
       <td className={"table-cell text-align-left"}>{user.linkedin_handle}</td>
@@ -84,7 +85,7 @@ function UsersTable(props) {
         {user.inbound_nominations.length}
       </td>
       <td className={"table-cell text-align-right"}>
-        {user.open_to_work ? "✅" : "❌"}
+        {user.work_preference.open_to_work ? "✅" : "❌"}
       </td>
     </tr>
   ));

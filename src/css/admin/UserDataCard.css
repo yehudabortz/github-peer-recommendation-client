@@ -1,9 +1,6 @@
 .user-data-card-wrap {
   position: fixed;
   top: 0;
-  display: grid;
-  grid-template-rows: 1fr;
-  gap: var(--primary-grid-gap);
   overflow: scroll;
   padding: var(--primary-padding);
   width: 500px;
@@ -20,4 +17,7 @@
 .user-card-profile-bio-wrap {
   margin: 0;
   width: 100%;
+  display: grid;
+  grid-template-rows: 1fr;
+  gap: var(--primary-grid-gap);
 }

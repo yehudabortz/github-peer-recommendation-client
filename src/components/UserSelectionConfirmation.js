@@ -65,7 +65,7 @@ class UserSelectionConfirmation extends Component {
                 selected={this.state.selected === "co_worker" ? true : false}
                 value={"co_worker"}
               >
-                Co-Worker
+                Current Co-Worker
               </option>
               <option
                 selected={
