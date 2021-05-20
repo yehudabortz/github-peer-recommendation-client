@@ -6,7 +6,11 @@ import { connect } from "react-redux";
 import "../css/messages.css";
 
 function MessagesWrap(props) {
-  if (props.messages.length === 0) {
+  if (
+    props.messages.filter(function (m) {
+      return m != null;
+    }).length === 0
+  ) {
     return <></>;
   }
 
