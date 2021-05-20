@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import uuid from "uuid";
 import { connect } from "react-redux";
 import "../css/ToggleButton.css";
 import { updateWorkPreference } from "../actions/workPreferences";
@@ -43,4 +43,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { updateWorkPreference })(ToggleButton);
+export default connect(mapStateToProps, { updateWorkPreference })(
+  React.memo(ToggleButton)
+);

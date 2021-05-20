@@ -1,11 +1,15 @@
 .toggle-container {
   cursor: pointer;
   position: relative;
-  background: var(--main-bg-color-accent);
+  box-shadow: var(--primary-box-shadow-focus);
+  margin: 0;
+  background: var(--main-bg-color-accent-lighter);
   border-radius: var(--primary-border-radius);
   width: 5.5rem;
   height: 3rem;
   padding: 0.3rem;
+  margin: 0;
+  border: solid var(--main-bg-color) 1px;
 }
 .toggle-position-wrapper {
   position: relative;
@@ -19,7 +23,7 @@
   left: 0;
   top: 0;
   bottom: 0;
-  background: var(--main-bg-color-accent-lighter);
+  background: var(--main-bg-color-accent);
   width: 2.3rem;
   height: 2.3rem;
   -webkit-transition: 0.4s;
@@ -28,11 +32,10 @@
 .toggle-on {
   left: 50%;
   bottom: 0px;
-
   background-color: var(--primary-text-color);
 }
 .toggle-off {
   left: 0px;
   bottom: 0px;
-  background-color: var(--muted-text-color);
+  background-color: var(--primary-accent-color);
 }
