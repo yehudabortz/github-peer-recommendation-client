@@ -5,12 +5,12 @@
   border-radius: var(--primary-border-radius);
 }
 .result-wrap {
-  display: grid;
+  /* display: grid; */
   grid-template-columns: 1fr 15fr;
   flex-direction: row;
   gap: var(--primary-grid-gap);
   margin: 0;
-  align-items: center;
+  word-break: break-all;
 }
 
 .form {

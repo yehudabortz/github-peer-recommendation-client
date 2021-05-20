@@ -51,7 +51,7 @@ class UserSelectionConfirmation extends Component {
           >
             <div className="result-wrap">
               <h3>
-                <span className={"muted-text"}>linkedin.com/in/</span>
+                {/* <span className={"muted-text"}>linkedin.com/in/</span> */}
                 {this.props.userSearchResult.handle}
               </h3>
             </div>

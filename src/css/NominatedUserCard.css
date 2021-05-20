@@ -22,6 +22,7 @@
   margin: 0;
   font-size: var(--primary-text-size);
   font-weight: 300;
+  word-break: break-all;
 }
 
 .inactive {
