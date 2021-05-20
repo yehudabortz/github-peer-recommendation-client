@@ -20,7 +20,13 @@ class NominatedUserCard extends Component {
         {this.props.status === "inactive" ? (
           ""
         ) : (
-          <h2 className={"user-title"}>@{this.props.user.linkedin_handle}</h2>
+          <a
+            href={this.props.user.linkedin_handle}
+            target="_blank"
+            className={"user-title"}
+          >
+            @{this.props.user.linkedin_handle.split("/in/")[1]}
+          </a>
         )}
         {this.props.status === "inactive" ? (
           ""
