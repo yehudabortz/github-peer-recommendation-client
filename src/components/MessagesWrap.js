@@ -6,8 +6,11 @@ import { connect } from "react-redux";
 import "../css/messages.css";
 
 function MessagesWrap(props) {
+  const filteredMessages = props.messages.filter(function (m) {
+    return m != null;
+  });
   if (
-    props.messages.filter(function (m) {
+    filteredMessages.filter(function (m) {
       return m != null;
     }).length === 0
   ) {
@@ -16,7 +19,7 @@ function MessagesWrap(props) {
 
   return (
     <div className={"messages-wrap"}>
-      {props.messages.map((msg) => (
+      {filteredMessages.map((msg) => (
         <Message message={msg} key={uuid()} />
       ))}
     </div>
