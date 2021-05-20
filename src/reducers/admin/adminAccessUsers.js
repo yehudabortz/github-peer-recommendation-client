@@ -4,7 +4,7 @@ const reducer = (
     pagination: { page: 0, resultsCount: 0, resultsPages: 1, displayCount: 15 },
     filter: { open_to_work: null, inbound_nominations: null },
     selectedUser: {
-      user: {},
+      user: { user: {}, work_preference: {} },
       displayCard: "hidden",
     },
   },

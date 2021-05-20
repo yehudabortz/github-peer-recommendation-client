@@ -5,7 +5,7 @@ import "../css/SettingsContent.css";
 import ToggleButton from "./ToggleButton";
 import PreferenceText from "./PreferenceText";
 const SettingsContent = (props) => {
-  const preferences = props.currentUser.work_preferences;
+  const preferences = props.currentUser.work_preference;
 
   return (
     <div className={"width-fill-100-percent "}>

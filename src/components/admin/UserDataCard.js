@@ -16,15 +16,15 @@ function UserDataCard(props) {
       <h1>User card</h1>
       <p>
         <span className={"muted-text"}>LinkedIn Username:</span>{" "}
-        {props.selectedUser.linkedin_handle}
+        {props.selectedUser.user.linkedin_handle}
       </p>
-      <p>{props.selectedUser.name}</p>
-      <p>{props.selectedUser.email}</p>
-      <p>Open To Work: {props.selectedUser.open_to_work ? "✅" : "❌"}</p>
+      <p>{props.selectedUser.user.name}</p>
+      <p>{props.selectedUser.user.email}</p>
+      <p>Open To Work: {props.selectedUser.user.open_to_work ? "✅" : "❌"}</p>
       <p>
         Member since{" "}
         <Moment format="YYYY/MM/DD" parse="YYYY-MM-DD">
-          {props.selectedUser.created_at}
+          {props.selectedUser.user.created_at}
         </Moment>
       </p>
     </div>
