@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from "react";
-import savePreference from "../services/savePreference";
+
 import { connect } from "react-redux";
 import "../css/ToggleButton.css";
-import { addMessage } from "../actions/messages";
+import { updateWorkPreference } from "../actions/workPreferences";
+
 const ToggleButton = (props) => {
   const [selected, setSelected] = useState(props.selected);
   const [toggleClass, setToggleClass] = useState("");
 
   function toggleSelected() {
-    setSelected(!selected);
     let pref = { [props.prefTitle]: !selected };
-    savePreference(props.currentUser, pref).then((res) =>
-      props.addMessage(res.data.message)
-    );
+    props.updateWorkPreference(props.currentUser, pref);
+    setSelected(!selected);
   }
 
   useEffect(() => {
@@ -44,4 +43,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { addMessage })(ToggleButton);
+export default connect(mapStateToProps, { updateWorkPreference })(ToggleButton);

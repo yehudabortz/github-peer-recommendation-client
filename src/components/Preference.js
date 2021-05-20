@@ -4,9 +4,7 @@ import "../css/WrapperClasses.css";
 import ToggleButton from "./ToggleButton";
 const Preference = (props) => {
   return (
-    <li className={"width-fill-100-percent"}>
-      <ToggleButton prefTitle={props.prefTitle} selected={props.preference} />
-    </li>
+    <ToggleButton prefTitle={props.prefTitle} selected={props.preference} />
   );
 };
 const mapStateToProps = (state) => {

@@ -4,6 +4,7 @@ const reducer = (
     nominated_users: [],
     co_worker_nominated_users: [],
     past_co_worker_nominated_users: [],
+    work_preferences: {},
   },
   action
 ) => {
@@ -54,6 +55,13 @@ const reducer = (
           ),
         ],
       };
+    case "UPDATE_WORK_PREFERENCE":
+      return Object.assign({}, state, {
+        work_preferences: Object.assign({}, state.work_preferences, {
+          [Object.keys(action.payload)[0]]: Object.values(action.payload)[0],
+        }),
+      });
+    // return { ...state, work_preferences: ...state.work_preferences[Object.keys(action.payload)[0]] };
     default:
       return state;
   }

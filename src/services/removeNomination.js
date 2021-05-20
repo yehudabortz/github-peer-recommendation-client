@@ -1,5 +1,4 @@
 import axios from "axios";
-import { addMessage } from "../actions/messages";
 function removeNomination(user) {
   const token = localStorage.getItem("jwt");
   let url = `${window.endpoint}/nominations/${user.id}`;
@@ -15,7 +14,7 @@ function removeNomination(user) {
       },
       { headers: { Authorization: AuthStr } }
     )
-    .then((res) => addMessage(res.data));
+    .then((res) => console.log(res.data));
 }
 
 export default removeNomination;
