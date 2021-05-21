@@ -53,10 +53,7 @@ class UserSelectionConfirmation extends Component {
             className="form"
           >
             <div className="result-wrap">
-              <h3>
-                {/* <span className={"muted-text"}>linkedin.com/in/</span> */}
-                {this.props.userSearchResult.handle}
-              </h3>
+              <h3>{this.props.userSearchResult.handle}</h3>
             </div>
             <Select
               defaultValue={this.state.selected}
