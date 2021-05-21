@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import "../css/WrapperClasses.css";
 import "../css/SettingsContent.css";
+import "../css/TextClasses.css";
 import ToggleButton from "./ToggleButton";
 import PreferenceText from "./PreferenceText";
 import Divider from "./Divider";
@@ -74,6 +75,7 @@ const SettingsContent = (props) => {
               prefTitle={"current_zip_code"}
               content={preferences.current_zip_code}
               placeholder={"111223"}
+              inputStyle={"text-align-center"}
             />
             <p>Current Zip Code</p>
           </li>
