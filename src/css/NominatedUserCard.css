@@ -23,19 +23,14 @@
   font-size: var(--primary-text-size);
   font-weight: 300;
   word-break: break-all;
+  position: relative;
 }
 
 .user-title:after {
-  /* background: url("/Users/yehudabortz/Flatiron/projects/github-peer-recommendation-client/src/icons/Avatar-icon.svg") */
-  background: url("../icons/Arrow-icon.svg") no-repeat;
-  content: "    _";
-  color: transparent;
-  font-size: 2rem;
-  position: absolute;
-  height: 100px;
-  height: 100px;
-
-  margin-left: 5px;
+  /* background: url("../icons/Arrow-icon.svg") no-repeat; */
+  content: "\a0 ›";
+  margin-left: calc(var(--primary-padding-less) / 2);
+  color: var(--primary-accent-color);
 }
 
 .inactive {
