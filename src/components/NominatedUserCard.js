@@ -6,6 +6,7 @@ import Avatar from "./Avatar";
 import removeNomination from "../services/removeNomination";
 import { removeNominatedUser } from "../actions/nominatedUsers";
 import { addMessage } from "../actions/messages";
+import { splitLinkedInUrl } from "../services/splitLinkedInUrl";
 
 class NominatedUserCard extends Component {
   handleClick = () => {
@@ -25,7 +26,7 @@ class NominatedUserCard extends Component {
             target="_blank"
             className={"user-title"}
           >
-            @{this.props.user.linkedin_handle.split("/in/")[1]}
+            @{splitLinkedInUrl(this.props.user.linkedin_handle)}
           </a>
         )}
         {this.props.status === "inactive" ? (

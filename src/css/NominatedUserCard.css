@@ -26,13 +26,6 @@
   position: relative;
 }
 
-.user-title:after {
-  /* background: url("../icons/Arrow-icon.svg") no-repeat; */
-  content: "\a0 ›";
-  margin-left: calc(var(--primary-padding-less) / 2);
-  color: var(--primary-accent-color);
-}
-
 .inactive {
   background-color: var(--main-bg-color-accent);
 }

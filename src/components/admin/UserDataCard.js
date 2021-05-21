@@ -35,7 +35,9 @@ function UserDataCard(props) {
         <h1>{props.selectedUser.user.name}</h1>
         <p>
           <span className={"muted-text"}>LinkedIn Username:</span>{" "}
-          {props.selectedUser.user.linkedin_handle}
+          <a href={props.selectedUser.user.linkedin_handle} target="_blank">
+            {props.selectedUser.user.linkedin_handle}
+          </a>
         </p>
         <p>
           <span className={"muted-text"}>Email:</span>{" "}

@@ -23,6 +23,8 @@ import {
   backwardPagination,
 } from "./paginationNavigation.js";
 
+import { splitLinkedInUrl } from "../../services/splitLinkedInUrl";
+
 function UsersTable(props) {
   const handleRowClick = (e) => {
     e.stopPropagation();
@@ -75,7 +77,11 @@ function UsersTable(props) {
       key={uuid()}
       onClick={(e) => handleRowClick(e)}
     >
-      <td className={"table-cell text-align-left"}>{user.linkedin_handle}</td>
+      <td className={"table-cell text-align-left"}>
+        <a href={user.linkedin_handle} target="_blank" className={"user-title"}>
+          @{splitLinkedInUrl(user.linkedin_handle)}
+        </a>
+      </td>
       <td className={"table-cell text-align-left"}>{user.name}</td>
       <td className={"table-cell text-align-left"}>{user.email}</td>
       <td className={"table-cell text-align-right"}>
