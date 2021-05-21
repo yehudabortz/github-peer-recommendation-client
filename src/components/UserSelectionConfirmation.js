@@ -10,6 +10,7 @@ import "../css/TextClasses.css";
 import "../css/UserSelectionConfirmation.css";
 
 import Select from "./Select";
+import Divider from "./Divider";
 
 class UserSelectionConfirmation extends Component {
   constructor() {

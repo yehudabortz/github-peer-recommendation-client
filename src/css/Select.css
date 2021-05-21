@@ -22,7 +22,7 @@ select::-ms-expand {
   line-height: 3;
   background: var(--main-bg-color-accent-lighter);
   overflow: hidden;
-  border-radius: 0.25em;
+  border-radius: var(--primary-border-radius);
 }
 select {
   flex: 1;
