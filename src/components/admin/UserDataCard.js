@@ -8,6 +8,7 @@ import SettingsContent from "../SettingsContent";
 import uuid from "uuid";
 import exitIcon from "../../icons/Exit-icon.svg";
 import { hideAdminAccessUserCard } from "../../actions/admin/adminAccessUsers";
+import { createLinkedInUrl } from "../../services/handleLinkedInUrls";
 
 function UserDataCard(props) {
   function handleClick(e) {
@@ -35,7 +36,10 @@ function UserDataCard(props) {
         <h1>{props.selectedUser.user.name}</h1>
         <p>
           <span className={"muted-text"}>LinkedIn Username:</span>{" "}
-          <a href={props.selectedUser.user.linkedin_handle} target="_blank">
+          <a
+            href={createLinkedInUrl(props.selectedUser.user.linkedin_handle)}
+            target="_blank"
+          >
             {props.selectedUser.user.linkedin_handle}
           </a>
         </p>

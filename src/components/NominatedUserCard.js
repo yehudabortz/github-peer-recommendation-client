@@ -6,7 +6,10 @@ import Avatar from "./Avatar";
 import removeNomination from "../services/removeNomination";
 import { removeNominatedUser } from "../actions/nominatedUsers";
 import { addMessage } from "../actions/messages";
-import { splitLinkedInUrl } from "../services/splitLinkedInUrl";
+import {
+  splitLinkedInUrl,
+  createLinkedInUrl,
+} from "../services/handleLinkedInUrls";
 
 class NominatedUserCard extends Component {
   handleClick = () => {
@@ -22,7 +25,7 @@ class NominatedUserCard extends Component {
           ""
         ) : (
           <a
-            href={this.props.user.linkedin_handle}
+            href={createLinkedInUrl(this.props.user.linkedin_handle)}
             target="_blank"
             className={"user-title"}
           >

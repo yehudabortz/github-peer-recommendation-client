@@ -23,7 +23,10 @@ import {
   backwardPagination,
 } from "./paginationNavigation.js";
 
-import { splitLinkedInUrl } from "../../services/splitLinkedInUrl";
+import {
+  splitLinkedInUrl,
+  createLinkedInUrl,
+} from "../../services/handleLinkedInUrls";
 
 function UsersTable(props) {
   const handleRowClick = (e) => {
@@ -78,7 +81,11 @@ function UsersTable(props) {
       onClick={(e) => handleRowClick(e)}
     >
       <td className={"table-cell text-align-left"}>
-        <a href={user.linkedin_handle} target="_blank" className={"user-title"}>
+        <a
+          href={createLinkedInUrl(user.linkedin_handle)}
+          target="_blank"
+          className={"user-title"}
+        >
           @{splitLinkedInUrl(user.linkedin_handle)}
         </a>
       </td>
