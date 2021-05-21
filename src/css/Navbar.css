@@ -5,3 +5,12 @@
   height: calc(var(--primary-padding) * 2);
   align-items: center;
 }
+
+.nav-links-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-self: center;
+  grid-template-rows: auto;
+  gap: var(--primary-grid-gap);
+  margin: 0;
+}
