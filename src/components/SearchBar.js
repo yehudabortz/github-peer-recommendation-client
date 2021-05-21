@@ -26,7 +26,7 @@ class SearchBar extends Component {
           type="text"
           value={this.props.userSearchResult.handle}
           onChange={(e) => this.handleOnChange(e)}
-          placeholder={"Copy and paste your nomination's LinkedIn URL here."}
+          placeholder={"Paste your nomination's LinkedIn URL here."}
         />
         <UserSelectionConfirmation />
       </>
