@@ -1,0 +1,52 @@
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: var(--main-bg-color-accent-lighter);
+  background-image: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.select {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 3em;
+  line-height: 3;
+  background: var(--main-bg-color-accent-lighter);
+  overflow: hidden;
+  border-radius: 0.25em;
+}
+select {
+  flex: 1;
+  padding: var(--primary-padding-less) var(--primary-padding)
+    var(--primary-padding-less) var(--primary-padding);
+  color: var(--primary-text-color);
+  cursor: pointer;
+}
+
+.select::after {
+  content: "\25BC";
+  color: var(--muted-text-color);
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 var(--primary-padding) 0 var(--primary-padding);
+  background: var(--main-bg-color-accent-lighter);
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
+}
+
+.select:hover::after {
+  color: var(--primary-text-color);
+}

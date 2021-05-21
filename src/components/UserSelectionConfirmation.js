@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../css/UserSelectionConfirmation.css";
 import uuid from "uuid";
 import "../css/Visible.css";
 import { connect } from "react-redux";
@@ -8,6 +7,9 @@ import { addNominatedUser } from "../actions/nominatedUsers";
 import { updateUserSearchRelationship } from "../actions/userSearchResult";
 import { addUserFromSearch } from "../actions/userSearchResult";
 import "../css/TextClasses.css";
+import "../css/UserSelectionConfirmation.css";
+
+import Select from "./Select";
 
 class UserSelectionConfirmation extends Component {
   constructor() {
@@ -55,10 +57,10 @@ class UserSelectionConfirmation extends Component {
                 {this.props.userSearchResult.handle}
               </h3>
             </div>
-            <select
+            <Select
               defaultValue={this.state.selected}
               onChange={(e) => this.handleSelectChange(e)}
-              className={"select-option"}
+              s
             >
               <option
                 key={uuid()}
@@ -76,8 +78,12 @@ class UserSelectionConfirmation extends Component {
               >
                 Past Co-Worker
               </option>
-            </select>
-            <input type="submit" className={"main-button"} />
+            </Select>
+            <input
+              type="submit"
+              className={"main-button"}
+              value={"Add My Nomination"}
+            />
           </form>
         </div>
       </>
