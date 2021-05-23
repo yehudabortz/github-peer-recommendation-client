@@ -8,9 +8,8 @@
 
 .nav-links-wrap {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-auto-flow: column;
   align-self: center;
-  grid-template-rows: auto;
   gap: var(--primary-grid-gap);
   margin: 0;
 }

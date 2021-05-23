@@ -28,6 +28,11 @@ class Navbar extends Component {
             {this.props.auth.isLoggedIn === true ? (
               <div className={"nav-links-wrap"}>
                 <Link to="/dashboard">Dashboard</Link>
+                {this.props.currentUser?.user.admin ? (
+                  <Link to="/admin/dashboard">Admin</Link>
+                ) : (
+                  ""
+                )}
                 <Link to="/settings" className={"avatar sml"}>
                   <Avatar
                     imgUrl={
