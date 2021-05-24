@@ -69,6 +69,15 @@ const reducer = (
           ),
         },
       };
+    case "UPDATE_SELECTED_USER_WORK_PREFERENCE":
+      return {
+        ...state,
+        selectedUser: {
+          ...state.selectedUser,
+          user: { ...state.selectedUser.user, work_preference: action.payload },
+        },
+      };
+
     default:
       return state;
   }

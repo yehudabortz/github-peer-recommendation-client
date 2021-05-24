@@ -2,26 +2,31 @@ import React, { useState, useEffect } from "react";
 import uuid from "uuid";
 import { connect } from "react-redux";
 import "../css/ToggleButton.css";
-import { updateWorkPreference } from "../actions/workPreferences";
+import {
+  updateWorkPreference,
+  updateSelectedUserWorkPreference,
+} from "../actions/workPreferences";
 
 const ToggleButton = (props) => {
-  const [cursor, setCursor] = useState("pointer-cursor");
   const [selected, setSelected] = useState(props.selected);
   const [toggleClass, setToggleClass] = useState("");
 
   function toggleSelected() {
     let pref = { [props.prefTitle]: !selected };
     if (props.selectedUser.displayCard === "hidden") {
-      props.updateWorkPreference(props.currentUser, pref);
+      props.updateWorkPreference(props.user, pref);
+      setSelected(!selected);
+    } else {
+      props.updateSelectedUserWorkPreference(props.user, pref);
       setSelected(!selected);
     }
   }
 
   // debugger;
   useEffect(() => {
-    if (props.selectedUser.displayCard === "show") {
-      setCursor("default-cursor");
-    }
+    // if (props.selectedUser.displayCard === "show") {
+    //   setCursor("default-cursor");
+    // }
     switch (selected) {
       case true:
         setToggleClass("toggle-on");
@@ -34,7 +39,10 @@ const ToggleButton = (props) => {
 
   return (
     <>
-      <div className={"toggle-container " + cursor} onClick={toggleSelected}>
+      <div
+        className={"toggle-container pointer-cursor"}
+        onClick={toggleSelected}
+      >
         <div className={"toggle-position-wrapper"}>
           <div className={"dialog-button " + toggleClass}></div>
         </div>
@@ -50,6 +58,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { updateWorkPreference })(
-  React.memo(ToggleButton)
-);
+export default connect(mapStateToProps, {
+  updateWorkPreference,
+  updateSelectedUserWorkPreference,
+})(React.memo(ToggleButton));
