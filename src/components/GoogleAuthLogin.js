@@ -42,7 +42,6 @@ const GoogleAuthLogin = (props) => {
         cookiePolicy={"single_host_origin"}
         style={{ marginTop: "100px" }}
         isSignedIn={true}
-        name={"yehuda"}
       />
     </div>
   );
