@@ -11,6 +11,7 @@ function LoginContainer(props) {
   if (props.auth.isLoggedIn) {
     history.push("/dashboard");
   }
+
   return (
     <StandardPageContentWrap>
       <div className={"login-screen-wrap"}>

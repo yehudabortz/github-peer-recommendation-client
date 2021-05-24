@@ -41,3 +41,8 @@
 .font-heavy {
   font-weight: 600;
 }
+
+.link {
+  color: var(--primary-accent-color);
+  cursor: pointer;
+}

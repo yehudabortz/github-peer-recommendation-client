@@ -24,15 +24,15 @@ class AdminDashboardContainer extends Component {
       );
     }
   }
-  handleClick = () => {
-    if (this.props.displayCard === "show") {
-      this.props.hideAdminAccessUserCard();
-    }
+  handleClick = (e) => {
+    // if (this.props.displayCard === "show") {
+    //   this.props.hideAdminAccessUserCard();
+    // }
   };
 
   render() {
     return (
-      <div className={"min-full-height"} onClick={this.handleClick}>
+      <div className={"min-full-height"} onClick={(e) => this.handleClick(e)}>
         <StandardPageContentWrap>
           <UserDataCard />
           <UsersTable />

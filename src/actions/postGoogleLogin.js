@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export function postGoogleLogin(response) {
+export function postGoogleLogin(response, invite_token = "") {
   return (dispatch) => {
     const token = response.tokenObj.access_token;
     const idToken = response.tokenObj.id_token;
@@ -15,6 +15,7 @@ export function postGoogleLogin(response) {
       data: {
         access_token: token,
         id_token: idToken,
+        invite_token: invite_token,
       },
     }).then((res) => {
       dispatch({

@@ -1,13 +1,19 @@
 import { GoogleLogin } from "react-google-login";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { postGoogleLogin } from "../actions/postGoogleLogin";
 import "../css/MainButton.css";
 import "../css/Icons.css";
 import GoogleIcon from "../icons/google-icon.svg";
 
 const GoogleAuthLogin = (props) => {
+  let history = useHistory();
+  let inviteToken = "";
+  if (history.location.pathname === "/invites") {
+    inviteToken = history.location.search.split("?invite_token=")[1];
+  }
   function onSuccess(response) {
-    props.postGoogleLogin(response);
+    props.postGoogleLogin(response, inviteToken);
   }
   function onFailure() {
     console.log("Failure");
@@ -36,6 +42,7 @@ const GoogleAuthLogin = (props) => {
         cookiePolicy={"single_host_origin"}
         style={{ marginTop: "100px" }}
         isSignedIn={true}
+        name={"yehuda"}
       />
     </div>
   );

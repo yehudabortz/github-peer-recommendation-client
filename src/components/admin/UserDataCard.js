@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "../../css/admin/UserDataCard.css";
 import { connect } from "react-redux";
 import "../../css/Visible.css";
@@ -10,11 +11,13 @@ import exitIcon from "../../icons/Exit-icon.svg";
 import { hideAdminAccessUserCard } from "../../actions/admin/adminAccessUsers";
 import { createLinkedInUrl } from "../../services/handleLinkedInUrls";
 
+import { CopyToClipboard } from "react-copy-to-clipboard";
+
 function UserDataCard(props) {
   function handleClick(e) {
-    e.stopPropagation();
     if (props.displayCard === "show") {
       props.hideAdminAccessUserCard();
+      e.stopPropagation();
     }
   }
 
@@ -22,10 +25,7 @@ function UserDataCard(props) {
     return <></>;
   }
   return (
-    <div
-      className={"user-data-card-wrap " + props.displayCard}
-      onClick={(e) => handleClick(e)}
-    >
+    <div className={"user-data-card-wrap " + props.displayCard}>
       <img
         className={"icon absolute"}
         src={exitIcon}
@@ -58,6 +58,19 @@ function UserDataCard(props) {
         <p>
           Open To Work: {props.selectedUser.user.open_to_work ? "✅" : "❌"}
         </p>
+        {!props.selectedUser.user.email ? (
+          <CopyToClipboard
+            text={
+              document.location.host +
+              "/invites?invite_token=" +
+              props.selectedUser.invite_token
+            }
+          >
+            <p className={"link"}>Copy Invite Link</p>
+          </CopyToClipboard>
+        ) : (
+          ""
+        )}
         {<SettingsContent user={props.selectedUser} key={uuid()} />}
       </div>
     </div>
