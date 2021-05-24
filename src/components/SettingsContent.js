@@ -44,27 +44,6 @@ const SettingsContent = (props) => {
           </li>
           <li className={"preference-item-wrap"}>
             <ToggleButton
-              prefTitle={"open_to_targeted_jobs"}
-              selected={preferences.open_to_targeted_jobs}
-            />
-            <p>Open To Targeted Jobs</p>
-          </li>
-          <li className={"preference-item-wrap"}>
-            <ToggleButton
-              prefTitle={"open_to_new_company"}
-              selected={preferences.open_to_new_company}
-            />
-            <p>Open To A New Role At A New Company</p>
-          </li>
-          <li className={"preference-item-wrap"}>
-            <ToggleButton
-              prefTitle={"open_to_new_role_at_current"}
-              selected={preferences.open_to_new_role_at_current}
-            />
-            <p>Open To A New Role At Your Current Company</p>
-          </li>
-          <li className={"preference-item-wrap"}>
-            <ToggleButton
               prefTitle={"willing_to_relocate"}
               selected={preferences.willing_to_relocate}
             />
