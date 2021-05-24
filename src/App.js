@@ -64,7 +64,7 @@ function App(props) {
       <Route exact path="/login">
         <LoginContainer />
       </Route>
-      <Route exact path="/invites">
+      <Route path="/invites">
         <LoginContainer />
       </Route>
       <Route exact path="/dashboard">
