@@ -8,7 +8,11 @@ import thunk from "redux-thunk";
 import rootReducer from "./reducers/index";
 import App from "./App.js";
 
-window.hostName = `https://${document.location.host}`;
+if (document.location.host === "localhost:3000") {
+  window.hostName = document.location.host;
+} else {
+  window.hostName = `https://${document.location.host}`;
+}
 // GLOBAL API ENDPOINT VAR
 // For Prod
 window.endpoint = "https://github-peer-recommendation-api.herokuapp.com";
