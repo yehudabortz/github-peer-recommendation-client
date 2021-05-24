@@ -1,15 +1,22 @@
 import "../css/ToggleButton.css";
 import "../css/PreferenceText.css";
 import { connect } from "react-redux";
-import { useState, useEffect } from "react";
-import { updateWorkPreference } from "../actions/workPreferences";
+import { useState } from "react";
+import {
+  updateWorkPreference,
+  updateSelectedUserWorkPreference,
+} from "../actions/workPreferences";
 function PreferenceText(props) {
   const [text, setText] = useState(props.content);
 
   function handleChange(e) {
     setText(e.target.value);
     let pref = { [props.prefTitle]: e.target.value };
-    props.updateWorkPreference(props.currentUser, pref);
+    if (props.selectedUser.displayCard === "hidden") {
+      props.updateWorkPreference(props.user, pref);
+    } else {
+      props.updateSelectedUserWorkPreference(props.user, pref);
+    }
   }
   return (
     <>
@@ -27,9 +34,11 @@ function PreferenceText(props) {
 const mapStateToProps = (state) => {
   return {
     currentUser: state.currentUser,
+    selectedUser: state.adminAccessUsers.selectedUser,
   };
 };
 
-export default connect(mapStateToProps, { updateWorkPreference })(
-  PreferenceText
-);
+export default connect(mapStateToProps, {
+  updateWorkPreference,
+  updateSelectedUserWorkPreference,
+})(PreferenceText);
