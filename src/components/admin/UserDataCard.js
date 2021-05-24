@@ -54,10 +54,6 @@ function UserDataCard(props) {
             {props.selectedUser.user.created_at}
           </Moment>
         </p>
-
-        <p>
-          Open To Work: {props.selectedUser.user.open_to_work ? "✅" : "❌"}
-        </p>
         {!props.selectedUser.user.email ? (
           <CopyToClipboard
             text={

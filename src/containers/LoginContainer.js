@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import GoogleAuthLogin from "../components/GoogleAuthLogin";
 import { connect } from "react-redux";
@@ -8,10 +8,11 @@ import StandardPageContentWrap from "../components/wrappers/StandardPageContentW
 
 function LoginContainer(props) {
   let history = useHistory();
-  if (props.auth.isLoggedIn) {
-    history.push("/dashboard");
-  }
-
+  useEffect(() => {
+    if (props.auth.isLoggedIn) {
+      history.push("/dashboard");
+    }
+  });
   return (
     <StandardPageContentWrap>
       <div className={"login-screen-wrap"}>
