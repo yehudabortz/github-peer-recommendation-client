@@ -61,7 +61,7 @@ function UserDataCard(props) {
         {!props.selectedUser.user.email ? (
           <CopyToClipboard
             text={
-              document.location.host +
+              window.hostName +
               "/invites?invite_token=" +
               props.selectedUser.invite_token
             }
