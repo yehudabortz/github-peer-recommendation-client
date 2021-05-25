@@ -8,6 +8,13 @@
   text-decoration: none;
   margin: 0;
 }
+.accent {
+  background-color: var(--primary-accent-color);
+}
+
+.dark {
+  background-color: var(--main-bg-color-accent-lighter);
+}
 
 .dark {
   background-color: var(--main-bg-color-accent-lighter);

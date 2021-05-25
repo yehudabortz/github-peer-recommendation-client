@@ -8,6 +8,7 @@ import StandardPageContentWrap from "./wrappers/StandardPageContentWrap";
 import ExpandingMenu from "./ExpandingMenu";
 import "../css/Navbar.css";
 import "../css/Icons.css";
+import "../css/MainButton.css";
 import Logo from "./Logo";
 
 class Navbar extends Component {
@@ -32,9 +33,9 @@ class Navbar extends Component {
                     ""
                   )}
                   {this.props.auth.isLoggedIn === true ? (
-                    <GoogleAuthLogout />
+                    <GoogleAuthLogout theme={"accent"} />
                   ) : (
-                    <Link to="/login" className="main-button dark">
+                    <Link to="/login" className="main-button dark ">
                       Login
                     </Link>
                   )}

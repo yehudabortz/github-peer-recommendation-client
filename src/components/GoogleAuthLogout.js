@@ -14,7 +14,7 @@ function GoogleAuthLogout(props) {
     <GoogleLogout
       render={(renderProps) => (
         <button
-          className="main-button dark"
+          className={`main-button ${props.theme}`}
           onClick={renderProps.onClick}
           disabled={renderProps.disabled}
         >
