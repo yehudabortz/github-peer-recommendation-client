@@ -40,7 +40,7 @@ const UserPreferences = (props) => {
           />
           <p>Willing to Relocate</p>
         </li>
-        <li className={"preference-item-wrap"}>
+        <li className={"preference-item-wrap"} key={uuid()}>
           <PreferenceText
             user={props.user}
             prefTitle={"current_zip_code"}
