@@ -21,24 +21,20 @@ class Navbar extends Component {
       <StandardPageContentWrap>
         <div className={"navbar"}>
           <>
-            <Logo />
+            <a href="/">
+              <Logo />
+            </a>
             {this.props.auth.isLoggedIn === true ? (
               <div className={"nav-links-wrap"}>
                 <ExpandingMenu>
-                  <Link to="/dashboard">Dashboard</Link>
-                  <Link to="/settings">Settings</Link>
                   {this.props.currentUser?.user.admin ? (
                     <Link to="/admin/dashboard">Admin</Link>
                   ) : (
                     ""
                   )}
-                  {this.props.auth.isLoggedIn === true ? (
-                    <GoogleAuthLogout theme={"accent"} />
-                  ) : (
-                    <Link to="/login" className="main-button dark ">
-                      Login
-                    </Link>
-                  )}
+                  <Link to="/dashboard">Dashboard</Link>
+                  <Link to="/settings">Settings</Link>
+                  <GoogleAuthLogout theme={"accent"} />
                 </ExpandingMenu>
                 <Link to="/settings" className={"avatar sml"}>
                   <Avatar
@@ -57,7 +53,7 @@ class Navbar extends Component {
               <div className={"nav-links-wrap"}>
                 <ExpandingMenu>
                   {" "}
-                  <Link to="/login" className="main-button dark">
+                  <Link to="/login" className="main-button accent">
                     Login
                   </Link>
                 </ExpandingMenu>
