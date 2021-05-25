@@ -24,3 +24,16 @@
   width: calc(var(--primary-icon-width) * 5);
   height: calc(var(--primary-icon-width) * 5);
 }
+
+.rotate-0 {
+  transform: rotate(0deg);
+  transition-property: transform;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+.rotate-90 {
+  transform: rotate(90deg);
+  transition-property: transform;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
