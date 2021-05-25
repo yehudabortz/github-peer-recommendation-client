@@ -5,6 +5,7 @@ import StandardPageContentWrap from "../components/wrappers/StandardPageContentW
 import TwoColumnContentWrapper from "../components/wrappers/TwoColumnContentWrapper";
 import SideBar from "../components/SideBar";
 import SettingsContent from "../components/SettingsContent";
+import uuid from "uuid";
 
 const SettingsContainer = (props) => {
   let history = useHistory();
@@ -14,8 +15,14 @@ const SettingsContainer = (props) => {
   return (
     <StandardPageContentWrap>
       <TwoColumnContentWrapper>
-        <SideBar title={[<span className={"muted-text"}>Settings</span>]} />
-        <SettingsContent />
+        <SideBar
+          title={[
+            <span key={uuid()} className={"muted-text"}>
+              Settings
+            </span>,
+          ]}
+        />
+        <SettingsContent user={props.currentUser} />
       </TwoColumnContentWrapper>
     </StandardPageContentWrap>
   );
@@ -23,6 +30,7 @@ const SettingsContainer = (props) => {
 const mapStateToProps = (state) => {
   return {
     auth: state.auth,
+    currentUser: state.currentUser,
   };
 };
 

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import "../../css/Visible.css";
 import Moment from "react-moment";
 import "../../css/TextClasses.css";
-import SettingsContent from "../SettingsContent";
+import UserPreferences from "../UserPreferences";
 import uuid from "uuid";
 import exitIcon from "../../icons/Exit-icon.svg";
 import { hideAdminAccessUserCard } from "../../actions/admin/adminAccessUsers";
@@ -67,7 +67,7 @@ function UserDataCard(props) {
         ) : (
           ""
         )}
-        {<SettingsContent user={props.selectedUser} key={uuid()} />}
+        <UserPreferences user={props.selectedUser} />
       </div>
     </div>
   );

@@ -27,6 +27,7 @@ class NominatedUserCard extends Component {
           <a
             href={createLinkedInUrl(this.props.user.linkedin_handle)}
             target="_blank"
+            rel="noreferrer"
             className={"user-title"}
           >
             @{splitLinkedInUrl(this.props.user.linkedin_handle)}

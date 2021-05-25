@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import SideBar from "../components/SideBar";
 import DashboardContent from "../components/DashboardContent";
 import "../css/TextClasses.css";
+import uuid from "uuid";
 
 function DashboardContainer(props) {
   let history = useHistory();
@@ -19,7 +20,7 @@ function DashboardContainer(props) {
         <TwoColumnContentWrapper>
           <SideBar
             title={[
-              <span className={"muted-text"}>
+              <span key={uuid()} className={"muted-text"}>
                 Welcome <br></br>{" "}
               </span>,
               props.currentUser.user.name,

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import uuid from "uuid";
 import { connect } from "react-redux";
 import "../css/ToggleButton.css";
@@ -8,12 +9,13 @@ import {
 } from "../actions/workPreferences";
 
 const ToggleButton = (props) => {
+  let history = useHistory();
   const [selected, setSelected] = useState(props.selected);
   const [toggleClass, setToggleClass] = useState("");
 
   function toggleSelected() {
     let pref = { [props.prefTitle]: !selected };
-    if (props.selectedUser.displayCard === "hidden") {
+    if (!history.location.pathname.includes("admin")) {
       props.updateWorkPreference(props.user, pref);
       setSelected(!selected);
     } else {
@@ -22,11 +24,7 @@ const ToggleButton = (props) => {
     }
   }
 
-  // debugger;
   useEffect(() => {
-    // if (props.selectedUser.displayCard === "show") {
-    //   setCursor("default-cursor");
-    // }
     switch (selected) {
       case true:
         setToggleClass("toggle-on");
@@ -35,7 +33,7 @@ const ToggleButton = (props) => {
         setToggleClass("toggle-off");
         break;
     }
-  });
+  }, [selected, toggleClass]);
 
   return (
     <>
@@ -61,4 +59,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   updateWorkPreference,
   updateSelectedUserWorkPreference,
+  // })(ToggleButton);
 })(React.memo(ToggleButton));

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import uuid from "uuid";
 import "../css/SideBar.css";
 class SideBar extends Component {
   render() {
@@ -9,7 +9,7 @@ class SideBar extends Component {
         <h1 className={"main-title"}>{this.props.title}</h1>
         <br />
         {this.props.currentUser.score ? (
-          <p>Your Score {this.props.currentUser.score}</p>
+          <p key={uuid()}>Your Score {this.props.currentUser.score}</p>
         ) : (
           ""
         )}
