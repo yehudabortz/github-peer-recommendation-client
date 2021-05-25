@@ -27,12 +27,6 @@ const ExpandingMenu = (props) => {
       {clicked ? (
         <div className={"expanding-menu-wrap"}>
           <div className={"expanding-menu-children-wrap"} onClick={handleClick}>
-            <img
-              className={"icon "}
-              src={exitIcon}
-              alt="exit icon"
-              onClick={(e) => handleClick(e)}
-            />
             {props.children}
           </div>
         </div>
