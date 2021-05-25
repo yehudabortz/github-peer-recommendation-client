@@ -32,21 +32,14 @@ select {
   cursor: pointer;
 }
 
-.select::after {
-  content: "\25BC";
-  color: var(--muted-text-color);
+.select-icon {
   position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0 var(--primary-padding) 0 var(--primary-padding);
-  background: var(--main-bg-color-accent-lighter);
-  cursor: pointer;
+  top: 50%;
+  bottom: 50%;
+  left: auto;
+  right: var(--primary-padding);
   pointer-events: none;
-  -webkit-transition: 0.25s all ease;
-  -o-transition: 0.25s all ease;
-  transition: 0.25s all ease;
 }
-
 .select:hover::after {
   color: var(--primary-text-color);
 }
