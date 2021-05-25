@@ -2,7 +2,7 @@
   margin: 0;
   /* position: fixed; */
   position: absolute;
-  top: calc(var(--primary-padding) * 2.1);
+  top: calc(var(--primary-padding) * 1.7);
 
   right: 0;
   z-index: 100;
@@ -23,6 +23,7 @@
   padding: var(--primary-padding);
   overflow: auto;
 }
+
 .expanding-menu-children-wrap {
   display: grid;
   width: 100%;
