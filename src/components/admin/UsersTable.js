@@ -32,7 +32,9 @@ function UsersTable(props) {
   const handleRowClick = (e) => {
     e.stopPropagation();
     props.adminAccessSetSelectUser(e.target.parentElement.id);
-    props.showAdminAccessUserCard();
+    if (props.adminAccessUsers.selectedUser.displayCard === "hidden") {
+      props.showAdminAccessUserCard();
+    }
   };
 
   const [filter, setFilter] = useState(props.filter);
