@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "../css/ExpandingMenu.css";
-import StandardPageContentWrap from "./wrappers/StandardPageContentWrap";
 import exitIcon from "../icons/Exit-icon.svg";
 import chevronIcon from "../icons/chevron-icon.svg";
 const ExpandingMenu = (props) => {

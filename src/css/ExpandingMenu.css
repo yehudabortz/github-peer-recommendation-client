@@ -1,0 +1,31 @@
+.expanding-menu-wrap {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100vw;
+  height: 100vh;
+  background: var(--main-bg-color-accent);
+  display: grid;
+  flex-direction: column;
+  align-items: top;
+  grid-auto-flow: row;
+  padding: var(--primary-padding);
+  overflow: auto;
+}
+.expanding-menu-children-wrap {
+  display: grid;
+  width: 100%;
+  grid-template-rows: repeat(
+    auto-fill,
+    minmax(var(--primary-padding-less), auto)
+  );
+  gap: var(--primary-grid-gap);
+  align-items: center;
+  justify-items: end;
+}
+
+.expanding-menu-wrap * {
+  margin: 0;
+}

@@ -5,6 +5,7 @@ import { logoutUser } from "../actions/logoutUser";
 import GoogleAuthLogout from "./GoogleAuthLogout";
 import Avatar from "./Avatar";
 import StandardPageContentWrap from "./wrappers/StandardPageContentWrap";
+import ExpandingMenu from "./ExpandingMenu";
 import "../css/Navbar.css";
 
 class Navbar extends Component {
@@ -24,15 +25,24 @@ class Navbar extends Component {
                 Login
               </Link>
             )}
-
             {this.props.auth.isLoggedIn === true ? (
               <div className={"nav-links-wrap"}>
-                <Link to="/dashboard">Dashboard</Link>
-                {this.props.currentUser?.user.admin ? (
-                  <Link to="/admin/dashboard">Admin</Link>
-                ) : (
-                  ""
-                )}
+                <ExpandingMenu>
+                  <Link to="/dashboard">Dashboard</Link>
+                  <Link to="/settings">Settings</Link>
+                  {this.props.currentUser?.user.admin ? (
+                    <Link to="/admin/dashboard">Admin</Link>
+                  ) : (
+                    ""
+                  )}
+                  {this.props.auth.isLoggedIn === true ? (
+                    <GoogleAuthLogout />
+                  ) : (
+                    <Link to="/login" className="main-button dark">
+                      Login
+                    </Link>
+                  )}
+                </ExpandingMenu>
                 <Link to="/settings" className={"avatar sml"}>
                   <Avatar
                     imgUrl={
