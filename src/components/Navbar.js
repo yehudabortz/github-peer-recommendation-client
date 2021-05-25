@@ -7,6 +7,8 @@ import Avatar from "./Avatar";
 import StandardPageContentWrap from "./wrappers/StandardPageContentWrap";
 import ExpandingMenu from "./ExpandingMenu";
 import "../css/Navbar.css";
+import "../css/Icons.css";
+import Logo from "./Logo";
 
 class Navbar extends Component {
   handleLogout = () => {
@@ -18,13 +20,7 @@ class Navbar extends Component {
       <StandardPageContentWrap>
         <div className={"navbar"}>
           <>
-            {this.props.auth.isLoggedIn === true ? (
-              <GoogleAuthLogout />
-            ) : (
-              <Link to="/login" className="main-button dark">
-                Login
-              </Link>
-            )}
+            <Logo />
             {this.props.auth.isLoggedIn === true ? (
               <div className={"nav-links-wrap"}>
                 <ExpandingMenu>
@@ -52,6 +48,18 @@ class Navbar extends Component {
                     }
                   />
                 </Link>
+              </div>
+            ) : (
+              ""
+            )}
+            {this.props.auth.isLoggedIn !== true ? (
+              <div className={"nav-links-wrap"}>
+                <ExpandingMenu>
+                  {" "}
+                  <Link to="/login" className="main-button dark">
+                    Login
+                  </Link>
+                </ExpandingMenu>
               </div>
             ) : (
               ""

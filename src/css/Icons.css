@@ -13,3 +13,14 @@
 .margin-right {
   margin-right: var(--primary-padding-less);
 }
+
+.logo {
+  margin: 0;
+  width: calc(var(--primary-icon-width) * 3);
+  height: calc(var(--primary-icon-width) * 3);
+}
+
+.lrg {
+  width: calc(var(--primary-icon-width) * 5);
+  height: calc(var(--primary-icon-width) * 5);
+}
