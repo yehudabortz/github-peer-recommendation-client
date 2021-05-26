@@ -15,11 +15,12 @@ import "../css/TextClasses.css";
 import "../css/Invite.css";
 
 const Invite = (props) => {
-  const [copyButtonText, setCopyButtonText] = useState("Copy Invite Link");
+  const [copyButtonText, setCopyButtonText] = useState("");
   const [buttonText, setButtonText] = useState("Save Invite");
   const [inputText, setInputText] = useState("");
   function handleClick() {
     props.createAndReturnInviteLink(inputText).then((res) => {
+      setCopyButtonText("Copy Invite Link");
       if (res.data.message) {
         props.addMessage(res.data.message);
       } else {
@@ -34,8 +35,8 @@ const Invite = (props) => {
   }
 
   function handleCopy() {
-    setTimeout(() => props.clearOutboundInviteToken(), 1000);
     setCopyButtonText("Copied");
+    setTimeout(() => props.clearOutboundInviteToken(), 1000);
     setButtonText("Save Invite");
   }
   return (
