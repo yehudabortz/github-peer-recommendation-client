@@ -5,6 +5,7 @@ import "../css/TextClasses.css";
 import SearchBar from "./SearchBar";
 import NominatedUserCard from "./NominatedUserCard";
 import Divider from "./Divider";
+import Invite from "./Invite";
 import { connect } from "react-redux";
 
 const DashboardContent = (props) => {
@@ -62,6 +63,8 @@ const DashboardContent = (props) => {
       {[...Array(remainingPastCoWorkerUsers).keys()].map(() => (
         <NominatedUserCard status={"inactive"} key={uuid()} />
       ))}
+      <Divider />
+      <Invite />
     </div>
   );
 };

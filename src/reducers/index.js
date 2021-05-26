@@ -6,9 +6,9 @@ import messages from "./messages";
 import adminAccessUsers from "./admin/adminAccessUsers";
 
 export default combineReducers({
-  messages,
-  adminAccessUsers,
-  currentUser,
   auth,
+  currentUser,
+  adminAccessUsers,
+  messages,
   userSearchResult,
 });

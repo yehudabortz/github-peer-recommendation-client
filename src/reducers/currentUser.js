@@ -5,6 +5,7 @@ const reducer = (
     co_worker_nominated_users: [],
     past_co_worker_nominated_users: [],
     work_preference: {},
+    outbound_invitations: { outbound_invite_token: "" },
   },
   action
 ) => {
@@ -57,6 +58,16 @@ const reducer = (
       };
     case "UPDATE_WORK_PREFERENCE":
       return { ...state, work_preference: action.payload };
+    case "UPDATE_OUTBOUND_INVITE_TOKEN":
+      return { ...state, outbound_invitations: action.payload };
+    case "CLEAR_OUTBOUND_INVITE_TOKEN":
+      return {
+        ...state,
+        outbound_invitations: {
+          ...state.outbound_invitations,
+          outbound_invite_token: "",
+        },
+      };
     default:
       return state;
   }

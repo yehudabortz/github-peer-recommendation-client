@@ -1,0 +1,4 @@
+.standard-grid-wrapper {
+  display: grid;
+  gap: var(--primary-grid-gap);
+}
