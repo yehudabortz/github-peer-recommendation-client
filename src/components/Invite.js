@@ -18,6 +18,7 @@ const Invite = (props) => {
   const [copyButtonText, setCopyButtonText] = useState("");
   const [buttonText, setButtonText] = useState("Save Invite");
   const [inputText, setInputText] = useState("");
+
   function handleClick() {
     props.createAndReturnInviteLink(inputText).then((res) => {
       setCopyButtonText("Copy Invite Link");
@@ -39,10 +40,21 @@ const Invite = (props) => {
     setTimeout(() => props.clearOutboundInviteToken(), 1000);
     setButtonText("Save Invite");
   }
+
+  if (props.currentUser.outbound_invitations.remaining_invites <= 0) {
+    return <></>;
+  }
   return (
     <StandardGridWrap>
       <h2 className={"header-with-top-bottom-margin"}>Invite A Friend</h2>
 
+      <h4 className="header-with-top-bottom-margin muted-text text-align-right">
+        {props.currentUser.outbound_invitations.remaining_invites > 1
+          ? props.currentUser.outbound_invitations.remaining_invites +
+            " Invites Remaining"
+          : props.currentUser.outbound_invitations.remaining_invites +
+            " Invite Remaining"}
+      </h4>
       <input
         className="search-bar"
         type="text"
