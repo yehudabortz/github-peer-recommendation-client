@@ -10,19 +10,15 @@ import App from "./App.js";
 
 if (document.location.host === "localhost:3000") {
   window.hostName = document.location.host;
+  window.endpoint = "http://localhost:4000";
+  window.googleClientId =
+    "63065976471-oh95s8k06od8lctuferd5d460f73au5d.apps.googleusercontent.com";
 } else {
   window.hostName = `https://${document.location.host}`;
+  window.endpoint = "https://github-peer-recommendation-api.herokuapp.com";
+  window.googleClientId =
+    "63065976471-ba0hugj89qq53base414sglphb04cgan.apps.googleusercontent.com";
 }
-// GLOBAL API ENDPOINT VAR
-// For Prod
-window.endpoint = "https://github-peer-recommendation-api.herokuapp.com";
-window.googleClientId =
-  "998032713164-2i8hgkh3n06l21bptt0e6soji9jtv4jp.apps.googleusercontent.com";
-
-// For Dev
-// window.endpoint = "http://localhost:4000";
-// window.googleClientId =
-//   "998032713164-cdesfccd8p7144k50id7alke2c40mlgt.apps.googleusercontent.com";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
