@@ -11,10 +11,10 @@ function LoginContainer(props) {
   let history = useHistory();
 
   // will result in infinite loop
-  let url = window.hostName + history.location.pathname;
-  if (window.hostName.includes("http")) {
-    window.open(url, "_system");
-  }
+  // let url = window.hostName + history.location.pathname;
+  // if (window.hostName.includes("http")) {
+  //   window.open(url, "_system");
+  // }
 
   useEffect(() => {
     if (props.auth.isLoggedIn) {
