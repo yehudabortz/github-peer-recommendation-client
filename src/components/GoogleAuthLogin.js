@@ -20,6 +20,9 @@ const GoogleAuthLogin = (props) => {
   }
   return (
     <div>
+      <a href="http://www.google.com/" target="_blank">
+        Google
+      </a>
       <GoogleLogin
         render={(renderProps) => (
           <div
