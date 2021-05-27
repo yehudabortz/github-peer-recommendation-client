@@ -6,6 +6,7 @@ import "./css/messages.css";
 import LoginContainer from "./containers/LoginContainer";
 import DashboardContainer from "./containers/DashboardContainer";
 import AdminDashboardContainer from "./containers/AdminDashboardContainer";
+import AdminAccessUserProfileContainer from "./containers/AdminAccessUserProfileContainer";
 import SettingsContainer from "./containers/SettingsContainer";
 import Navbar from "./components/Navbar";
 import NotFound from "./components/NotFound";
@@ -46,15 +47,22 @@ function App(props) {
 
   let adminRoutes;
   if (props.currentUser?.user.admin && loggedIn) {
-    adminRoutes = (
+    adminRoutes = [
       <Route exact path="/admin/dashboard">
         {props.currentUser.user.admin ? (
           <AdminDashboardContainer />
         ) : (
           <NotFound />
         )}
-      </Route>
-    );
+      </Route>,
+      <Route exact path="/admin/users/:id">
+        {props.currentUser.user.admin ? (
+          <AdminAccessUserProfileContainer />
+        ) : (
+          <NotFound />
+        )}
+      </Route>,
+    ];
   }
   let routes = (
     <Switch>

@@ -9,6 +9,13 @@ import AnonLogo from "../icons/anon-logo.svg";
 import Logo from "../components/Logo";
 function LoginContainer(props) {
   let history = useHistory();
+
+  // will result in infinite loop
+  let url = window.hostName + history.location.pathname;
+  if (window.hostName.includes("http")) {
+    window.open(url, "_system");
+  }
+
   useEffect(() => {
     if (props.auth.isLoggedIn) {
       history.push("/dashboard");

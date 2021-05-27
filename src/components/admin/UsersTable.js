@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import "../../css/admin/UsersTable.css";
 import "../../css/TextClasses.css";
@@ -29,9 +30,11 @@ import {
 } from "../../services/handleLinkedInUrls";
 
 function UsersTable(props) {
+  let history = useHistory();
   const handleRowClick = (e) => {
     e.stopPropagation();
     props.adminAccessSetSelectUser(e.target.parentElement.id);
+    // history.push(`/admin/users/${e.target.parentElement.id}`);
     if (props.adminAccessUsers.selectedUser.displayCard === "hidden") {
       props.showAdminAccessUserCard();
     }
