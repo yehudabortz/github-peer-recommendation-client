@@ -16,7 +16,7 @@ import "../css/Invite.css";
 
 const Invite = (props) => {
   const [copyButtonText, setCopyButtonText] = useState("");
-  const [buttonText, setButtonText] = useState("Save Invite");
+  const [buttonText, setButtonText] = useState("Generate Invite Link");
   const [inputText, setInputText] = useState("");
 
   function handleClick() {
@@ -38,7 +38,7 @@ const Invite = (props) => {
   function handleCopy() {
     setCopyButtonText("Copied");
     setTimeout(() => props.clearOutboundInviteToken(), 1000);
-    setButtonText("Save Invite");
+    setButtonText("Generate Invite Link");
   }
 
   if (props.currentUser.outbound_invitations.remaining_invites <= 0) {
