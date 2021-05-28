@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import "../css/Login.css";
 import "../css/TextClasses.css";
 import StandardPageContentWrap from "../components/wrappers/StandardPageContentWrap";
-import AnonLogo from "../icons/anon-logo.svg";
 import Logo from "../components/Logo";
 function LoginContainer(props) {
   let history = useHistory();
